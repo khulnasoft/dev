@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+(
+cd ~/personal/nextdev/playbooks
+ansible-playbook nextdev-env.yml
+hash -r
+)

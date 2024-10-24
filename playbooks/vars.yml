@@ -1,0 +1,9 @@
+username: "khulnasoft"
+email: "khulnasoft@icloud.com"
+ssh_key_filename: "id_khulnasoft_rsa"
+config: "{{ lookup('ansible.builtin.env', 'XDG_CONFIG') }}"
+home: "{{ lookup('ansible.builtin.env', 'HOME') }}"
+personal: "{{ home }}/personal"
+nextdev: "{{ personal }}/nextdev"
+
+

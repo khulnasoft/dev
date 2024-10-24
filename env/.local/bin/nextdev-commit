@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+(
+cd ~/personal/nextdev/playbooks
+cd env/.config/nvim
+
+git add .
+git commit -m 'nvim nextdev-update'
+git push
+
+cd ../../..
+git add .
+git commit -m 'env nextdev-update'
+git push
+)
+
