@@ -13,7 +13,7 @@ jobs:
       - name: Run GitHub File Sync
         uses: balazsorban44/repo-file-sync-action@master
         with:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_PAT: ${{ secrets.ORG_REPO_TOKEN }}
           IS_FINE_GRAINED: true
           SKIP_PR: true
           ORIGINAL_MESSAGE: true
