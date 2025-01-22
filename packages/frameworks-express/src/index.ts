@@ -1,22 +1,22 @@
 /**
  *
  * :::warning
- * `@auth/express` is currently experimental. The API _will_ change in the future.
+ * `@nextauth.js/express` is currently experimental. The API _will_ change in the future.
  * :::
  *
- * Express Auth is the official Express integration for Auth.js.
+ * Express Auth is the official Express integration for NextAuth.js.
  * It provides a simple way to add authentication to your Express app in a few lines of code.
  *
  * ## Installation
  * ```bash npm2yarn
- * npm install @auth/express
+ * npm install @nextauth.js/express
  * ```
  *
  * ## Usage
  *
  * ```ts title="src/routes/auth.route.ts"
- * import { ExpressAuth } from "@auth/express"
- * import GitHub from "@auth/express/providers/github"
+ * import { ExpressAuth } from "@nextauth.js/express"
+ * import GitHub from "@nextauth.js/express/providers/github"
  * import express from "express"
  *
  * const app = express()
@@ -46,7 +46,7 @@
  * If you are using Express with a template engine (e.g EJS, Pug), you can make the session data available to all routes via middleware as follows
  *
  * ```ts title="app.ts"
- * import { getSession } from "@auth/express"
+ * import { getSession } from "@nextauth.js/express"
  *
  * export function authSession(req: Request, res: Response, next: NextFunction) {
  *   res.locals.session = await getSession(req)
@@ -122,15 +122,15 @@
  * ```
  *
  * ## Notes on ESM
- * @auth/express is ESM only. This means your package.json must contain `"type": "module"` and tsconfig.json should contain `"module": "NodeNext"` or `ESNext`.
+ * @nextauth.js/express is ESM only. This means your package.json must contain `"type": "module"` and tsconfig.json should contain `"module": "NodeNext"` or `ESNext`.
  * File imports must use the `.js` extension, e.g. `import { MyRouter } from "./my-router.js"`.
  *
  * Your dev server should either be run with [tsx](https://www.npmjs.com/package/tsx) with `tsx index.ts` (fast startup, with no type checking), or ts-node with 'node --loader ts-node/esm index.ts' (slower startup, but has type checking).
  *
- * While it is NOT recommended, if you wish to use @auth/express within a CommonJS project without migrating and making the above changes, you can run the dev server with tsx and may be able to compile with [pkgroll](https://tsx.is/compilation).
+ * While it is NOT recommended, if you wish to use @nextauth.js/express within a CommonJS project without migrating and making the above changes, you can run the dev server with tsx and may be able to compile with [pkgroll](https://tsx.is/compilation).
  * Add '"name": "./dist/index.js"' or '"name": "./dist/index.mjs"' to your package.json and run 'pkgroll' to compile with both ESM and CommonJS support. For new projects it is recommended to just use ESM.
  *
- * @module @auth/express
+ * @module @nextauth.js/express
  */
 
 import {
@@ -139,20 +139,20 @@ import {
   setEnvDefaults,
   createActionURL,
   customFetch,
-} from "@auth/core"
-import type { Session } from "@auth/core/types"
+} from "@nextauth.js/core"
+import type { Session } from "@nextauth.js/core/types"
 import * as e from "express"
 import { toWebRequest, toExpressResponse } from "./lib/index.js"
 
 export { customFetch }
-export { AuthError, CredentialsSignin } from "@auth/core/errors"
+export { AuthError, CredentialsSignin } from "@nextauth.js/core/errors"
 export type {
   Account,
   DefaultSession,
   Profile,
   Session,
   User,
-} from "@auth/core/types"
+} from "@nextauth.js/core/types"
 
 export type ExpressAuthConfig = Omit<AuthConfig, "raw">
 

@@ -16,7 +16,7 @@ import { CaretRight } from "@/icons"
   <section className="flex justify-center w-full px-8 xl:px-0 flex-col lg:flex-row self-center items-center lg:items-start gap-6 max-w-7xl pt-12 pb-24 sm:py-32 lg:py-56">
     <div className="flex-col flex justify-start gap-10 lg:py-8 mx-8">
       <div className="flex flex-col gap-8 justify-center py-2 items-center w-full">
-        <span className="text-6xl font-black lg:text-8xl">Auth.js</span>
+        <span className="text-6xl font-black lg:text-8xl">NextAuth.js</span>
         <div className="flex flex-col gap-4 justify-center text-2xl font-bold text-center lg:text-3xl">
           <div>Authentication for the Web.</div>
           <div className="underline-highlight">Free and open source.</div>
@@ -128,8 +128,8 @@ import { CaretRight } from "@/icons"
       {Object.entries({
         nextjs: `\
 // auth.ts
-import NextAuth from "next-auth"
-import GitHub from "next-auth/providers/github"
+import NextAuth from "nextauth.js"
+import GitHub from "nextauth.js/providers/github"
 export const { auth, handlers } = NextAuth({ providers: [GitHub] })
 
 // middleware.ts
@@ -141,8 +141,8 @@ export const { GET, POST } = handlers
 `,
           sveltekit: `\
 // src/auth.ts
-import { SvelteKitAuth } from "@auth/sveltekit"
-import GitHub from '@auth/sveltekit/providers/github'
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import GitHub from '@nextauth.js/sveltekit/providers/github'
 
 export const { handle } = SvelteKitAuth({
   providers: [GitHub],
@@ -154,8 +154,8 @@ export { handle } from "./auth"
           express: `\
 // server.ts
 import { express } from "express"
-import { ExpressAuth } from "@auth/express"
-import GitHub from "@auth/express/providers/github"
+import { ExpressAuth } from "@nextauth.js/express"
+import GitHub from "@nextauth.js/express/providers/github"
 
 const app = express()
 
@@ -163,8 +163,8 @@ app.use("/auth/\*", ExpressAuth({ providers: [GitHub] }))
 `,
           qwik: `\
 // src/routes/plugin@auth.ts
-import { QwikAuth } from "@auth/qwik"
-import GitHub from "@auth/qwik/providers/github"
+import { QwikAuth } from "@nextauth.js/qwik"
+import GitHub from "@nextauth.js/qwik/providers/github"
 export const { onRequest, useSession } = QwikAuth$(() => ({ providers: [GitHub] }))
 `
 }).map(([key, code]) =>

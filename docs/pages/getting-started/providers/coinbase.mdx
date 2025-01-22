@@ -50,8 +50,8 @@ AUTH_COINBASE_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Coinbase from "next-auth/providers/coinbase"
+import NextAuth from "nextauth.js"
+import Coinbase from "nextauth.js/providers/coinbase"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Coinbase],
@@ -62,8 +62,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Coinbase from "@auth/qwik/providers/coinbase"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Coinbase from "@nextauth.js/qwik/providers/coinbase"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -76,8 +76,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Coinbase from "@auth/sveltekit/providers/coinbase"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Coinbase from "@nextauth.js/sveltekit/providers/coinbase"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Coinbase],
@@ -88,8 +88,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Coinbase from "@auth/express/providers/coinbase"
+import { ExpressAuth } from "@nextauth.js/express"
+import Coinbase from "@nextauth.js/express/providers/coinbase"
 
 app.use("/auth/*", ExpressAuth({ providers: [Coinbase] }))
 ```

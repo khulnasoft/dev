@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px"}}>
- *  <p>Official <a href="https://unstorage.unjs.io/">Unstorage</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://unstorage.unjs.io/">Unstorage</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://unstorage.unjs.io/">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/unstorage.svg" width="60"/>
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install unstorage @auth/unstorage-adapter
+ * npm install unstorage @nextauth.js/unstorage-adapter
  * ```
  *
- * @module @auth/unstorage-adapter
+ * @module @nextauth.js/unstorage-adapter
  */
 import type {
   Adapter,
@@ -21,8 +21,8 @@ import type {
   AdapterSession,
   AdapterAuthenticator,
   VerificationToken,
-} from "@auth/core/adapters"
-import { isDate } from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
+import { isDate } from "@nextauth.js/core/adapters"
 import type { Storage, StorageValue } from "unstorage"
 
 /** This is the interface of the Unstorage adapter options. */

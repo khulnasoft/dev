@@ -51,8 +51,8 @@ AUTH_WEBEX_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Webex from "next-auth/providers/webex"
+import NextAuth from "nextauth.js"
+import Webex from "nextauth.js/providers/webex"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Webex],
@@ -63,8 +63,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Webex from "@auth/qwik/providers/webex"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Webex from "@nextauth.js/qwik/providers/webex"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -77,8 +77,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Webex from "@auth/sveltekit/providers/webex"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Webex from "@nextauth.js/sveltekit/providers/webex"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Webex],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Webex from "@auth/express/providers/webex"
+import { ExpressAuth } from "@nextauth.js/express"
+import Webex from "@nextauth.js/express/providers/webex"
 
 app.use("/auth/*", ExpressAuth({ providers: [Webex] }))
 ```

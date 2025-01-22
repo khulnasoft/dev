@@ -27,13 +27,13 @@ If someone provides the email address of an _existing account_ when signing in, 
 
 ## Configuration
 
-1. Auth.js does not include `nodemailer` as a dependency, so you'll need to install it yourself if you want to use the Nodemailer provider.
+1. NextAuth.js does not include `nodemailer` as a dependency, so you'll need to install it yourself if you want to use the Nodemailer provider.
 
 ```bash npm2yarn
 npm install nodemailer
 ```
 
-2. You will need an SMTP account; ideally for one of the [services known to work with `nodemailer`](https://community.nodemailer.com/2-0-0-beta/setup-smtp/well-known-services/). Nodemailer also works with [other transports](https://nodemailer.com/transports/), however if you want to use an HTTP based email service, we recommend using one of the other Auth.js providers designed for those, like [Resend](/getting-started/providers/resend) or [Sendgrid](/getting-started/providers/sendgrid).
+2. You will need an SMTP account; ideally for one of the [services known to work with `nodemailer`](https://community.nodemailer.com/2-0-0-beta/setup-smtp/well-known-services/). Nodemailer also works with [other transports](https://nodemailer.com/transports/), however if you want to use an HTTP based email service, we recommend using one of the other NextAuth.js providers designed for those, like [Resend](/getting-started/providers/resend) or [Sendgrid](/getting-started/providers/sendgrid).
 
 3. There are two ways to configure the SMTP server connection.
 
@@ -51,8 +51,8 @@ EMAIL_FROM=noreply@example.com
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Nodemailer from "next-auth/providers/nodemailer"
+import NextAuth from "nextauth.js"
+import Nodemailer from "nextauth.js/providers/nodemailer"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: ...,
@@ -69,8 +69,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Nodemailer from "@auth/qwik/providers/nodemailer"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Nodemailer from "@nextauth.js/qwik/providers/nodemailer"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -88,8 +88,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Nodemailer from "@auth/sveltekit/providers/nodemailer"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Nodemailer from "@nextauth.js/sveltekit/providers/nodemailer"
 import { env } from "$env/dynamic/prviate"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
@@ -125,8 +125,8 @@ EMAIL_FROM=noreply@example.com
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Nodemailer from "next-auth/providers/nodemailer"
+import NextAuth from "nextauth.js"
+import Nodemailer from "nextauth.js/providers/nodemailer"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: ...,
@@ -150,8 +150,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Nodemailer from "@auth/sveltekit/providers/nodemailer"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Nodemailer from "@nextauth.js/sveltekit/providers/nodemailer"
 import { env } from "$env/dynamic/prviate"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
@@ -191,8 +191,8 @@ A user account (i.e. an entry in the `Users` table) will not be created for the 
 You can fully customize the sign in email that is sent by passing a custom function as the `sendVerificationRequest` option to `Nodemailer()`.
 
 ```ts {7} filename="./auth.ts"
-import NextAuth from "next-auth"
-import Nodemailer from "next-auth/providers/nodemailer"
+import NextAuth from "nextauth.js"
+import Nodemailer from "nextauth.js/providers/nodemailer"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -299,8 +299,8 @@ function text({ url, host }: { url: string; host: string }) {
 By default, we are generating a random verification token. You can define a `generateVerificationToken` method in your provider options if you want to override it:
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Nodemailer from "next-auth/providers/nodemailer"
+import NextAuth from "nextauth.js"
+import Nodemailer from "nextauth.js/providers/nodemailer"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -315,11 +315,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
 ### Normalizing Email Addresses
 
-By default, Auth.js will normalize the email address. It treats the address as case-insensitive (which is technically not compliant to the [RFC 2821 spec](https://datatracker.ietf.org/doc/html/rfc2821), but in practice this causes more problems than it solves, i.e. when looking up users by e-mail from databases.) and also removes any secondary email address that may have been passed in as a comma-separated list. You can apply your own normalization via the `normalizeIdentifier` method on the `Nodemailer` provider. The following example shows the default behavior:
+By default, NextAuth.js will normalize the email address. It treats the address as case-insensitive (which is technically not compliant to the [RFC 2821 spec](https://datatracker.ietf.org/doc/html/rfc2821), but in practice this causes more problems than it solves, i.e. when looking up users by e-mail from databases.) and also removes any secondary email address that may have been passed in as a comma-separated list. You can apply your own normalization via the `normalizeIdentifier` method on the `Nodemailer` provider. The following example shows the default behavior:
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Nodemailer from "next-auth/providers/nodemailer"
+import NextAuth from "nextauth.js"
+import Nodemailer from "nextauth.js/providers/nodemailer"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [

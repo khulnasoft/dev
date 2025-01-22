@@ -7,7 +7,7 @@ module.exports = {
   entryPoints: ["src/index.ts"],
   entryPointStrategy: "expand",
   tsconfig: "./tsconfig.json",
-  entryModule: "@auth/d1-adapter",
+  entryModule: "@nextauth.js/d1-adapter",
   entryFileName: "../d1-adapter.mdx",
   includeVersion: true,
   readme: 'none',

@@ -13,7 +13,7 @@ import { Code } from "@/components/Code"
 ### Installation
 
 ```bash npm2yarn
-npm install @auth/pg-adapter pg
+npm install @nextauth.js/pg-adapter pg
 ```
 
 ### Environment Variables
@@ -31,8 +31,8 @@ DATABASE_PASSWORD=
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import PostgresAdapter from "@auth/pg-adapter"
+import NextAuth from "nextauth.js"
+import PostgresAdapter from "@nextauth.js/pg-adapter"
 import { Pool } from "pg"
 
 const pool = new Pool({
@@ -54,8 +54,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 If you are using [Neon](https://neon.tech)'s PostgreSQL like [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres), you can use `@neondatabase/serverless` to work with edge runtime.
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import PostgresAdapter from "@auth/pg-adapter"
+import NextAuth from "nextauth.js"
+import PostgresAdapter from "@nextauth.js/pg-adapter"
 import { Pool } from "@neondatabase/serverless"
 
 // *DO NOT* create a `Pool` here, outside the request handler.
@@ -75,8 +75,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth(() => {
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import PostgresAdapter from "@auth/pg-adapter"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import PostgresAdapter from "@nextauth.js/pg-adapter"
 import { Pool } from "pg"
 
 const pool = new Pool({
@@ -100,8 +100,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 If you are using [Neon](https://neon.tech)'s PostgreSQL like [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres), you can use `@neondatabase/serverless` to work with edge runtime.
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import PostgresAdapter from "@auth/pg-adapter"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import PostgresAdapter from "@nextauth.js/pg-adapter"
 import { Pool } from "@neondatabase/serverless"
 
 // *DO NOT* create a `Pool` here, outside the request handler.
@@ -123,8 +123,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import PostgresAdapter from "@auth/pg-adapter"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import PostgresAdapter from "@nextauth.js/pg-adapter"
 import { Pool } from "pg"
 
 const pool = new Pool({
@@ -146,8 +146,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
 If you are using [Neon](https://neon.tech)'s PostgreSQL like [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres), you can use `@neondatabase/serverless` to work with edge runtime.
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import PostgresAdapter from "@auth/pg-adapter"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import PostgresAdapter from "@nextauth.js/pg-adapter"
 import { Pool } from "@neondatabase/serverless"
 
 // *DO NOT* create a `Pool` here, outside the request handler.
@@ -167,8 +167,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth(() => {
 <Code.Express>
 
 ```ts filename="./src/routes/auth.route.ts"
-import { ExpressAuth } from "@auth/express"
-import PostgresAdapter from "@auth/pg-adapter"
+import { ExpressAuth } from "@nextauth.js/express"
+import PostgresAdapter from "@nextauth.js/pg-adapter"
 import { Pool } from "pg"
 
 const pool = new Pool({

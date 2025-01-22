@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, expect, test } from "vitest"
 
-import type { Adapter, VerificationToken } from "@auth/core/adapters"
+import type { Adapter, VerificationToken } from "@nextauth.js/core/adapters"
 import { createHash, randomInt, randomUUID } from "crypto"
 
 export interface TestOptions {

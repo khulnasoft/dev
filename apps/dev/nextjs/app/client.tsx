@@ -1,6 +1,6 @@
 "use client"
 
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "nextauth.js/react"
 import { useRouter } from "next/navigation"
 
 export default function Client() {

@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px"}}>
- *  <p style={{fontWeight: "normal"}}>Official <a href="https://dgraph.io/docs">Dgraph</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p style={{fontWeight: "normal"}}>Official <a href="https://dgraph.io/docs">Dgraph</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://dgraph.io/">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/dgraph.svg" width="100"/>
  *  </a>
@@ -9,13 +9,13 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install next-auth @auth/dgraph-adapter
+ * npm install next-auth @nextauth.js/dgraph-adapter
  * ```
  *
- * @module @auth/dgraph-adapter
+ * @module @nextauth.js/dgraph-adapter
  */
 import { client as dgraphClient } from "./lib/client.js"
-import { isDate, type Adapter } from "@auth/core/adapters"
+import { isDate, type Adapter } from "@nextauth.js/core/adapters"
 import type { DgraphClientParams } from "./lib/client.js"
 import * as defaultFragments from "./lib/graphql/fragments.js"
 import {
@@ -23,7 +23,7 @@ import {
   AdapterSession,
   AdapterUser,
   VerificationToken,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 
 export type { DgraphClientParams, DgraphClientError } from "./lib/client.js"
 

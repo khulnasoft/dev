@@ -165,7 +165,7 @@ export interface OAuth2Config<Profile>
    *
    * @example
    * ```ts
-   * import GitHub from "@auth/core/providers/github"
+   * import GitHub from "@nextauth.js/core/providers/github"
    * // ...
    * GitHub({
    *   account(account) {

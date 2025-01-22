@@ -50,8 +50,8 @@ AUTH_ONELOGIN_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import OneLogin from "next-auth/providers/onelogin"
+import NextAuth from "nextauth.js"
+import OneLogin from "nextauth.js/providers/onelogin"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [OneLogin],
@@ -62,8 +62,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import OneLogin from "@auth/qwik/providers/onelogin"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import OneLogin from "@nextauth.js/qwik/providers/onelogin"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -76,8 +76,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import OneLogin from "@auth/sveltekit/providers/onelogin"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import OneLogin from "@nextauth.js/sveltekit/providers/onelogin"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [OneLogin],
@@ -88,8 +88,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import OneLogin from "@auth/express/providers/onelogin"
+import { ExpressAuth } from "@nextauth.js/express"
+import OneLogin from "@nextauth.js/express/providers/onelogin"
 
 app.use("/auth/*", ExpressAuth({ providers: [OneLogin] }))
 ```

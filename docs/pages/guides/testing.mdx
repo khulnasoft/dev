@@ -2,7 +2,7 @@
 
 Repeated and consistent testing of authentication has always been tricky. OAuth providers in particular are especially difficult to test in an automated fashion, because they often introduce additional verification steps that will trigger if you're logging in from a new geographic location, a datacenter IP address, or from a new user-agent, etc.
 
-To get around these limitations, we recommend you use one of the following strategies to run successful E2E tests against Auth.js applications.
+To get around these limitations, we recommend you use one of the following strategies to run successful E2E tests against NextAuth.js applications.
 
 1. Run your own OAuth provider using software like [Keycloak](https://www.keycloak.org)
 2. Enable an authentication method like the Credentials provider in development mode
@@ -11,7 +11,7 @@ Below are one example of each strategy, leveraging [@playwright/test](https://pl
 
 ## Keycloak
 
-First, set up a [Keycloak](https://www.keycloak.org/getting-started/getting-started-docker) instance. Then you have to add the [Keycloak provider](/getting-started/providers/keycloak) to your Auth.js configuration.
+First, set up a [Keycloak](https://www.keycloak.org/getting-started/getting-started-docker) instance. Then you have to add the [Keycloak provider](/getting-started/providers/keycloak) to your NextAuth.js configuration.
 
 This test requires two environment variables to be set. These credentials should be for a test user who can authenticate against your newly created Keycloak instance.
 
@@ -75,9 +75,9 @@ test("Basic auth", async ({ page, browser }) => {
 This method requires less initial setup and maintenance as you do not need to maintain a separate OAuth provider (like Keycloak), but you also must be extremely careful that you do not leave insecure authentication methods available in production. For example, in this example we will be adding a Credentials provider which accepts the password `password`.
 
 ```ts filename="auth.ts" {16}
-import NextAuth from "next-auth"
-import GitHub from "next-auth/providers/github"
-import Credentials from "next-auth/providers/credentials"
+import NextAuth from "nextauth.js"
+import GitHub from "nextauth.js/providers/github"
+import Credentials from "nextauth.js/providers/credentials"
 
 const providers = [GitHub]
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores"
-  import { SignIn } from "@auth/sveltekit/components"
-  import { signIn } from "@auth/sveltekit/client"
+  import { SignIn } from "@nextauth.js/sveltekit/components"
+  import { signIn } from "@nextauth.js/sveltekit/client"
 
   let password = ""
 </script>
@@ -33,7 +33,7 @@
       <div class="card-body">
         <p>
           These actions are all using the components exported from
-          <code>@auth/sveltekit/components</code> to run via form actions.
+          <code>@nextauth.js/sveltekit/components</code> to run via form actions.
         </p>
         <div class="actions">
           <SignIn provider="github">
@@ -86,7 +86,7 @@
       <div class="card-body">
         <p>
           These actions are all using the methods exported from
-          <code>@auth/sveltekit/client</code>
+          <code>@nextauth.js/sveltekit/client</code>
         </p>
         <div class="actions">
           <div class="wrapper-form social-btn">

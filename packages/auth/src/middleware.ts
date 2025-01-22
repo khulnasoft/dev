@@ -3,12 +3,12 @@
  * This module is replaced in v5. Read more at: https://auth.khulnasoft.com/getting-started/migrating-to-v5#authenticating-server-side
  * :::
  *
- * @module next
+ * @module middleware
  */
 
 throw new ReferenceError(
   [
-    '"next-auth/next" is deprecated. If you are not ready to migrate, keep using "next-auth@4".',
+    '"next-auth/middleware" is deprecated. If you are not ready to migrate, keep using "nextauth.js@4".',
     "Read more on https://auth.khulnasoft.com/getting-started/migrating-to-v5",
   ].join("\n")
 )

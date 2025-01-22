@@ -6,11 +6,11 @@ import { Plus, ArrowSquareOut, GithubLogo, Flask } from "@/icons"
 import manifest from "@/data/manifest.json"
 import { FrameworkLink } from "@/components/FrameworkLink"
 
-# What is Auth.js?
+# What is NextAuth.js?
 
-Auth.js is a <abbr title="Designed to work seamlessly across different JavaScript runtime environments without relying on specific features or behaviors of any particular runtime">runtime agnostic</abbr> library based on standard Web APIs that integrates deeply with multiple modern JavaScript frameworks to provide an authentication experience that's simple to get started with, easy to extend, and always private and secure!
+NextAuth.js is a <abbr title="Designed to work seamlessly across different JavaScript runtime environments without relying on specific features or behaviors of any particular runtime">runtime agnostic</abbr> library based on standard Web APIs that integrates deeply with multiple modern JavaScript frameworks to provide an authentication experience that's simple to get started with, easy to extend, and always private and secure!
 
-This documentation covers `next-auth@5.0.0-beta` and later and all other frameworks under the `@auth/*` namespace. Documentation for `next-auth@4.x.y` can still be found at [next-auth.js.org](https://next-auth.js.org).
+This documentation covers `nextauth.js@5.0.0-beta` and later and all other frameworks under the `@nextauth.js/*` namespace. Documentation for `nextauth.js@4.x.y` can still be found at [next-auth.js.org](https://next-auth.js.org).
 
 Select your framework of choice to get started, or view the example application deployment or repository with the buttons below.
 
@@ -56,18 +56,18 @@ help us create one for your favorite framework.
 
 <Callout type="info">
   To reduce migration overhead, NextAuth.js for Next.js will continue to be
-  released under the `next-auth` package name, instead of the `@auth/*`
-  convention. Auth.js was born out of `next-auth` but [over the years has
+  released under the `next-auth` package name, instead of the `@nextauth.js/*`
+  convention. NextAuth.js was born out of `next-auth` but [over the years has
   evolved](/contributors#history) to be framework agnostic.
 
-Confused about Auth.js and NextAuth.js? Have a look at [our
+Confused about NextAuth.js and NextAuth.js? Have a look at [our
 history](/contributors#history).
 
 </Callout>
 
 ## Authentication methods
 
-There are 4 ways to authenticate users with Auth.js:
+There are 4 ways to authenticate users with NextAuth.js:
 
 - [OAuth authentication](/getting-started/authentication/oauth) (_Sign in with Google, GitHub, LinkedIn, etc..._)
 - [Magic Links](/getting-started/authentication/email) (_Email Provider like Forward Email, Resend, Sendgrid, Nodemailer etc..._)
@@ -91,7 +91,7 @@ There are 4 ways to authenticate users with Auth.js:
 
 ### Supported Databases
 
-Optionally, Auth.js can be integrated with an external database via Database adapters, in case you need or want to store user data.
+Optionally, NextAuth.js can be integrated with an external database via Database adapters, in case you need or want to store user data.
 
 <ListDisclosure limit={8}>
   {Object.entries(manifest.adapters).map(([value, label]) => (

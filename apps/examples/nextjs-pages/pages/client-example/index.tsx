@@ -1,6 +1,6 @@
-import { useSession } from "next-auth/react"
+import { useSession } from "nextauth.js/react"
 import ClientExample from "@/components/client-example"
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "nextauth.js/react"
 
 export default function ClientPage() {
   const { data: session } = useSession()

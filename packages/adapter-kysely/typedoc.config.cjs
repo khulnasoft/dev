@@ -7,7 +7,7 @@ module.exports = {
   entryPoints: ["src/index.ts"],
   entryPointStrategy: "expand",
   tsconfig: "./tsconfig.json",
-  entryModule: "@auth/kysely-adapter",
+  entryModule: "@nextauth.js/kysely-adapter",
   entryFileName: "../kysely-adapter.mdx",
   includeVersion: true,
   readme: 'none',

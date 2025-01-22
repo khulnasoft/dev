@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://xata.io/docs/overview">Xata</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://xata.io/docs/overview">Xata</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://xata.io/">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/xata.svg" width="50"/>
  *  </a>
@@ -8,10 +8,10 @@
  *
  * ## Installation
  *
- * 1. Install Auth.js and the Xata adapter
+ * 1. Install NextAuth.js and the Xata adapter
  *
  * ```bash npm2yarn
- * npm install @auth/xata-adapter
+ * npm install @nextauth.js/xata-adapter
  * ```
  *
  * 2. Install the Xata CLI globally if you don't already have it
@@ -26,10 +26,10 @@
  * xata auth login
  * ```
  *
- * @module @auth/xata-adapter
+ * @module @nextauth.js/xata-adapter
  */
 
-import type { Adapter } from "@auth/core/adapters"
+import type { Adapter } from "@nextauth.js/core/adapters"
 import type { XataClient } from "./xata.js"
 
 export function XataAdapter(client: XataClient): Adapter {

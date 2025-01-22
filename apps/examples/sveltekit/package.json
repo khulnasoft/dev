@@ -1,6 +1,6 @@
 {
   "private": true,
-  "description": "An example project for Auth.js with SvelteKit",
+  "description": "An example project for NextAuth.js with SvelteKit",
   "repository": "https://github.com/nextauthjs/sveltekit-auth-example",
   "bugs": {
     "url": "https://github.com/khulnasoft/nextdev/issues"
@@ -23,7 +23,7 @@
     "vite": "5.2.14"
   },
   "dependencies": {
-    "@auth/sveltekit": "latest"
+    "@nextauth.js/sveltekit": "latest"
   },
   "type": "module"
 }

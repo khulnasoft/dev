@@ -1,5 +1,5 @@
 {
-  "name": "@auth/solid-start",
+  "name": "@nextauth.js/solid-start",
   "version": "0.15.4",
   "description": "Authentication for SolidStart.",
   "license": "ISC",
@@ -16,7 +16,7 @@
     "nextjs",
     "csrf",
     "oidc",
-    "Auth.js"
+    "NextAuth.js"
   ],
   "publishConfig": {
     "access": "public"
@@ -55,7 +55,7 @@
     "clean": "rm -rf *.js *.d.ts* providers src/providers"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "devDependencies": {
     "@solidjs/meta": "^0.28.0",

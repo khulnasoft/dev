@@ -186,8 +186,8 @@ export interface FortyTwoProfile extends UserData, Record<string, any> {
  *
  * #### Configuration
  *```ts
- * import { Auth } from "@auth/core"
- * import FortyTwoSchool from "@auth/core/providers/42-school"
+ * import { Auth } from "@nextauth.js/core"
+ * import FortyTwoSchool from "@nextauth.js/core/providers/42-school"
  *
  * const request = new Request(origin)
  * const response = await Auth(request, {
@@ -210,7 +210,7 @@ export interface FortyTwoProfile extends UserData, Record<string, any> {
  * :::note
  * 42 returns a field on `Account` called `created_at` which is a number. See the [docs](https://api.intra.42.fr/apidoc/guides/getting_started#make-basic-requests). Make sure to add this field to your database schema, in case if you are using an [Adapter](https://auth.khulnasoft.com/reference/core/adapters).
  * :::
- * By default, Auth.js assumes that the 42School provider is
+ * By default, NextAuth.js assumes that the 42School provider is
  * based on the [OAuth 2](https://www.rfc-editor.org/rfc/rfc6749.html) specification.
  *
  * :::tip
@@ -224,7 +224,7 @@ export interface FortyTwoProfile extends UserData, Record<string, any> {
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  *

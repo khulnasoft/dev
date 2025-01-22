@@ -114,8 +114,8 @@ export interface TwitterProfile {
  *
  * #### Configuration
  *```ts
- * import { Auth } from "@auth/core"
- * import Twitter from "@auth/core/providers/twitter"
+ * import { Auth } from "@nextauth.js/core"
+ * import Twitter from "@nextauth.js/core/providers/twitter"
  *
  * const request = new Request(origin)
  * const response = await Auth(request, {
@@ -161,7 +161,7 @@ export interface TwitterProfile {
  *
  * :::
  *
- * By default, Auth.js assumes that the Twitter provider is
+ * By default, NextAuth.js assumes that the Twitter provider is
  * based on the [OAuth 2](https://www.rfc-editor.org/rfc/rfc6749.html) specification.
  *
  * :::tip
@@ -175,7 +175,7 @@ export interface TwitterProfile {
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  *

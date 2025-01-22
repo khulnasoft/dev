@@ -3,7 +3,7 @@
  * This option is intended for framework authors.
  * :::
  *
- * Auth.js comes with built-in CSRF protection, but
+ * NextAuth.js comes with built-in CSRF protection, but
  * if you are implementing a framework that is already protected against CSRF attacks, you can skip this check by
  * passing this value to {@link AuthConfig.skipCSRFCheck}.
  */
@@ -14,7 +14,7 @@ export const skipCSRFCheck = Symbol("skip-csrf-check")
  * This option is intended for framework authors.
  * :::
  *
- * Auth.js returns a web standard {@link Response} by default, but
+ * NextAuth.js returns a web standard {@link Response} by default, but
  * if you are implementing a framework you might want to get access to the raw internal response
  * by passing this value to {@link AuthConfig.raw}.
  */
@@ -32,8 +32,8 @@ export const raw = Symbol("return-type-raw")
  *
  * @example
  * ```ts
- * import { Auth, customFetch } from "@auth/core"
- * import GitHub from "@auth/core/providers/github"
+ * import { Auth, customFetch } from "@nextauth.js/core"
+ * import GitHub from "@nextauth.js/core/providers/github"
  *
  * const dispatcher = new ProxyAgent("my.proxy.server")
  * function proxy(...args: Parameters<typeof fetch>): ReturnType<typeof fetch> {

@@ -1,15 +1,15 @@
 /**
  *
  * :::warning
- * `@auth/qwik` is currently experimental. The API _will_ change in the future.
+ * `@nextauth.js/qwik` is currently experimental. The API _will_ change in the future.
  * :::
  *
- * Qwik Auth is the official Qwik integration for Auth.js.
+ * Qwik Auth is the official Qwik integration for NextAuth.js.
  * It provides a simple way to add authentication to your Qwik app in a few lines of code.
  *
  * ## Installation
  * ```bash npm2yarn
- * npm install @auth/qwik
+ * npm install @nextauth.js/qwik
  * ```
  *
  * ## Usage
@@ -18,8 +18,8 @@
  *
  * Create a `plugin@auth.ts` file in the routes folder
  *
- * import { QwikAuth$ } from "@auth/qwik"
- * import GitHub from "@auth/qwik/providers/github"
+ * import { QwikAuth$ } from "@nextauth.js/qwik"
+ * import GitHub from "@nextauth.js/qwik/providers/github"
  *
  * export const {
  *   onRequest, useSession, useSignIn, useSignOut
@@ -106,12 +106,17 @@
  *
  * ```
  *
- * @module @auth/qwik
+ * @module @nextauth.js/qwik
  */
 
-import type { AuthConfig } from "@auth/core"
-import { Auth, isAuthAction, skipCSRFCheck, customFetch } from "@auth/core"
-import { AuthAction, Session } from "@auth/core/types"
+import type { AuthConfig } from "@nextauth.js/core"
+import {
+  Auth,
+  isAuthAction,
+  skipCSRFCheck,
+  customFetch,
+} from "@nextauth.js/core"
+import { AuthAction, Session } from "@nextauth.js/core/types"
 import { implicit$FirstArg, type QRL } from "@builder.io/qwik"
 import {
   globalAction$,
@@ -125,7 +130,7 @@ import { isServer } from "@builder.io/qwik/build"
 import { parseString, splitCookiesString } from "set-cookie-parser"
 
 export { customFetch }
-export { AuthError, CredentialsSignin } from "@auth/core/errors"
+export { AuthError, CredentialsSignin } from "@nextauth.js/core/errors"
 
 export type {
   Account,
@@ -133,7 +138,7 @@ export type {
   Profile,
   Session,
   User,
-} from "@auth/core/types"
+} from "@nextauth.js/core/types"
 
 /** Configure the {@link QwikAuth$} method. */
 export interface QwikAuthConfig extends Omit<AuthConfig, "raw"> {}
@@ -245,8 +250,8 @@ export function QwikAuthQrl(
  *
  *  @example
  * ```ts title="plugin@auth.ts"
- * import { QwikAuth } from "@auth/qwik"
- * import GitHub from "@auth/qwik/providers/github"
+ * import { QwikAuth } from "@nextauth.js/qwik"
+ * import GitHub from "@nextauth.js/qwik/providers/github"
  *
  * export const {
  *   onRequest, useSession, useSignIn, useSignOut

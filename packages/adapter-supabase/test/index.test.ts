@@ -5,8 +5,8 @@ import type {
   AdapterSession,
   AdapterUser,
   VerificationToken,
-} from "@auth/core/adapters"
-import type { Account } from "@auth/core/types"
+} from "@nextauth.js/core/adapters"
+import type { Account } from "@nextauth.js/core/types"
 
 const url = process.env.SUPABASE_URL ?? "http://127.0.0.1:54321"
 const secret =

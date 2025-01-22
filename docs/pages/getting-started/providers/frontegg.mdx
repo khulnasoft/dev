@@ -59,8 +59,8 @@ AUTH_FRONTEGG_ISSUER="<https://[YOUR_SUBDOMAIN].frontegg.com>"
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Frontegg from "next-auth/providers/frontegg"
+import NextAuth from "nextauth.js"
+import Frontegg from "nextauth.js/providers/frontegg"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Frontegg],
@@ -71,8 +71,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Frontegg from "@auth/sveltekit/providers/frontegg"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Frontegg from "@nextauth.js/sveltekit/providers/frontegg"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Frontegg],
@@ -83,8 +83,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Frontegg from "@auth/express/providers/frontegg"
+import { ExpressAuth } from "@nextauth.js/express"
+import Frontegg from "@nextauth.js/express/providers/frontegg"
 
 app.use("/auth/*", ExpressAuth({ providers: [Frontegg] }))
 ```

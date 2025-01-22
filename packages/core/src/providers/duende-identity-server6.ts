@@ -29,8 +29,8 @@ export interface DuendeISUser extends Record<string, any> {
  *
  * #### Configuration
  *```ts
- * import { Auth } from "@auth/core"
- * import DuendeIdentityServer6 from "@auth/core/providers/duende-identity-server6"
+ * import { Auth } from "@nextauth.js/core"
+ * import DuendeIdentityServer6 from "@nextauth.js/core/providers/duende-identity-server6"
  *
  * const request = new Request(origin)
  * const response = await Auth(request, {
@@ -60,7 +60,7 @@ export interface DuendeISUser extends Record<string, any> {
  * You can sign in to the demo service with either <b>bob/bob</b> or <b>alice/alice</b>.
  *
  * ```ts
- * import DuendeIdentityServer6 from "@auth/core/providers/duende-identity-server6"
+ * import DuendeIdentityServer6 from "@nextauth.js/core/providers/duende-identity-server6"
  * providers: [
  *   DuendeIdentityServer6({
  *     clientId: "interactive.confidential",
@@ -69,7 +69,7 @@ export interface DuendeISUser extends Record<string, any> {
  *   })
  * ]
  * ```
- * By default, Auth.js assumes that the DuendeIdentityServer6 provider is
+ * By default, NextAuth.js assumes that the DuendeIdentityServer6 provider is
  * based on the [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html) specification.
  *
  * :::tip
@@ -83,7 +83,7 @@ export interface DuendeISUser extends Record<string, any> {
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  *

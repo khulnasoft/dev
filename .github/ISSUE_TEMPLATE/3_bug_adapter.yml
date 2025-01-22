@@ -21,29 +21,29 @@ body:
       multiple: true
       options:
         - "Custom adapter"
-        - "@auth/azure-tables-adapter"
-        - "@auth/edgedb-adapter"
-        - "@auth/d1-adapter"
-        - "@auth/dgraph-adapter"
-        - "@auth/drizzle-adapter"
-        - "@auth/dynamodb-adapter"
-        - "@auth/fauna-adapter"
-        - "@auth/firebase-adapter"
-        - "@auth/hasura-adapter"
-        - "@auth/kysely-adapter"
-        - "@auth/mikro-orm-adapter"
-        - "@auth/mongodb-adapter"
-        - "@auth/neo4j-adapter"
-        - "@auth/pg-adapter"
-        - "@auth/pouchdb-adapter"
-        - "@auth/prisma-adapter"
-        - "@auth/sequelize-adapter"
-        - "@auth/supabase-adapter"
-        - "@auth/surrealdb-adapter"
-        - "@auth/typeorm-adapter"
-        - "@auth/unstorage-adapter"
-        - "@auth/upstash-redis-adapter"
-        - "@auth/xata-adapter"
+        - "@nextauth.js/azure-tables-adapter"
+        - "@nextauth.js/edgedb-adapter"
+        - "@nextauth.js/d1-adapter"
+        - "@nextauth.js/dgraph-adapter"
+        - "@nextauth.js/drizzle-adapter"
+        - "@nextauth.js/dynamodb-adapter"
+        - "@nextauth.js/fauna-adapter"
+        - "@nextauth.js/firebase-adapter"
+        - "@nextauth.js/hasura-adapter"
+        - "@nextauth.js/kysely-adapter"
+        - "@nextauth.js/mikro-orm-adapter"
+        - "@nextauth.js/mongodb-adapter"
+        - "@nextauth.js/neo4j-adapter"
+        - "@nextauth.js/pg-adapter"
+        - "@nextauth.js/pouchdb-adapter"
+        - "@nextauth.js/prisma-adapter"
+        - "@nextauth.js/sequelize-adapter"
+        - "@nextauth.js/supabase-adapter"
+        - "@nextauth.js/surrealdb-adapter"
+        - "@nextauth.js/typeorm-adapter"
+        - "@nextauth.js/unstorage-adapter"
+        - "@nextauth.js/upstash-redis-adapter"
+        - "@nextauth.js/xata-adapter"
     validations:
       required: true
   - type: textarea
@@ -52,9 +52,9 @@ body:
       description: |
         Run this command in your project's root folder and paste the result:
 
-        `npx envinfo --system --binaries --browsers --npmPackages "{next,react,next-auth,@auth/*}"`
+        `npx envinfo --system --binaries --browsers --npmPackages "{next,react,next-auth,@nextauth.js/*}"`
 
-        Alternatively, you can manually gather the version information from your package.json for these packages: "next", "react" and "next-auth". Please also mention your OS and Node.js version, as well as the browser you are using.
+        Alternatively, you can manually gather the version information from your package.json for these packages: "next", "react" and "nextauth.js". Please also mention your OS and Node.js version, as well as the browser you are using.
       value: |
         ```
         Paste here

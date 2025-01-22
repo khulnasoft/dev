@@ -50,8 +50,8 @@ AUTH_WIKIMEDIA_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Wikimedia from "next-auth/providers/wikimedia"
+import NextAuth from "nextauth.js"
+import Wikimedia from "nextauth.js/providers/wikimedia"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Wikimedia],
@@ -62,8 +62,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Wikimedia from "@auth/qwik/providers/wikimedia"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Wikimedia from "@nextauth.js/qwik/providers/wikimedia"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -76,8 +76,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Wikimedia from "@auth/sveltekit/providers/wikimedia"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Wikimedia from "@nextauth.js/sveltekit/providers/wikimedia"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Wikimedia],
@@ -88,8 +88,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Wikimedia from "@auth/express/providers/wikimedia"
+import { ExpressAuth } from "@nextauth.js/express"
+import Wikimedia from "@nextauth.js/express/providers/wikimedia"
 
 app.use("/auth/*", ExpressAuth({ providers: [Wikimedia] }))
 ```

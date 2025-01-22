@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://www.mongodb.com">MongoDB</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://www.mongodb.com">MongoDB</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://www.mongodb.com">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/mongodb.svg" width="30" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/mongodb-adapter mongodb
+ * npm install @nextauth.js/mongodb-adapter mongodb
  * ```
  *
- * @module @auth/mongodb-adapter
+ * @module @nextauth.js/mongodb-adapter
  */
 import { ObjectId } from "mongodb"
 
@@ -22,7 +22,7 @@ import type {
   AdapterAccount,
   AdapterSession,
   VerificationToken,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 import type { MongoClient } from "mongodb"
 
 /**

@@ -14,7 +14,7 @@ import { Code } from "@/components/Code"
 ### Installation
 
 ```bash npm2yarn
-npm install @auth/dgraph-adapter
+npm install @nextauth.js/dgraph-adapter
 ```
 
 ### Environment Variables
@@ -30,8 +30,8 @@ AUTH_DGRAPH_GRAPHQL_KEY=abc123
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import { DgraphAdapter } from "@auth/dgraph-adapter"
+import NextAuth from "nextauth.js"
+import { DgraphAdapter } from "@nextauth.js/dgraph-adapter"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [],
@@ -49,8 +49,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import { DgraphAdapter } from "@auth/dgraph-adapter"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import { DgraphAdapter } from "@nextauth.js/dgraph-adapter"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -70,8 +70,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import { DgraphAdapter } from "@auth/dgraph-adapter"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import { DgraphAdapter } from "@nextauth.js/dgraph-adapter"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
 <Code.Express>
 
 ```ts filename="./src/routes/auth.route.ts"
-import { ExpressAuth } from "@auth/express"
-import { DgraphAdapter } from "@auth/dgraph-adapter"
+import { ExpressAuth } from "@nextauth.js/express"
+import { DgraphAdapter } from "@nextauth.js/dgraph-adapter"
 
 const app = express()
 
@@ -302,7 +302,7 @@ database you must customize next-auth `encode` and `decode` functions, as the de
 further customize the jwt with roles if you want to implement [`RBAC logic`](https://dgraph.io/docs/graphql/authorization/directive/#role-based-access-control).
 
 ```js filename="./auth.js"
-import NextAuth from "next-auth"
+import NextAuth from "nextauth.js"
 import * as jwt from "jsonwebtoken"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({

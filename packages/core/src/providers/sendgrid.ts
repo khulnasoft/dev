@@ -7,7 +7,7 @@ export default function SendGrid(config: EmailUserConfig): EmailConfig {
     id: "sendgrid",
     type: "email",
     name: "SendGrid",
-    from: "Auth.js <no-reply@auth.khulnasoft.com>",
+    from: "NextAuth.js <no-reply@auth.khulnasoft.com>",
     maxAge: 24 * 60 * 60,
     async sendVerificationRequest(params) {
       const { identifier: to, provider, url, theme } = params

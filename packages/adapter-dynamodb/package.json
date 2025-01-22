@@ -1,10 +1,10 @@
 {
-  "name": "@auth/dynamodb-adapter",
+  "name": "@nextauth.js/dynamodb-adapter",
   "repository": "https://github.com/khulnasoft/nextdev",
   "version": "2.7.4",
   "description": "AWS DynamoDB adapter for next-auth.",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "dynamodb"
@@ -51,6 +51,6 @@
     "@aws-sdk/lib-dynamodb": "^3.36.1"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   }
 }

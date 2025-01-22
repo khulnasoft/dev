@@ -1,5 +1,5 @@
 {
-  "name": "@auth/neon-adapter",
+  "name": "@nextauth.js/neon-adapter",
   "version": "1.7.4",
   "description": "Neon Postgres adapter for next-auth.",
   "homepage": "https://auth.khulnasoft.com",
@@ -13,9 +13,9 @@
   ],
   "license": "ISC",
   "keywords": [
-    "next-auth",
-    "@auth",
-    "Auth.js",
+    "nextauth.js",
+    "@nextauth.js",
+    "NextAuth.js",
     "next.js",
     "oauth",
     "postgres"
@@ -42,7 +42,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*",
+    "@nextauth.js/core": "workspace:*",
     "@neondatabase/serverless": "^0.10.4"
   },
   "devDependencies": {

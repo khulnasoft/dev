@@ -7,7 +7,7 @@ module.exports = {
   entryPoints: ["src/index.ts"],
   entryPointStrategy: "expand",
   tsconfig: "./tsconfig.json",
-  entryModule: "@auth/pg-adapter",
+  entryModule: "@nextauth.js/pg-adapter",
   entryFileName: "../pg-adapter.mdx",
   includeVersion: true,
   readme: 'none',

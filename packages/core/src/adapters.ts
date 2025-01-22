@@ -1,20 +1,20 @@
 /**
- * Auth.js can be integrated with _any_ data layer (database, ORM, or backend API, HTTP client)
+ * NextAuth.js can be integrated with _any_ data layer (database, ORM, or backend API, HTTP client)
  * in order to automatically create users, handle account linking automatically, support passwordless login,
  * and to store session information.
  *
- * This module contains utility functions and types to create an Auth.js compatible adapter.
+ * This module contains utility functions and types to create an NextAuth.js compatible adapter.
  *
- * Auth.js supports 2 session strategies to persist the login state of a user.
+ * NextAuth.js supports 2 session strategies to persist the login state of a user.
  * The default is to use a cookie + {@link https://auth.khulnasoft.com/concepts/session-strategies#jwt-session JWT}
  * based session store (`strategy: "jwt"`),
  * but you can also use a database adapter to store the session in a database.
  *
- * Before you continue, Auth.js has a list of {@link https://adapters.auth.khulnasoft.com official database adapters}. If your database is listed there, you
+ * Before you continue, NextAuth.js has a list of {@link https://adapters.auth.khulnasoft.com official database adapters}. If your database is listed there, you
  * probably do not need to create your own. If you are using a data solution that cannot be integrated with an official adapter, this module will help you create a compatible adapter.
  *
  * :::caution Note
- * Although `@auth/core` _is_ framework/runtime agnostic, an adapter might rely on a client/ORM package,
+ * Although `@nextauth.js/core` _is_ framework/runtime agnostic, an adapter might rely on a client/ORM package,
  * that is not yet compatible with your framework/runtime (e.g. it might rely on [Node.js APIs](https://nodejs.org/docs/latest/api)).
  * Related issues should be reported to the corresponding package maintainers.
  * :::
@@ -22,17 +22,17 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/core
+ * npm install @nextauth.js/core
  * ```
  *
- * Then, you can import this submodule from `@auth/core/adapters`.
+ * Then, you can import this submodule from `@nextauth.js/core/adapters`.
  *
  * ## Usage
  *
  * Each adapter method and its function signature is documented in the {@link Adapter} interface.
  *
  * ```ts title=my-adapter.ts
- * import { type Adapter } from "@auth/core/adapters"
+ * import { type Adapter } from "@nextauth.js/core/adapters"
  *
  * // 1. Simplest form, a plain object.
  * export const MyAdapter: Adapter {
@@ -54,7 +54,7 @@
  *
  * ```
  *
- * Then, you can pass your adapter to Auth.js as the `adapter` option.
+ * Then, you can pass your adapter to NextAuth.js as the `adapter` option.
  *
  * ```ts title=index.ts
  * import { MyAdapter } from "./my-adapter"
@@ -70,8 +70,8 @@
  * Note, you might be able to tweak an existing adapter to work with your data layer, instead of creating one from scratch.
  *
  * ```ts title=my-adapter.ts
- * import { type Adapter } from "@auth/core/adapters"
- * import { PrismaAdapter } from "@auth/prisma-adapter"
+ * import { type Adapter } from "@nextauth.js/core/adapters"
+ * import { PrismaAdapter } from "@nextauth.js/prisma-adapter"
  * import { PrismaClient } from "@prisma/client"
  *
  * const prisma = new PrismaClient()
@@ -87,10 +87,10 @@
  *
  * ## Models
  *
- * Auth.js can be used with any database. Models tell you what structures Auth.js expects from your database. Models will vary slightly depending on which adapter you use, but in general, will have a similar structure to the graph below. Each model can be extended with additional fields.
+ * NextAuth.js can be used with any database. Models tell you what structures NextAuth.js expects from your database. Models will vary slightly depending on which adapter you use, but in general, will have a similar structure to the graph below. Each model can be extended with additional fields.
  *
  * :::note
- * Auth.js / NextAuth.js uses `camelCase` for its database rows while respecting the conventional `snake_case` formatting for OAuth-related values. If the mixed casing is an issue for you, most adapters have a dedicated documentation section on how to force a casing convention.
+ * NextAuth.js / NextAuth.js uses `camelCase` for its database rows while respecting the conventional `snake_case` formatting for OAuth-related values. If the mixed casing is an issue for you, most adapters have a dedicated documentation section on how to force a casing convention.
  * :::
  *
  * ```mermaid
@@ -135,22 +135,22 @@
  * ## Testing
  *
  * There is a test suite [available](https://github.com/khulnasoft/nextdev/blob/main/packages/utils/adapter.ts)
- * to ensure that your adapter is compatible with Auth.js.
+ * to ensure that your adapter is compatible with NextAuth.js.
  *
  * ## Known issues
  *
- * The following are missing built-in features in Auth.js but can be solved in user land. If you would like to help implement these features, please reach out.
+ * The following are missing built-in features in NextAuth.js but can be solved in user land. If you would like to help implement these features, please reach out.
  *
  * ### Token rotation
  *
- * Auth.js _currently_ does not support {@link https://auth.khulnasoft.com/concepts/oauth `access_token` rotation} out of the box.
+ * NextAuth.js _currently_ does not support {@link https://auth.khulnasoft.com/concepts/oauth `access_token` rotation} out of the box.
  * The necessary information (`refresh_token`, expiry, etc.) is being stored in the database, but the logic to rotate the token is not implemented
  * in the core library.
  * [This guide](https://auth.khulnasoft.com/guides/refresh-token-rotation#database-strategy) should provide the necessary steps to do this in user land.
  *
  * ### Federated logout
  *
- * Auth.js _currently_ does not support federated logout out of the box.
+ * NextAuth.js _currently_ does not support federated logout out of the box.
  * This means that even if an active session is deleted from the database, the user will still be signed in to the identity provider,
  * they will only be signed out of the application.
  * Eg. if you use Google as an identity provider, and you delete the session from the database,
@@ -264,9 +264,9 @@ export interface AdapterAuthenticator extends Authenticator {
 
 /**
  * An adapter is an object with function properties (methods) that read and write data from a data source.
- * Think of these methods as a way to normalize the data layer to common interfaces that Auth.js can understand.
+ * Think of these methods as a way to normalize the data layer to common interfaces that NextAuth.js can understand.
  *
- * This is what makes Auth.js very flexible and allows it to be used with any data layer.
+ * This is what makes NextAuth.js very flexible and allows it to be used with any data layer.
  *
  * The adapter methods are used to perform the following operations:
  * - Create/update/delete a user
@@ -275,7 +275,7 @@ export interface AdapterAuthenticator extends Authenticator {
  * - Support passwordless authentication across multiple devices
  *
  * :::note
- * If any of the methods are not implemented, but are called by Auth.js,
+ * If any of the methods are not implemented, but are called by NextAuth.js,
  * an error will be shown to the user and the operation will fail.
  * :::
  */

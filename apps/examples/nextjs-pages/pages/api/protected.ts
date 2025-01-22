@@ -1,5 +1,5 @@
 // import { auth } from "../../auth"
-// import { getSession } from "next-auth/react"
+// import { getSession } from "nextauth.js/react"
 import { NextApiRequest, NextApiResponse } from "next"
 
 export default async function handler(

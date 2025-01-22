@@ -7,7 +7,7 @@ module.exports = {
   entryPoints: ["src/index.ts", "src/adapters.ts", "src/middleware.ts", "src/jwt.ts", "src/next.ts", "src/react.tsx", "src/webauthn.ts"],
   entryPointStrategy: "expand",
   tsconfig: "./tsconfig.json",
-  entryModule: "next-auth",
+  entryModule: "nextauth.js",
   entryFileName: "../nextjs.mdx",
   includeVersion: true,
   readme: 'none'

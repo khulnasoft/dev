@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px"}}>
- *  <p>Official <a href="https://docs.fauna.com/fauna/current/">Fauna</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://docs.fauna.com/fauna/current/">Fauna</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://fauna.com/features">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/fauna.svg" width="64" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/fauna-adapter fauna
+ * npm install @nextauth.js/fauna-adapter fauna
  * ```
  *
- * @module @auth/fauna-adapter
+ * @module @nextauth.js/fauna-adapter
  */
 import {
   Client,
@@ -29,7 +29,7 @@ import type {
   AdapterSession,
   VerificationToken,
   AdapterAccount,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 
 type ToFauna<T> = {
   [P in keyof T]: T[P] extends Date | null
@@ -209,7 +209,7 @@ export const format = {
       else newObject[key] = value
     return newObject as T
   },
-  /** Takes an object that's coming from Auth.js and prepares it to be written to the database. */
+  /** Takes an object that's coming from NextAuth.js and prepares it to be written to the database. */
   to<T>(object: Record<string, any>): T {
     const newObject: Record<string, unknown> = {}
     for (const [key, value] of Object.entries(object))

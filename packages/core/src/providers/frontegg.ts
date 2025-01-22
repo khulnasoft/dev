@@ -42,8 +42,8 @@ export interface FronteggProfile {
  *
  * #### Configuration
  * ```ts
- * import { Auth } from "@auth/core"
- * import Frontegg from "@auth/core/providers/frontegg"
+ * import { Auth } from "@nextauth.js/core"
+ * import Frontegg from "@nextauth.js/core/providers/frontegg"
  *
  * const request = new Request(origin)
  * const response = await Auth(request, {
@@ -83,14 +83,14 @@ export interface FronteggProfile {
  * The Frontegg provider comes with a [default configuration](https://github.com/khulnasoft/nextdev/blob/main/packages/core/src/providers/frontegg.ts). To override the defaults for your use case, check out [customizing a built-in OAuth provider](https://auth.khulnasoft.com/guides/configuring-oauth-providers).
  *
  * :::info
- * By default, Auth.js assumes that the Frontegg provider is based on the [OIDC](https://openid.net/specs/openid-connect-core-1_0.html) spec
+ * By default, NextAuth.js assumes that the Frontegg provider is based on the [OIDC](https://openid.net/specs/openid-connect-core-1_0.html) spec
  * :::
  *
  * ## Help
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  */

@@ -1,7 +1,7 @@
 {
   "name": "next-auth-app",
   "version": "1.0.1",
-  "description": "Next.js + Auth.js Developer App",
+  "description": "Next.js + NextAuth.js Developer App",
   "private": true,
   "scripts": {
     "clean": "rm -rf .next",
@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "next": "15.0.0-rc.1",
-    "next-auth": "workspace:*",
+    "nextauth.js": "workspace:*",
     "react": "19.0.0-rc-4c58fce7-20240904",
     "react-dom": "19.0.0-rc-4c58fce7-20240904"
   },

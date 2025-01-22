@@ -17,7 +17,7 @@ import { Accordion, Accordions } from "@/components/Accordion"
 ### Installation
 
 ```bash npm2yarn
-npm install drizzle-orm @auth/drizzle-adapter
+npm install drizzle-orm @nextauth.js/drizzle-adapter
 npm install drizzle-kit --save-dev
 ```
 
@@ -364,8 +364,8 @@ export const authenticators = sqliteTable(
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import { DrizzleAdapter } from "@auth/drizzle-adapter"
+import NextAuth from "nextauth.js"
+import { DrizzleAdapter } from "@nextauth.js/drizzle-adapter"
 import { db } from "./schema.ts"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -378,8 +378,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import { DrizzleAdapter } from "@auth/drizzle-adapter"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import { DrizzleAdapter } from "@nextauth.js/drizzle-adapter"
 import { db } from "./schema.ts"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
@@ -394,8 +394,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import { DrizzleAdapter } from "@auth/drizzle-adapter"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import { DrizzleAdapter } from "@nextauth.js/drizzle-adapter"
 import { db } from "./schema.ts"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
@@ -408,8 +408,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
 <Code.Express>
 
 ```ts filename="./src/routes/auth.route.ts"
-import { ExpressAuth } from "@auth/express"
-import { DrizzleAdapter } from "@auth/drizzle-adapter"
+import { ExpressAuth } from "@nextauth.js/express"
+import { DrizzleAdapter } from "@nextauth.js/drizzle-adapter"
 import { db } from "./schema.ts"
 
 const app = express()
@@ -435,9 +435,9 @@ If you want to use your own tables, you can pass them as a second argument to `D
 - The `verificationTokensTable` is optional and only required if you're using a Magic Link provider.
 
 ```ts filename="auth.ts"
-import NextAuth from "next-auth"
-import Google from "next-auth/providers/google"
-import { DrizzleAdapter } from "@auth/drizzle-adapter"
+import NextAuth from "nextauth.js"
+import Google from "nextauth.js/providers/google"
+import { DrizzleAdapter } from "@nextauth.js/drizzle-adapter"
 import { db, accounts, sessions, users, verificationTokens } from "./schema"
 
 export const { handlers, auth } = NextAuth({

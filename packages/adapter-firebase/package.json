@@ -1,7 +1,7 @@
 {
-  "name": "@auth/firebase-adapter",
+  "name": "@nextauth.js/firebase-adapter",
   "version": "2.7.4",
-  "description": "Firebase adapter for Auth.js",
+  "description": "Firebase adapter for NextAuth.js",
   "homepage": "https://auth.khulnasoft.com",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -27,7 +27,7 @@
   },
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "firebase",
     "firebase-admin"
@@ -42,7 +42,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "firebase-admin": "^12.0.0"

@@ -44,8 +44,8 @@ export interface AsgardeoProfile extends Record<string, any> {
  *
  * #### Configuration
  *```ts
- * import { Auth } from "@auth/core"
- * import Asgarde from "@auth/core/providers/asgardeo";
+ * import { Auth } from "@nextauth.js/core"
+ * import Asgarde from "@nextauth.js/core/providers/asgardeo";
  *
  * const request = new Request(origin)
  * const response = await Auth(request, {
@@ -90,14 +90,14 @@ export interface AsgardeoProfile extends Record<string, any> {
  * The Asgardeo provider comes with a [default configuration](https://github.com/khulnasoft/nextdev/blob/main/packages/core/src/providers/asgardeo.ts). To override the defaults for your use case, check out [customizing a built-in OAuth provider](https://auth.khulnasoft.com/guides/configuring-oauth-providers).
  *
  * :::info
- * By default, Auth.js assumes that the Asgardeo provider is based on the [OAuth 2](https://www.rfc-editor.org/rfc/rfc6749.html) spec
+ * By default, NextAuth.js assumes that the Asgardeo provider is based on the [OAuth 2](https://www.rfc-editor.org/rfc/rfc6749.html) spec
  * :::
  *
  * ## Help
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  */

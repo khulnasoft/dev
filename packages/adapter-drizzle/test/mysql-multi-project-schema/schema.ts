@@ -1,4 +1,4 @@
-import type { AdapterAccountType } from "@auth/core/adapters"
+import type { AdapterAccountType } from "@nextauth.js/core/adapters"
 import { sql } from "drizzle-orm"
 import {
   boolean,
@@ -15,7 +15,7 @@ const poolConnection = createPool({
   host: "127.0.0.1",
   user: "root",
   password: "password",
-  database: "next-auth",
+  database: "nextauth.js",
 })
 
 export const db = drizzle(poolConnection)

@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px"}}>
- *  <p>Official <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">DynamoDB</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html">DynamoDB</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://docs.aws.amazon.com/dynamodb/index.html">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/dynamodb.png" width="48"/>
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install next-auth @auth/dynamodb-adapter
+ * npm install next-auth @nextauth.js/dynamodb-adapter
  * ```
  *
- * @module @auth/dynamodb-adapter
+ * @module @nextauth.js/dynamodb-adapter
  */
 
 import type {
@@ -26,7 +26,7 @@ import {
   type AdapterUser,
   type VerificationToken,
   isDate,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 
 export interface DynamoDBAdapterOptions {
   tableName?: string
@@ -41,7 +41,7 @@ export function DynamoDBAdapter(
   client: DynamoDBDocument,
   options?: DynamoDBAdapterOptions
 ): Adapter {
-  const TableName = options?.tableName ?? "next-auth"
+  const TableName = options?.tableName ?? "nextauth.js"
   const pk = options?.partitionKey ?? "pk"
   const sk = options?.sortKey ?? "sk"
   const IndexName = options?.indexName ?? "GSI1"

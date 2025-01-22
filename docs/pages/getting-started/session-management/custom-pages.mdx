@@ -3,14 +3,14 @@ import { Code } from "@/components/Code"
 
 # Custom Pages
 
-To enable custom pages add the following to your Auth.js configuration. In the `pages` object, the key is the type of page and the value is the path/route at which the page is located. Please make sure you actually have a page at the specified route.
+To enable custom pages add the following to your NextAuth.js configuration. In the `pages` object, the key is the type of page and the value is the path/route at which the page is located. Please make sure you actually have a page at the specified route.
 
 <Code>
 <Code.Next>
 
 ```ts filename="./auth.ts" {8-10}
-import { NextAuth } from "next-auth"
-import GitHub from "next-auth/providers/github"
+import { NextAuth } from "nextauth.js"
+import GitHub from "nextauth.js/providers/github"
 
 // Define your configuration in a separate variable and pass it to NextAuth()
 // This way we can also 'export const config' for use later
@@ -28,8 +28,8 @@ export const { signIn, signOut, handle } = NextAuth(config)
 <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import GitHub from "@auth/qwik/providers/github"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import GitHub from "@nextauth.js/qwik/providers/github"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -45,9 +45,9 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="src/auth.ts" {14-16}
-import SvelteKitAuth from "@auth/sveltekit"
-import GitHub from "@auth/sveltekit/providers/github"
-import type { Provider } from "@auth/sveltekit/providers"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import GitHub from "@nextauth.js/sveltekit/providers/github"
+import type { Provider } from "@nextauth.js/sveltekit/providers"
 
 const providers: Provider[] = [GitHub]
 
@@ -73,8 +73,8 @@ export { handle } from "./auth"
 
 ```ts filename="src/routes/auth.route.ts" {12-14}
 import express from "express"
-import { ExpressAuth } from "@auth/express"
-import GitHub from "@auth/express/providers/github"
+import { ExpressAuth } from "@nextauth.js/express"
+import GitHub from "@nextauth.js/express/providers/github"
 
 const app = express()
 

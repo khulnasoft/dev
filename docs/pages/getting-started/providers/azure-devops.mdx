@@ -95,8 +95,8 @@ The following data is relevant for the next step:
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import AzureDevOps from "next-auth/providers/azure-devops"
+import NextAuth from "nextauth.js"
+import AzureDevOps from "nextauth.js/providers/azure-devops"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -112,8 +112,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import AzureDevOps from "@auth/qwik/providers/azure-devops"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import AzureDevOps from "@nextauth.js/qwik/providers/azure-devops"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -131,8 +131,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import AzureDevOps from "@auth/sveltekit/providers/azure-devops"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import AzureDevOps from "@nextauth.js/sveltekit/providers/azure-devops"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [
@@ -148,8 +148,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import AzureDevOps from "@auth/express/providers/azure-devops"
+import { ExpressAuth } from "@nextauth.js/express"
+import AzureDevOps from "@nextauth.js/express/providers/azure-devops"
 
 app.use(
   "/auth/*",

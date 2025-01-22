@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://pouchdb.com/api.html">PouchDB</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://pouchdb.com/api.html">PouchDB</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://pouchdb.com">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/pouchdb.svg" width="38" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install pouchdb pouchdb-find @auth/pouchdb-adapter
+ * npm install pouchdb pouchdb-find @nextauth.js/pouchdb-adapter
  * ```
  *
- * @module @auth/pouchdb-adapter
+ * @module @nextauth.js/pouchdb-adapter
  */
 
 import type {
@@ -21,7 +21,7 @@ import type {
   AdapterSession,
   AdapterUser,
   VerificationToken,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 
 type PrefixConfig = Record<
   "user" | "account" | "session" | "verificationToken",

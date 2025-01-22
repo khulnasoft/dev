@@ -64,8 +64,8 @@ Then, add the ClientID, ClientSecret, and Issuer values to your environment vari
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Asgardeo from "next-auth/providers/asgardeo"
+import NextAuth from "nextauth.js"
+import Asgardeo from "nextauth.js/providers/asgardeo"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Asgardeo],
@@ -76,8 +76,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Asgardeo from "@auth/qwik/providers/asgardeo"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Asgardeo from "@nextauth.js/qwik/providers/asgardeo"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -90,8 +90,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Asgardeo from "@auth/sveltekit/providers/asgardeo"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Asgardeo from "@nextauth.js/sveltekit/providers/asgardeo"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Asgardeo],
@@ -102,8 +102,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Asgardeo from "@auth/express/providers/asgardeo"
+import { ExpressAuth } from "@nextauth.js/express"
+import Asgardeo from "@nextauth.js/express/providers/asgardeo"
 
 app.use("/auth/*", ExpressAuth({ providers: [Asgardeo] }))
 ```

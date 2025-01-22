@@ -1,15 +1,15 @@
 /**
  *
  * :::warning
- * `@auth/<framework-id>` is currently experimental. The API _will_ change in the future.
+ * `@nextauth.js/<framework-id>` is currently experimental. The API _will_ change in the future.
  * :::
  *
- * <framework-name> Auth is the official <framework-name> integration for Auth.js.
+ * <framework-name> Auth is the official <framework-name> integration for NextAuth.js.
  * It provides a simple way to add authentication to your <framework-name> app in a few lines of code.
  *
  * ## Installation
  * ```bash npm2yarn
- * npm install @auth/<framework-id>
+ * npm install @nextauth.js/<framework-id>
  * ```
  *
  * ## Usage
@@ -24,17 +24,17 @@
  *
  * ```
  *
- * @module @auth/<framework-id>
+ * @module @nextauth.js/<framework-id>
  */
 
-// Re-export types of Auth.js
+// Re-export types of NextAuth.js
 export type {
   Account,
   DefaultSession,
   Profile,
   Session,
   User,
-} from "@auth/core/types"
+} from "@nextauth.js/core/types"
 
 export function FrameworkAuth() {
   throw new Error("Not implemented")

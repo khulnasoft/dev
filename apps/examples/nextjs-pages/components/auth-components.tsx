@@ -1,4 +1,4 @@
-import { signIn, signOut } from "next-auth/react"
+import { signIn, signOut } from "nextauth.js/react"
 import { Button } from "./ui/button"
 
 export function SignIn({

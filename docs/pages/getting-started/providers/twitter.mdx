@@ -50,8 +50,8 @@ AUTH_TWITTER_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Twitter from "next-auth/providers/twitter"
+import NextAuth from "nextauth.js"
+import Twitter from "nextauth.js/providers/twitter"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Twitter],
@@ -62,8 +62,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Twitter from "@auth/qwik/providers/twitter"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Twitter from "@nextauth.js/qwik/providers/twitter"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -76,8 +76,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Twitter from "@auth/sveltekit/providers/twitter"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Twitter from "@nextauth.js/sveltekit/providers/twitter"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Twitter],
@@ -88,8 +88,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Twitter from "@auth/express/providers/twitter"
+import { ExpressAuth } from "@nextauth.js/express"
+import Twitter from "@nextauth.js/express/providers/twitter"
 
 app.use("/auth/*", ExpressAuth({ providers: [Twitter] }))
 ```
@@ -99,5 +99,5 @@ app.use("/auth/*", ExpressAuth({ providers: [Twitter] }))
 
 ### Notes
 
-- Auth.js now uses Twitter/X OAuth 2.0 by default. There's no need to set `version` anymore.
+- NextAuth.js now uses Twitter/X OAuth 2.0 by default. There's no need to set `version` anymore.
 - Email is currently not supported by Twitter/X OAuth 2.0.

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import styles from "./footer.module.css"
-import packageJSON from "next-auth/package.json"
+import packageJSON from "nextauth.js/package.json"
 
 export default function Footer() {
   return (
@@ -69,7 +69,7 @@ export default function Footer() {
           <img
             className={styles.footerLogo}
             src="https://auth.khulnasoft.com/img/logo-sm.png"
-            alt="Auth.js Logo"
+            alt="NextAuth.js Logo"
           />
           <Link href="https://npmjs.org/package/next-auth">
             {packageJSON.version}

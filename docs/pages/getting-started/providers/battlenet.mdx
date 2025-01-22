@@ -62,8 +62,8 @@ type BattleNetIssuer =
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth";
-import BattleNet from "next-auth/providers/battlenet";
+import NextAuth from "nextauth.js";
+import BattleNet from "nextauth.js/providers/battlenet";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [BattleNet({
@@ -78,8 +78,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import BattleNet from "@auth/qwik/providers/battlenet";
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import BattleNet from "@nextauth.js/qwik/providers/battlenet";
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -96,8 +96,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit";
-import BattleNet from "@auth/sveltekit/providers/battlenet";
+import { SvelteKitAuth } from "@nextauth.js/sveltekit";
+import BattleNet from "@nextauth.js/sveltekit/providers/battlenet";
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [BattleNet({
@@ -112,8 +112,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express";
-import BattleNet from "@auth/express/providers/battlenet";
+import { ExpressAuth } from "@nextauth.js/express";
+import BattleNet from "@nextauth.js/express/providers/battlenet";
 
 app.use("/auth/*", ExpressAuth({
   providers: [BattleNet({

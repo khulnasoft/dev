@@ -10,7 +10,7 @@ import { Callout, Tabs, Steps } from "nextra/components"
   This guide only applies to `next-auth` upgrades for users of Next.js. Feel
   free to skip to the next section,
   [Installation](/getting-started/installation), if you are not upgrading to
-  `next-auth@5`.
+  `nextauth.js@5`.
 </Callout>
 
 **NextAuth.js version 5** is a major rewrite of the `next-auth` package, that being said, we introduced as few breaking changes as possible. For all else, this document will guide you through the migration process.
@@ -18,7 +18,7 @@ import { Callout, Tabs, Steps } from "nextra/components"
 Get started by installing the latest version of `next-auth` with the `beta` tag.
 
 ```bash npm2yarn
-npm install next-auth@beta
+npm install nextauth.js@beta
 ```
 
 ## New Features
@@ -38,7 +38,7 @@ npm install next-auth@beta
 
 ## Breaking Changes
 
-- Auth.js now builds on `@auth/core` with stricter [OAuth](https://www.ietf.org/rfc/rfc6749.html)/[OIDC](https://openid.net/specs/openid-connect-core-1_0.html) spec-compliance, which might break some existing OAuth providers. See our [open issues](https://github.com/khulnasoft/nextdev/issues?q=is%3Aopen+is%3Aissue+label%3Aproviders) for more details.
+- NextAuth.js now builds on `@nextauth.js/core` with stricter [OAuth](https://www.ietf.org/rfc/rfc6749.html)/[OIDC](https://openid.net/specs/openid-connect-core-1_0.html) spec-compliance, which might break some existing OAuth providers. See our [open issues](https://github.com/khulnasoft/nextdev/issues?q=is%3Aopen+is%3Aissue+label%3Aproviders) for more details.
 - OAuth 1.0 support is deprecated.
 - The minimum required Next.js version is now [14.0](https://nextjs.org/14).
 - The import `next-auth/next` is replaced. See [Authenticating server-side](#authenticating-server-side) for more details.
@@ -53,12 +53,12 @@ npm install next-auth@beta
 
 One of our goals was to avoid exporting your configuration from one file and passing it around as `authOptions` throughout your application. To achieve this, we settled on moving the configuration file to the root of the repository and having it export the necessary functions you can use everywhere else. (`auth`, `signIn`, `signOut`, `handlers` etc.).
 
-The configuration file should look very similar to your previous route-based Auth.js configuration. Except that we're doing it in a new file in the root of the repository now, and we're exporting methods to be used elsewhere. Below is a simple example of a v5 configuration file.
+The configuration file should look very similar to your previous route-based NextAuth.js configuration. Except that we're doing it in a new file in the root of the repository now, and we're exporting methods to be used elsewhere. Below is a simple example of a v5 configuration file.
 
 ```ts filename="./auth.ts" {5}
-import NextAuth from "next-auth"
-import GitHub from "next-auth/providers/github"
-import Google from "next-auth/providers/google"
+import NextAuth from "nextauth.js"
+import GitHub from "nextauth.js/providers/github"
+import Google from "nextauth.js/providers/google"
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   providers: [GitHub, Google],
@@ -68,7 +68,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 Some things to note about the new configuration:
 
 1. This is now in a file named `auth.ts` in the root of your repository. It can technically be named anything, but you'll be importing the exported methods from here across your app, so we'd recommend keeping it short.
-2. There is no need to install `@auth/core` to import the provider definitions from, these come from `next-auth` itself.
+2. There is no need to install `@nextauth.js/core` to import the provider definitions from, these come from `next-auth` itself.
 3. The configuration object passed to the `NextAuth()` function is the same as before.
 4. The returned methods exported from the `NextAuth()` function call are new and will be required elsewhere in your application.
 
@@ -81,7 +81,7 @@ export const { GET, POST } = handlers
 
 ## Authenticating server-side
 
-Auth.js has had a few different ways to authenticate server-side in the past, so we've tried to simplify this as much as possible.
+NextAuth.js has had a few different ways to authenticate server-side in the past, so we've tried to simplify this as much as possible.
 
 Now that Next.js components are **server-first** by default, and thanks to the investment in using standard Web APIs, we were able to simplify the authentication process to a single `auth()` function call in most cases.
 
@@ -107,7 +107,7 @@ See the table below for a summary of the changes. Below that are `diff` examples
 
 <Tabs.Tab>
 
-Auth.js v4 has supported reading the session in Server Components for a while via `getServerSession`. This has been also simplified to the same `auth()` function.
+NextAuth.js v4 has supported reading the session in Server Components for a while via `getServerSession`. This has been also simplified to the same `auth()` function.
 
 ```diff filename="app/page.tsx"
 - import { authOptions } from "pages/api/auth/[...nextauth]"
@@ -124,12 +124,12 @@ export default async function Page() {
 </Tabs.Tab>
 <Tabs.Tab>
 
-Imports from `next-auth/react` are now marked with the [`"use client"`](https://nextjs.org/docs/getting-started/react-essentials#the-use-client-directive) directive. Therefore, they can be used in client components just like they were used in previous versions. Don't forget, client components that attempt to access the session via context will need to be wrapped in a `<SessionProvider />`.
+Imports from `nextauth.js/react` are now marked with the [`"use client"`](https://nextjs.org/docs/getting-started/react-essentials#the-use-client-directive) directive. Therefore, they can be used in client components just like they were used in previous versions. Don't forget, client components that attempt to access the session via context will need to be wrapped in a `<SessionProvider />`.
 
 ```ts filename="components/clientComponent.tsx"
 'use client';
 
-import { useSession, SessionProvider } from 'next-auth/react';
+import { useSession, SessionProvider } from 'nextauth.js/react';
 
 const ClientComponent = () => {
   const session = useSession();
@@ -230,11 +230,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 ### Adapter packages
 
-Beginning with `next-auth` v5, you should now install database adapters from the `@auth/*-adapter` scope, instead of `@next-auth/*-adapter`. Database adapters don't rely on any Next.js features, so it made more sense to move them to this new scope.
+Beginning with `next-auth` v5, you should now install database adapters from the `@nextauth.js/*-adapter` scope, instead of `@nextauth.js/*-adapter`. Database adapters don't rely on any Next.js features, so it made more sense to move them to this new scope.
 
 ```diff
-- npm install @next-auth/prisma-adapter
-+ npm install @auth/prisma-adapter
+- npm install @nextauth.js/prisma-adapter
++ npm install @nextauth.js/prisma-adapter
 ```
 
 <Callout type="info">
@@ -254,9 +254,9 @@ you are not using it. If you do use it, please make sure to return it via the ne
 
 ## Edge compatibility
 
-While Auth.js strictly uses standard [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) (and thus can run in any environment that supports them), some libraries or ORMs (Object-Relational Mapping) packages that you rely on might not be ready yet. In this case, you can split the auth configuration into multiple files.
+While NextAuth.js strictly uses standard [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) (and thus can run in any environment that supports them), some libraries or ORMs (Object-Relational Mapping) packages that you rely on might not be ready yet. In this case, you can split the auth configuration into multiple files.
 
-Auth.js supports two [session strategies](/concepts/session-strategies). When you are using an adapter, it will default to the `database` strategy. **Unless your database and its adapter is compatible with the Edge runtime/infrastructure, you will not be able to use the `"database"` session strategy**.
+NextAuth.js supports two [session strategies](/concepts/session-strategies). When you are using an adapter, it will default to the `database` strategy. **Unless your database and its adapter is compatible with the Edge runtime/infrastructure, you will not be able to use the `"database"` session strategy**.
 
 So for example, if you are using an adapter that relies on an ORM/library that is not yet compatible with Edge runtime(s) below is an example where we force the `jwt` strategy and split up the configuration so the library doesn't attempt to access the database in edge environments, like in the middleware.
 
@@ -265,11 +265,11 @@ So for example, if you are using an adapter that relies on an ORM/library that i
   like.
 </Callout>
 
-1. Create an `auth.config.ts` file which exports an object containing your Auth.js configuration options. You can put all common configuration here **which does not rely on the adapter**. Notice this is exporting a configuration object only, we're not calling `NextAuth()` here.
+1. Create an `auth.config.ts` file which exports an object containing your NextAuth.js configuration options. You can put all common configuration here **which does not rely on the adapter**. Notice this is exporting a configuration object only, we're not calling `NextAuth()` here.
 
 ```ts filename="auth.config.ts"
-import GitHub from "next-auth/providers/github"
-import type { NextAuthConfig } from "next-auth"
+import GitHub from "nextauth.js/providers/github"
+import type { NextAuthConfig } from "nextauth.js"
 
 export default { providers: [GitHub] } satisfies NextAuthConfig
 ```
@@ -277,8 +277,8 @@ export default { providers: [GitHub] } satisfies NextAuthConfig
 2. Next, create an `auth.ts` file and add your adapter and the `jwt` session strategy there. This is the `auth.ts` configuration file you will import from in the rest of your application, other than in the middleware.
 
 ```ts filename="auth.ts" {4, 9, 11}
-import NextAuth from "next-auth"
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import NextAuth from "nextauth.js"
+import { PrismaAdapter } from "@nextauth.js/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 import authConfig from "./auth.config"
 
@@ -291,11 +291,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 })
 ```
 
-3. In your middleware file, import the configuration object from your first `auth.config.ts` file and use it to lazily initialize Auth.js there. In effect, initialize Auth.js separately with all of your common options, but **without the edge incompatible adapter**.
+3. In your middleware file, import the configuration object from your first `auth.config.ts` file and use it to lazily initialize NextAuth.js there. In effect, initialize NextAuth.js separately with all of your common options, but **without the edge incompatible adapter**.
 
 ```ts filename="middleware.ts" {1} /NextAuth/
 import authConfig from "./auth.config"
-import NextAuth from "next-auth"
+import NextAuth from "nextauth.js"
 
 // Use only one of the two middleware options below
 // 1. Use middleware directly
@@ -312,7 +312,7 @@ The above is just an example. **The main idea**, is to separate the part of the 
 
 Please follow up with your library/database/ORM's maintainer to see if they are planning to support the Edge runtime/infrastructure.
 
-For more information in general about edge compatibility and how Auth.js fits into this, check out our [edge compatibility article](/guides/edge-compatibility).
+For more information in general about edge compatibility and how NextAuth.js fits into this, check out our [edge compatibility article](/guides/edge-compatibility).
 
 ## Environment Variables
 
@@ -321,7 +321,7 @@ There are **no breaking changes to the environment variables**, but we have clea
 - All environment variables should be prefixed with `AUTH_`, `NEXTAUTH_` is no longer in use.
 - If you name your provider `secret` / `clientId` variables using this syntax, i.e. `AUTH_GITHUB_SECRET` and `AUTH_GITHUB_ID`, they will be auto-detected and you won't have to explicitly pass them into your provider's configuration.
 - The `NEXTAUTH_URL`/`AUTH_URL` is not strictly necessary anymore in most environments. We will auto-detect the host based on the request headers.
-- The `AUTH_TRUST_HOST` environment variable serves the same purpose as setting `trustHost: true` in your Auth.js configuration. This is necessary when running Auth.js behind a proxy. When set to true we will trust the `X-Forwarded-Host` and `X-Forwarded-Proto` headers passed to the app by the proxy to auto-detect the host URL (`AUTH_URL`)
+- The `AUTH_TRUST_HOST` environment variable serves the same purpose as setting `trustHost: true` in your NextAuth.js configuration. This is necessary when running NextAuth.js behind a proxy. When set to true we will trust the `X-Forwarded-Host` and `X-Forwarded-Proto` headers passed to the app by the proxy to auto-detect the host URL (`AUTH_URL`)
 - The `AUTH_SECRET` environment variable is the **only variable that is really necessary**. You do not need to additionally pass this value into your config as the `secret` configuration option if you've set the environment variable.
 
 For more information about environment variables and environment variable inference, check out our [environment variable](/guides/environment-variables) page.
@@ -329,7 +329,7 @@ For more information about environment variables and environment variable infere
 ## TypeScript
 
 - `NextAuthOptions` is renamed to `NextAuthConfig`
-- The following types are now exported from all framework packages like `next-auth` and `@auth/sveltekit`:
+- The following types are now exported from all framework packages like `next-auth` and `@nextauth.js/sveltekit`:
 
 ```ts
 export type {
@@ -338,10 +338,10 @@ export type {
   Profile,
   Session,
   User,
-} from "@auth/core/types"
+} from "@nextauth.js/core/types"
 ```
 
-- All `Adapter` types are re-exported from `/adapters` in the framework packages as well, i.e. from `next-auth/adapters`, `@auth/sveltekit/adapters`, etc.
+- All `Adapter` types are re-exported from `/adapters` in the framework packages as well, i.e. from `next-auth/adapters`, `@nextauth.js/sveltekit/adapters`, etc.
 
 </Steps>
 

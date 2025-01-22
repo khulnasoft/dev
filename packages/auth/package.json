@@ -1,5 +1,5 @@
 {
-  "name": "next-auth",
+  "name": "nextauth.js",
   "version": "5.0.0-beta.25",
   "description": "Authentication for Next.js",
   "homepage": "https://nextjs.auth.khulnasoft.com",
@@ -86,7 +86,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "@simplewebauthn/browser": "^9.0.1",

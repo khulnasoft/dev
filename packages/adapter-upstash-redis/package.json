@@ -1,7 +1,7 @@
 {
-  "name": "@auth/upstash-redis-adapter",
+  "name": "@nextauth.js/upstash-redis-adapter",
   "version": "2.7.4",
-  "description": "Upstash adapter for Auth.js.",
+  "description": "Upstash adapter for NextAuth.js.",
   "homepage": "https://auth.khulnasoft.com",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -23,7 +23,7 @@
   },
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "upstash",
@@ -39,7 +39,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "@upstash/redis": "^1.0.1"

@@ -7,7 +7,7 @@ index a6899bbf1a545f9581a1f3c4b83e433e35c7cee9..329107182487c1b8321ff48374dcbeb1
  import { bold } from "yoctocolors";
  // TODO: Allow user config
 -const userConfig = {};
-+const userConfig = { ignorePackages: ["next-auth"] };
++const userConfig = { ignorePackages: ["nextauth.js"] };
  const config = { ...defaultConfig, ...userConfig };
  const endMsg = bold("Done");
  console.time(endMsg);

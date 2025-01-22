@@ -51,8 +51,8 @@ AUTH_OSSO_ISSUER
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Osso from "next-auth/providers/osso"
+import NextAuth from "nextauth.js"
+import Osso from "nextauth.js/providers/osso"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Osso],
@@ -63,8 +63,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Osso from "@auth/qwik/providers/osso"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Osso from "@nextauth.js/qwik/providers/osso"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -77,8 +77,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Osso from "@auth/sveltekit/providers/osso"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Osso from "@nextauth.js/sveltekit/providers/osso"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Osso],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Osso from "@auth/express/providers/osso"
+import { ExpressAuth } from "@nextauth.js/express"
+import Osso from "@nextauth.js/express/providers/osso"
 
 app.use("/auth/*", ExpressAuth({ providers: [Osso] }))
 ```

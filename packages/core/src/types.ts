@@ -5,10 +5,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/core
+ * npm install @nextauth.js/core
  * ```
  *
- * You can then import this submodule from `@auth/core/types`.
+ * You can then import this submodule from `@nextauth.js/core/types`.
  *
  * ## Usage
  *
@@ -25,7 +25,7 @@
  *
  * @example
  * ```ts title=index.ts
- * import { Auth } from "@auth/core"
+ * import { Auth } from "@nextauth.js/core"
  *
  * const request = new Request("https://example.com")
  * const response = await Auth(request, {
@@ -290,7 +290,7 @@ export interface PublicProvider {
 }
 
 /**
- * Supported actions by Auth.js. Each action map to a REST API endpoint.
+ * Supported actions by NextAuth.js. Each action map to a REST API endpoint.
  * Some actions have a `GET` and `POST` variant, depending on if the action
  * changes the state of the server.
  *

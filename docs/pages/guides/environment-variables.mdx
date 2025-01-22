@@ -44,7 +44,7 @@ npm exec auth secret
 
 ## Environment Variable Inference
 
-Auth.js is automatically configured to pick the right environment variables for `clientId` and `clientSecret` when using an [official OAuth provider](/getting-started/authentication/oauth).
+NextAuth.js is automatically configured to pick the right environment variables for `clientId` and `clientSecret` when using an [official OAuth provider](/getting-started/authentication/oauth).
 
 The shape of these variables in your `.env` files should always follow the same pattern:
 
@@ -69,16 +69,16 @@ AUTH_GITHUB_ID=123
 AUTH_GITHUB_SECRET=123
 ```
 
-Then in your Auth.js configuration file, the `provider` array is simplified to this.
+Then in your NextAuth.js configuration file, the `provider` array is simplified to this.
 
 <Code>
 <Code.Next>
 
 ```ts filename="./auth.ts" {7}
-import NextAuth from "next-auth"
-import Google from "next-auth/providers/google"
-import Twitter from "next-auth/providers/twitter"
-import GitHub from "next-auth/providers/github"
+import NextAuth from "nextauth.js"
+import Google from "nextauth.js/providers/google"
+import Twitter from "nextauth.js/providers/twitter"
+import GitHub from "nextauth.js/providers/github"
 
 export const { handlers, auth } = NextAuth({
   providers: [Google, Twitter, GitHub],
@@ -89,10 +89,10 @@ export const { handlers, auth } = NextAuth({
 <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Google from "@auth/qwik/providers/google"
-import Twitter from "@auth/qwik/providers/twitter"
-import GitHub from "@auth/qwik/providers/github"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Google from "@nextauth.js/qwik/providers/google"
+import Twitter from "@nextauth.js/qwik/providers/twitter"
+import GitHub from "@nextauth.js/qwik/providers/github"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -105,10 +105,10 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./auth.ts" {7}
-import SvelteKitAuth from "@auth/sveltekit"
-import Google from "@auth/sveltekit/providers/google"
-import Twitter from "@auth/sveltekit/providers/twitter"
-import GitHub from "@auth/sveltekit/providers/github"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Google from "@nextauth.js/sveltekit/providers/google"
+import Twitter from "@nextauth.js/sveltekit/providers/twitter"
+import GitHub from "@nextauth.js/sveltekit/providers/github"
 
 export const { handle } = SvelteKitAuth({
   providers: [Google, Twitter, GitHub],
@@ -132,8 +132,8 @@ Then you will need to manually reference them in the config:
 <Code.Next>
 
 ```ts filename="./auth.ts" {7-8}
-import NextAuth from "next-auth"
-import Google from "next-auth/providers/google"
+import NextAuth from "nextauth.js"
+import Google from "nextauth.js/providers/google"
 
 export const { handlers, auth } = NextAuth({
   providers: [
@@ -149,8 +149,8 @@ export const { handlers, auth } = NextAuth({
 <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Google from "@auth/qwik/providers/google"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Google from "@nextauth.js/qwik/providers/google"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -168,8 +168,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts" {8-9}
-import SvelteKitAuth from "@auth/sveltekit"
-import Google from "@auth/sveltekit/providers/google"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Google from "@nextauth.js/sveltekit/providers/google"
 import { env } from "$env/dynamic/private"
 
 export const { handle } = SvelteKitAuth({

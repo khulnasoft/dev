@@ -4,7 +4,7 @@ import { Code } from "@/components/Code"
 
 # OAuth with GitHub
 
-In this tutorial, we'll be setting up Auth.js in a Next.js application to be able to log in with **GitHub**.
+In this tutorial, we'll be setting up NextAuth.js in a Next.js application to be able to log in with **GitHub**.
 
 <Callout type="info">
   This tutorial uses GitHub as the OAuth provider and Next.js as the framework.
@@ -13,25 +13,25 @@ In this tutorial, we'll be setting up Auth.js in a Next.js application to be abl
   the chosen provider's dashboard.
 </Callout>
 
-## Setting up Auth.js
+## Setting up NextAuth.js
 
-### Installing Auth.js and Next.js
+### Installing NextAuth.js and Next.js
 
-For this tutorial, we're gonna use the default [Auth.js & Next.js example app](https://github.com/khulnasoft/nextdev-example). If you already have an existing Next.js app, it should work too. If you don't, clone the repository:
+For this tutorial, we're gonna use the default [NextAuth.js & Next.js example app](https://github.com/khulnasoft/nextdev-example). If you already have an existing Next.js app, it should work too. If you don't, clone the repository:
 
 ```bash
 git clone https://github.com/khulnasoft/nextdev-example.git && cd next-auth-example
 ```
 
-If you're using the example app, Auth.js is already installed, otherwise follow the [installation instructions](/getting-started/installation).
+If you're using the example app, NextAuth.js is already installed, otherwise follow the [installation instructions](/getting-started/installation).
 
 ### Creating the server config
 
-Next, we're gonna create the main Auth.js configuration file which contains the necessary configuration for Auth.js, as well as the dynamic route handler.
+Next, we're gonna create the main NextAuth.js configuration file which contains the necessary configuration for NextAuth.js, as well as the dynamic route handler.
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import GitHub from "next-auth/providers/github"
+import NextAuth from "nextauth.js"
+import GitHub from "nextauth.js/providers/github"
 
 export const { handlers, auth } = NextAuth({
   providers: [GitHub],
@@ -44,7 +44,7 @@ export const { GET, POST } = handlers
 export const runtime = "edge" // optional
 ```
 
-Since this is a [catch-all dynamic route](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes#catch-all-segments), it will respond to all the relevant Auth.js API routes so that your application can interact with the chosen OAuth provider using the [OAuth 2](https://oauth.net/2) protocol.
+Since this is a [catch-all dynamic route](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes#catch-all-segments), it will respond to all the relevant NextAuth.js API routes so that your application can interact with the chosen OAuth provider using the [OAuth 2](https://oauth.net/2) protocol.
 
 ### Adding environment variables
 
@@ -176,13 +176,13 @@ import AppStart from "../../public/img/oauth-setup/app-start.webp"
 
 <Screenshot src={AppStart} alt="App Start" />
 
-Click on **"Sign in"**, you should be redirected to the default Auth.js signin page. You can [customize this page](/guides/pages/signin) to fit your needs. Next, click on **"Sign in with GitHub"**. Auth.js will redirect you to GitHub, where GitHub will recognize your application and ask the user to confirm they want to authenticate to your new application by entering their credentials.
+Click on **"Sign in"**, you should be redirected to the default NextAuth.js signin page. You can [customize this page](/guides/pages/signin) to fit your needs. Next, click on **"Sign in with GitHub"**. NextAuth.js will redirect you to GitHub, where GitHub will recognize your application and ask the user to confirm they want to authenticate to your new application by entering their credentials.
 
 import GitHubCredentials from "../../public/img/oauth-setup/github-auth-credentials.webp"
 
 <Screenshot src={GitHubCredentials} alt="GitHub Credentials" />
 
-Once authenticated, GitHub will redirect the user back to your app and Auth.js will take care of the rest:
+Once authenticated, GitHub will redirect the user back to your app and NextAuth.js will take care of the rest:
 
 import GitHubAuthSuccess from "../../public/img/oauth-setup/github-auth-success.webp"
 
@@ -194,7 +194,7 @@ If you've landed back here that means everything worked! We have completed the w
   As you can see, most of the time required setting up OAuth in your application
   is spent registering your application in the OAuth provider's dashboard (some
   are easier to navigate, some are harder). Once registered, the setup via
-  Auth.js should be straight forward.
+  NextAuth.js should be straight forward.
 </Callout>
 
 ## Deployment

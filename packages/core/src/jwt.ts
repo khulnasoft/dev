@@ -3,23 +3,23 @@
  *
  * This module contains functions and types
  * to encode and decode {@link https://auth.khulnasoft.com/concepts/session-strategies#jwt-session JWT}s
- * issued and used by Auth.js.
+ * issued and used by NextAuth.js.
  *
- * The JWT issued by Auth.js is _encrypted by default_, using the _A256CBC-HS512_ algorithm ({@link https://www.rfc-editor.org/rfc/rfc7518.html#section-5.2.5 JWE}).
+ * The JWT issued by NextAuth.js is _encrypted by default_, using the _A256CBC-HS512_ algorithm ({@link https://www.rfc-editor.org/rfc/rfc7518.html#section-5.2.5 JWE}).
  * It uses the `AUTH_SECRET` environment variable or the passed `secret` property to derive a suitable encryption key.
  *
  * :::info Note
- * Auth.js JWTs are meant to be used by the same app that issued them.
+ * NextAuth.js JWTs are meant to be used by the same app that issued them.
  * If you need JWT authentication for your third-party API, you should rely on your Identity Provider instead.
  * :::
  *
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/core
+ * npm install @nextauth.js/core
  * ```
  *
- * You can then import this submodule from `@auth/core/jwt`.
+ * You can then import this submodule from `@nextauth.js/core/jwt`.
  *
  * ## Usage
  *
@@ -72,7 +72,7 @@ export async function encode<Payload = JWT>(params: JWTEncodeParams<Payload>) {
     .encrypt(encryptionSecret)
 }
 
-/** Decodes an Auth.js issued JWT. */
+/** Decodes an NextAuth.js issued JWT. */
 export async function decode<Payload = JWT>(
   params: JWTDecodeParams
 ): Promise<Payload | null> {
@@ -135,7 +135,7 @@ export interface GetTokenParams<R extends boolean = false>
 }
 
 /**
- * Takes an Auth.js request (`req`) and returns either the Auth.js issued JWT's payload,
+ * Takes an NextAuth.js request (`req`) and returns either the NextAuth.js issued JWT's payload,
  * or the raw JWT string. We look for the JWT in the either the cookies, or the `Authorization` header.
  */
 export async function getToken<R extends boolean = false>(
@@ -209,7 +209,7 @@ async function getDerivedEncryptionKey(
     "sha256",
     keyMaterial,
     salt,
-    `Auth.js Generated Encryption Key (${salt})`,
+    `NextAuth.js Generated Encryption Key (${salt})`,
     length
   )
 }
@@ -233,7 +233,7 @@ export interface JWT extends Record<string, unknown>, DefaultJWT {}
 
 export interface JWTEncodeParams<Payload = JWT> {
   /**
-   * The maximum age of the Auth.js issued JWT in seconds.
+   * The maximum age of the NextAuth.js issued JWT in seconds.
    *
    * @default 30 * 24 * 60 * 60 // 30 days
    */
@@ -258,26 +258,26 @@ export interface JWTDecodeParams {
    * The newer secret should be added to the start of the array, which will be used for all new sessions.
    */
   secret: string | string[]
-  /** The Auth.js issued JWT to be decoded */
+  /** The NextAuth.js issued JWT to be decoded */
   token?: string
 }
 
 export interface JWTOptions {
   /**
-   * The secret used to encode/decode the Auth.js issued JWT.
+   * The secret used to encode/decode the NextAuth.js issued JWT.
    * It can be an array of secrets, in which case the first secret that successfully
    * decrypts the JWT will be used. This is useful for rotating secrets without invalidating existing sessions.
    * @internal
    */
   secret: string | string[]
   /**
-   * The maximum age of the Auth.js issued JWT in seconds.
+   * The maximum age of the NextAuth.js issued JWT in seconds.
    *
    * @default 30 * 24 * 60 * 60 // 30 days
    */
   maxAge: number
-  /** Override this method to control the Auth.js issued JWT encoding. */
+  /** Override this method to control the NextAuth.js issued JWT encoding. */
   encode: (params: JWTEncodeParams) => Awaitable<string>
-  /** Override this method to control the Auth.js issued JWT decoding. */
+  /** Override this method to control the NextAuth.js issued JWT decoding. */
   decode: (params: JWTDecodeParams) => Awaitable<JWT | null>
 }

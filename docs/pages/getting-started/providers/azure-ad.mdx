@@ -59,8 +59,8 @@ AUTH_AZURE_AD_TENANT_ID
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import AzureAd from "next-auth/providers/azure-ad"
+import NextAuth from "nextauth.js"
+import AzureAd from "nextauth.js/providers/azure-ad"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [AzureAd],
@@ -71,8 +71,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import AzureAd from "@auth/qwik/providers/azure-ad"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import AzureAd from "@nextauth.js/qwik/providers/azure-ad"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -85,8 +85,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import AzureAd from "@auth/sveltekit/providers/azure-ad"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import AzureAd from "@nextauth.js/sveltekit/providers/azure-ad"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [AzureAd],
@@ -97,8 +97,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import AzureAd from "@auth/express/providers/azure-ad"
+import { ExpressAuth } from "@nextauth.js/express"
+import AzureAd from "@nextauth.js/express/providers/azure-ad"
 
 app.use("/auth/*", ExpressAuth({ providers: [AzureAd] }))
 ```
@@ -150,7 +150,7 @@ AUTH_AZURE_AD_TENANT_ID=common
 In `pages/api/auth/[...nextauth].js` find or add the `AzureAD` entries:
 
 ```js
-import AzureADProvider from "next-auth/providers/azure-ad"
+import AzureADProvider from "nextauth.js/providers/azure-ad"
 
 providers: [
   AzureADProvider({

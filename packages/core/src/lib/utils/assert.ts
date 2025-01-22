@@ -79,7 +79,7 @@ const webauthnMethods: (keyof Adapter)[] = [
 ]
 
 /**
- * Verify that the user configured Auth.js correctly.
+ * Verify that the user configured NextAuth.js correctly.
  * Good place to mention deprecations as well.
  *
  * This is invoked before the init method, so default values are not available yet.

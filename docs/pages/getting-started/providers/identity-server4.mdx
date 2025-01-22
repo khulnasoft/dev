@@ -61,8 +61,8 @@ AUTH_IDENTITY_SERVER4_ISSUER
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import IdentityServer4 from "next-auth/providers/identity-server4"
+import NextAuth from "nextauth.js"
+import IdentityServer4 from "nextauth.js/providers/identity-server4"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [IdentityServer4],
@@ -73,8 +73,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import IdentityServer4 from "@auth/qwik/providers/identity-server4"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import IdentityServer4 from "@nextauth.js/qwik/providers/identity-server4"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -87,8 +87,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import IdentityServer4 from "@auth/sveltekit/providers/identity-server4"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import IdentityServer4 from "@nextauth.js/sveltekit/providers/identity-server4"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [IdentityServer4],
@@ -99,8 +99,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import IdentityServer4 from "@auth/express/providers/identity-server4"
+import { ExpressAuth } from "@nextauth.js/express"
+import IdentityServer4 from "@nextauth.js/express/providers/identity-server4"
 
 app.use("/auth/*", ExpressAuth({ providers: [IdentityServer4] }))
 ```

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { page } from "$app/stores"
-  import { SignIn, SignOut } from "@auth/sveltekit/components"
+  import { SignIn, SignOut } from "@nextauth.js/sveltekit/components"
 </script>
 
 <header>

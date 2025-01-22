@@ -1,7 +1,7 @@
 {
-  "name": "@auth/kysely-adapter",
+  "name": "@nextauth.js/kysely-adapter",
   "version": "1.7.4",
-  "description": "Kysely adapter for Auth.js",
+  "description": "Kysely adapter for NextAuth.js",
   "homepage": "https://auth.khulnasoft.com/reference/adapter/kysely",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -11,7 +11,7 @@
   "license": "ISC",
   "keywords": [
     "authjs",
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "kysely"
@@ -35,7 +35,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "kysely": "^0.27.5"

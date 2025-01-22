@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px"}}>
- *  <p>An official <a href="https://developers.cloudflare.com/d1/">Cloudflare D1</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>An official <a href="https://developers.cloudflare.com/d1/">Cloudflare D1</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://developers.cloudflare.com/d1/">
  *   <img style={{display: "block"}} src="/img/adapters/d1.svg" width="48" />
  *  </a>
@@ -13,10 +13,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install next-auth @auth/d1-adapter
+ * npm install next-auth @nextauth.js/d1-adapter
  * ```
  *
- * @module @auth/d1-adapter
+ * @module @nextauth.js/d1-adapter
  */
 
 import type { D1Database as WorkerDatabase } from "@cloudflare/workers-types"
@@ -28,7 +28,7 @@ import {
   type AdapterAccount,
   type VerificationToken as AdapterVerificationToken,
   isDate,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 import {
   CREATE_ACCOUNT_SQL,
   CREATE_SESSION_SQL,

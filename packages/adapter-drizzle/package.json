@@ -1,7 +1,7 @@
 {
-  "name": "@auth/drizzle-adapter",
+  "name": "@nextauth.js/drizzle-adapter",
   "version": "1.7.4",
-  "description": "Drizzle adapter for Auth.js.",
+  "description": "Drizzle adapter for NextAuth.js.",
   "homepage": "https://auth.khulnasoft.com",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -25,9 +25,9 @@
   },
   "license": "ISC",
   "keywords": [
-    "next-auth",
-    "@auth",
-    "Auth.js",
+    "nextauth.js",
+    "@nextauth.js",
+    "NextAuth.js",
     "next.js",
     "oauth",
     "drizzle"
@@ -47,7 +47,7 @@
     "dev": "drizzle-kit generate:mysql --schema=src/schema.ts --out=.drizzle && tsc -w"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "devDependencies": {
     "@types/uuid": "^8.3.3",

@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://sequelize.org/docs/v6/getting-started/">Sequilize</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://sequelize.org/docs/v6/getting-started/">Sequilize</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://sequelize.org/">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/sequelize.svg" height="30"/>
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install next-auth @auth/sequelize-adapter sequelize
+ * npm install next-auth @nextauth.js/sequelize-adapter sequelize
  * ```
  *
- * @module @auth/sequelize-adapter
+ * @module @nextauth.js/sequelize-adapter
  */
 import type {
   Adapter,
@@ -20,7 +20,7 @@ import type {
   AdapterAccount,
   AdapterSession,
   VerificationToken,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 import { Sequelize, Model, ModelCtor } from "sequelize"
 import * as defaultModels from "./models.js"
 
@@ -48,7 +48,7 @@ export interface SequelizeAdapterOptions {
    */
   synchronize?: boolean
   /**
-   * The {@link https://sequelize.org/docs/v6/core-concepts/model-basics/ Sequelize Models} related to Auth.js that will be created in your database.
+   * The {@link https://sequelize.org/docs/v6/core-concepts/model-basics/ Sequelize Models} related to NextAuth.js that will be created in your database.
    */
   models?: Partial<{
     User: ModelCtor<UserInstance>

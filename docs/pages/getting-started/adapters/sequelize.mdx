@@ -15,7 +15,7 @@ import { Code } from "@/components/Code"
 ### Installation
 
 ```bash npm2yarn
-npm install @auth/sequelize-adapter sequelize
+npm install @nextauth.js/sequelize-adapter sequelize
 ```
 
 ### Environment Variables
@@ -35,8 +35,8 @@ DATABASE_URL=postgres://postgres:adminadmin@0.0.0.0:5432/db
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import SequelizeAdapter from "@auth/sequelize-adapter"
+import NextAuth from "nextauth.js"
+import SequelizeAdapter from "@nextauth.js/sequelize-adapter"
 import { Sequelize } from "sequelize"
 
 const sequelize = new Sequelize(process.env.DATABASE_URL)
@@ -51,8 +51,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import SequelizeAdapter from "@auth/sequelize-adapter"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import SequelizeAdapter from "@nextauth.js/sequelize-adapter"
 import { Sequelize } from "sequelize"
 
 const sequelize = new Sequelize(import.meta.env.DATABASE_URL)
@@ -69,8 +69,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import SequelizeAdapter from "@auth/sequelize-adapter"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import SequelizeAdapter from "@nextauth.js/sequelize-adapter"
 import { Sequelize } from "sequelize"
 
 const sequelize = new Sequelize(process.env.DATABASE_URL)
@@ -85,8 +85,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
 <Code.Express>
 
 ```ts filename="./src/routes/auth.route.ts"
-import { ExpressAuth } from "@auth/express"
-import SequelizeAdapter from "@auth/sequelize-adapter"
+import { ExpressAuth } from "@nextauth.js/express"
+import SequelizeAdapter from "@nextauth.js/sequelize-adapter"
 import { Sequelize } from "sequelize"
 
 const sequelize = new Sequelize(process.env.DATABASE_URL)
@@ -114,8 +114,8 @@ By default, the sequelize adapter will not create tables in your database. In pr
 > [schema](/concepts/database-models)
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import SequelizeAdapter from "@auth/sequelize-adapter"
+import NextAuth from "nextauth.js"
+import SequelizeAdapter from "@nextauth.js/sequelize-adapter"
 import Sequelize from "sequelize"
 
 const sequelize = new Sequelize("sqlite::memory:")
@@ -136,8 +136,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 Sequelize models are option to customization like so:
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import SequelizeAdapter, { models } from "@auth/sequelize-adapter"
+import NextAuth from "nextauth.js"
+import SequelizeAdapter, { models } from "@nextauth.js/sequelize-adapter"
 import Sequelize, { DataTypes } from "sequelize"
 
 const sequelize = new Sequelize("sqlite::memory:")

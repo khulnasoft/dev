@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://mikro-orm.io/docs/installation">MikroORM</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://mikro-orm.io/docs/installation">MikroORM</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://mikro-orm.io/">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/mikro-orm.svg" width="64"/>
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @mikro-orm/core @auth/mikro-orm-adapter
+ * npm install @mikro-orm/core @nextauth.js/mikro-orm-adapter
  * ```
  *
- * @module @auth/mikro-orm-adapter
+ * @module @nextauth.js/mikro-orm-adapter
  */
 import type {
   Connection,
@@ -20,7 +20,7 @@ import type {
   Options as ORMOptions,
 } from "@mikro-orm/core"
 
-import type { Adapter } from "@auth/core/adapters"
+import type { Adapter } from "@nextauth.js/core/adapters"
 
 import { MikroORM, wrap } from "@mikro-orm/core"
 

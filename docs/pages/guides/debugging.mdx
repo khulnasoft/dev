@@ -2,10 +2,10 @@ import { Callout } from "nextra/components"
 
 # Debugging
 
-Debugging Auth.js starts with enabling the `debug` option in your main Auth.js configuration.
+Debugging NextAuth.js starts with enabling the `debug` option in your main NextAuth.js configuration.
 
 ```ts filename="./auth.ts" {4}
-import NextAuth from "next-auth"
+import NextAuth from "nextauth.js"
 
 export const { handlers, auth } = NextAuth({
   debug: true,

@@ -7,7 +7,7 @@ module.exports = {
   entryPoints: ["src/index.ts"],
   entryPointStrategy: "expand",
   tsconfig: "./tsconfig.json",
-  entryModule: "@auth/unstorage-adapter",
+  entryModule: "@nextauth.js/unstorage-adapter",
   entryFileName: "../unstorage-adapter.mdx",
   includeVersion: true,
   readme: 'none',

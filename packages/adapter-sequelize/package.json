@@ -1,7 +1,7 @@
 {
-  "name": "@auth/sequelize-adapter",
+  "name": "@nextauth.js/sequelize-adapter",
   "version": "2.7.4",
-  "description": "Sequelize adapter for Auth.js",
+  "description": "Sequelize adapter for NextAuth.js",
   "homepage": "https://auth.khulnasoft.com",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -23,7 +23,7 @@
   },
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "sequelize"
@@ -38,7 +38,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "sequelize": "^6.6.5"

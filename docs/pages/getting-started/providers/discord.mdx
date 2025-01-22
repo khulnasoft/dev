@@ -51,8 +51,8 @@ AUTH_DISCORD_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Discord from "next-auth/providers/discord"
+import NextAuth from "nextauth.js"
+import Discord from "nextauth.js/providers/discord"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Discord],
@@ -63,8 +63,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Discord from "@auth/qwik/providers/discord"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Discord from "@nextauth.js/qwik/providers/discord"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -77,8 +77,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Discord from "@auth/sveltekit/providers/discord"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Discord from "@nextauth.js/sveltekit/providers/discord"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Discord],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Discord from "@auth/express/providers/discord"
+import { ExpressAuth } from "@nextauth.js/express"
+import Discord from "@nextauth.js/express/providers/discord"
 
 app.use("/auth/*", ExpressAuth({ providers: [Discord] }))
 ```

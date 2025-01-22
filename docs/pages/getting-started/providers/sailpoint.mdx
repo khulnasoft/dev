@@ -8,7 +8,7 @@ import { Code } from "@/components/Code"
 SailPoint Identity Secure Cloud (ISC) is an enterprise SaaS platform for identity and security. In order to use this OAuth integration, you will need an ISC tenant. If you're a SailPoint customer or partner, please talk to your SailPoint account manager for more details. If you are a developer, check out the [SailPoint Developer Community](https://developer.sailpoint.com/discuss/).
 
 <Callout>
-  This provider is not shipped with any of the Auth.js packages because it is an
+  This provider is not shipped with any of the NextAuth.js packages because it is an
   enterprise provider for which we cannot obtain a tenant to test and ensure
   compatibility. That being said, we'd like to make providers like these
   available to our users, so we will share a copy and paste version of the
@@ -78,13 +78,13 @@ AUTH_SAILPOINT_BASE_API_URL=https://{tenant}.api.identitynow.com
 
 ### Configuration
 
-Unlike other Auth.js providers, this cannot be imported from the package (see the note at the top of this page for more details). However, you can copy and paste the following object into your `providers` array to enable this provider.
+Unlike other NextAuth.js providers, this cannot be imported from the package (see the note at the top of this page for more details). However, you can copy and paste the following object into your `providers` array to enable this provider.
 
 <Code>
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
+import NextAuth from "nextauth.js"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -118,7 +118,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
+import { QwikAuth$ } from "@nextauth.js/qwik"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -154,7 +154,7 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
 import { env } from "$env/dynamic/prviate"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
@@ -189,7 +189,7 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
+import { ExpressAuth } from "@nextauth.js/express"
 
 app.use(
   "/auth/*",
@@ -227,7 +227,7 @@ app.use(
 
 ### Profile
 
-The SailPoint `userprofile` endpoint will return more fields, but by default the [User table](/getting-started/database#models) only supports `id`, `name`, `email`, and `image`. Therefore, if you'd like to use any of the following fields and you're using a database adapter with Auth.js, make sure you modify the `User` table schema in whichever adapter and database you're using. Then you can additionally return any of these fields from the `profile` callback above.
+The SailPoint `userprofile` endpoint will return more fields, but by default the [User table](/getting-started/database#models) only supports `id`, `name`, `email`, and `image`. Therefore, if you'd like to use any of the following fields and you're using a database adapter with NextAuth.js, make sure you modify the `User` table schema in whichever adapter and database you're using. Then you can additionally return any of these fields from the `profile` callback above.
 
 The available fields from the SailPoint `userprofile` endpoint response include the following.
 

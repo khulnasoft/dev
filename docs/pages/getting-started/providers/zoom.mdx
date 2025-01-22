@@ -50,8 +50,8 @@ AUTH_ZOOM_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Zoom from "next-auth/providers/zoom"
+import NextAuth from "nextauth.js"
+import Zoom from "nextauth.js/providers/zoom"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Zoom],
@@ -62,8 +62,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Zoom from "@auth/qwik/providers/zoom"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Zoom from "@nextauth.js/qwik/providers/zoom"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -76,8 +76,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Zoom from "@auth/sveltekit/providers/zoom"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Zoom from "@nextauth.js/sveltekit/providers/zoom"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Zoom],
@@ -88,8 +88,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Zoom from "@auth/express/providers/zoom"
+import { ExpressAuth } from "@nextauth.js/express"
+import Zoom from "@nextauth.js/express/providers/zoom"
 
 app.use("/auth/*", ExpressAuth({ providers: [Zoom] }))
 ```

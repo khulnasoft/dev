@@ -1,7 +1,7 @@
 {
   "name": "sveltekit-auth-app",
   "version": "1.0.0",
-  "description": "SvelteKit + Auth.js Developer app",
+  "description": "SvelteKit + NextAuth.js Developer app",
   "private": true,
   "scripts": {
     "dev": "vite dev",
@@ -19,8 +19,8 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "@auth/sveltekit": "workspace:*",
-    "@auth/unstorage-adapter": "workspace:*",
+    "@nextauth.js/sveltekit": "workspace:*",
+    "@nextauth.js/unstorage-adapter": "workspace:*",
     "unstorage": "^1.10.2"
   },
   "type": "module"

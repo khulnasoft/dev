@@ -1,4 +1,4 @@
-// Use this script to re-export all providers from core in Auth.js frameworks
+// Use this script to re-export all providers from core in NextAuth.js frameworks
 
 import fs from "fs/promises"
 import { resolve, join } from "path"
@@ -22,9 +22,9 @@ try {
   for (const file of files) {
     const destinationPath = resolve(destinationDir, file)
     const provider = file.substring(0, file.indexOf("."))
-    let content = `export * from "@auth/core/providers/${provider}"`
+    let content = `export * from "@nextauth.js/core/providers/${provider}"`
     if (provider !== "index") {
-      content += `\nexport { default } from "@auth/core/providers/${provider}"`
+      content += `\nexport { default } from "@nextauth.js/core/providers/${provider}"`
     }
 
     content = content.replace(/\/index/g, "")

@@ -13,7 +13,7 @@ import { Callout } from "nextra/components"
 Refresh token rotation is the practice of updating an `access_token` on behalf of the user, without requiring interaction (ie.: re-authenticating).
 `access_token`s are usually issued for a limited time. After they expire, the service verifying them will ignore the value, rendering the `access_token` useless.
 Instead of asking the user to sign in again to obtain a new `access_token`, many providers also issue a `refresh_token` during initial signin, that has a longer expiry date.
-Auth.js libraries can be configured to use this `refresh_token` to obtain a new `access_token` without requiring the user to sign in again.
+NextAuth.js libraries can be configured to use this `refresh_token` to obtain a new `access_token` without requiring the user to sign in again.
 
 ## Implementation
 
@@ -23,7 +23,7 @@ Auth.js libraries can be configured to use this `refresh_token` to obtain a new 
   once. Meaning that after a successful refresh, the `refresh_token` will be
   invalidated and cannot be used again. Therefore, in some cases, a
   race-condition might occur if multiple requests will try to refresh the token
-  at the same time. The Auth.js team is aware of this and would like to provide
+  at the same time. The NextAuth.js team is aware of this and would like to provide
   a solution in the future. This might include some "lock" mechanism to prevent
   multiple requests from trying to refresh the token at the same time, but that
   comes with the drawback of potentially creating a bottleneck in the
@@ -38,7 +38,7 @@ Depending on the [session strategy](/concepts/session-strategies), the `refresh_
 
 <Callout>
   While using a cookie to store the `refresh_token` is simpler, it is less
-  secure. To mitigate risks with the `strategy: "jwt"`, Auth.js libraries store
+  secure. To mitigate risks with the `strategy: "jwt"`, NextAuth.js libraries store
   the `refresh_token` in an _encrypted_ JWT, in an `HttpOnly` cookie. Still, you
   need to evaluate based on your requirements which strategy you choose.
 </Callout>
@@ -51,8 +51,8 @@ Below is a sample implementation of refreshing the `access_token` with Google. P
   <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth, { type User } from "next-auth"
-import Google from "next-auth/providers/google"
+import NextAuth, { type User } from "nextauth.js"
+import Google from "nextauth.js/providers/google"
 
 export const { handlers, auth } = NextAuth({
   providers: [
@@ -126,7 +126,7 @@ export const { handlers, auth } = NextAuth({
   },
 })
 
-declare module "next-auth" {
+declare module "nextauth.js" {
   interface Session {
     error?: "RefreshTokenError"
   }
@@ -153,9 +153,9 @@ Using the database session strategy is similar, but instead we will save the `ac
   <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Google from "next-auth/providers/google"
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import NextAuth from "nextauth.js"
+import Google from "nextauth.js/providers/google"
+import { PrismaAdapter } from "@nextauth.js/prisma-adapter"
 import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
@@ -222,7 +222,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
 })
 
-declare module "next-auth" {
+declare module "nextauth.js" {
   interface Session {
     error?: "RefreshTokenError"
   }
@@ -260,7 +260,7 @@ export default async function Page() {
 "use client"
 
 import { useEffect } from "react"
-import { signIn, useSession } from "next-auth/react"
+import { signIn, useSession } from "nextauth.js/react"
 
 export default function Page() {
   const { data: session } = useSession() // For this to work, the Page should be wrapped inside the SessionProvider component in Layout

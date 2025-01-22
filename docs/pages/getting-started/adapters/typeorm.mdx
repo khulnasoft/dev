@@ -14,7 +14,7 @@ import { Code } from "@/components/Code"
 ### Installation
 
 ```bash npm2yarn
-npm install @auth/typeorm-adapter typeorm
+npm install @nextauth.js/typeorm-adapter typeorm
 ```
 
 ### Environment Variables
@@ -29,8 +29,8 @@ AUTH_TYPEORM_CONNECTION=postgres://postgres:adminadmin@0.0.0.0:5432/db
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import { TypeORMAdapter } from "@auth/typeorm-adapter"
+import NextAuth from "nextauth.js"
+import { TypeORMAdapter } from "@nextauth.js/typeorm-adapter"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: TypeORMAdapter(process.env.AUTH_TYPEORM_CONNECTION),
@@ -41,8 +41,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import { TypeORMAdapter } from "@auth/typeorm-adapter"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import { TypeORMAdapter } from "@nextauth.js/typeorm-adapter"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -56,8 +56,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import { TypeORMAdapter } from "@auth/typeorm-adapter"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import { TypeORMAdapter } from "@nextauth.js/typeorm-adapter"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   adapter: TypeORMAdapter(process.env.AUTH_TYPEORM_CONNECTION),
@@ -68,8 +68,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
 <Code.Express>
 
 ```ts filename="./src/routes/auth.route.ts"
-import { ExpressAuth } from "@auth/express"
-import { TypeORMAdapter } from "@auth/typeorm-adapter"
+import { ExpressAuth } from "@nextauth.js/express"
+import { TypeORMAdapter } from "@nextauth.js/typeorm-adapter"
 
 const app = express()
 
@@ -237,8 +237,8 @@ export class VerificationTokenEntity {
 2. Pass them to `TypeORMAdapter`
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import { TypeORMAdapter } from "@auth/typeorm-adapter"
+import NextAuth from "nextauth.js"
+import { TypeORMAdapter } from "@nextauth.js/typeorm-adapter"
 import * as entities from "lib/entities"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -261,13 +261,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
 #### Naming Conventions
 
-If mixed snake_case and camelCase column names are an issue for you and/or your underlying database system, we recommend using TypeORM's naming strategy feature to change the target field names. There is a package called `typeorm-naming-strategies` which includes a `snake_case` strategy which will translate the fields from how Auth.js expects them, to snake_case in the actual database.
+If mixed snake_case and camelCase column names are an issue for you and/or your underlying database system, we recommend using TypeORM's naming strategy feature to change the target field names. There is a package called `typeorm-naming-strategies` which includes a `snake_case` strategy which will translate the fields from how NextAuth.js expects them, to snake_case in the actual database.
 
 For example, you can add the naming convention option to the connection object in your NextAuth config.
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import { TypeORMAdapter } from "@auth/typeorm-adapter"
+import NextAuth from "nextauth.js"
+import { TypeORMAdapter } from "@nextauth.js/typeorm-adapter"
 import { SnakeNamingStrategy } from "typeorm-naming-strategies"
 import { ConnectionOptions } from "typeorm"
 

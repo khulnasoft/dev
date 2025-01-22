@@ -68,8 +68,8 @@ const NOTION_API_VERSION = "2022-06-28"
  *
  * #### Configuration
  *```ts
- * import { Auth } from "@auth/core"
- * import Notion from "@auth/core/providers/notion"
+ * import { Auth } from "@nextauth.js/core"
+ * import Notion from "@nextauth.js/core/providers/notion"
  *
  * const request = new Request(origin)
  * const response = await Auth(request, {
@@ -103,7 +103,7 @@ const NOTION_API_VERSION = "2022-06-28"
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  *

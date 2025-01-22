@@ -16,8 +16,8 @@ For example, to override a provider's default `scope`s, you can do the following
 <Code>
 <Code.Next>
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth";
-import Auth0 from "next-auth/providers/auth0";
+import NextAuth from "nextauth.js";
+import Auth0 from "nextauth.js/providers/auth0";
 
 export const { handlers, auth } = NextAuth({
   providers: [
@@ -29,8 +29,8 @@ export const { handlers, auth } = NextAuth({
 <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Auth0 from "@auth/qwik/providers/auth0";
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Auth0 from "@nextauth.js/qwik/providers/auth0";
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -44,8 +44,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 </Code.Qwik>
 <Code.Svelte>
 ```ts filename="src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit";
-import Auth0 from "@auth/sveltekit/providers/auth0";
+import { SvelteKitAuth } from "@nextauth.js/sveltekit";
+import Auth0 from "@nextauth.js/sveltekit/providers/auth0";
 
 export const { handle, signIn } = SvelteKitAuth({
   providers: [
@@ -66,8 +66,8 @@ Another example, the `profile` callback will return `name`, `email` and `picture
 <Code>
 <Code.Next>
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth";
-import Auth0 from "next-auth/providers/auth0";
+import NextAuth from "nextauth.js";
+import Auth0 from "nextauth.js/providers/auth0";
 
 export const { handlers, auth } = NextAuth({
   providers: [
@@ -84,8 +84,8 @@ export const { handlers, auth } = NextAuth({
 <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Auth0 from "@auth/qwik/providers/auth0";
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Auth0 from "@nextauth.js/qwik/providers/auth0";
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -104,8 +104,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 </Code.Qwik>
 <Code.Svelte>
 ```ts filename="src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit";
-import Auth0 from "@auth/sveltekit/providers/auth0";
+import { SvelteKitAuth } from "@nextauth.js/sveltekit";
+import Auth0 from "@nextauth.js/sveltekit/providers/auth0";
 
 export const { handle } = SvelteKitAuth({
   providers: [
@@ -139,7 +139,7 @@ Start by passing an object to the [`providers` list](/reference/core#providers):
 <Code>
 <Code.Next>
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth";
+import NextAuth from "nextauth.js";
 
 export const { handlers, auth } = NextAuth({
   providers: [{
@@ -156,7 +156,7 @@ export const { handlers, auth } = NextAuth({
 <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
+import { QwikAuth$ } from "@nextauth.js/qwik"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -175,7 +175,7 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 </Code.Qwik>
 <Code.Svelte>
 ```ts filename="src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit";
+import { SvelteKitAuth } from "@nextauth.js/sveltekit";
 
 export const { handle } = SvelteKitAuth({
   providers: [{

@@ -51,8 +51,8 @@ AUTH_OKTA_ISSUER
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Okta from "next-auth/providers/okta"
+import NextAuth from "nextauth.js"
+import Okta from "nextauth.js/providers/okta"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Okta],
@@ -63,8 +63,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Okta from "@auth/qwik/providers/okta"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Okta from "@nextauth.js/qwik/providers/okta"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -77,8 +77,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Okta from "@auth/sveltekit/providers/okta"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Okta from "@nextauth.js/sveltekit/providers/okta"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Okta],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Okta from "@auth/express/providers/okta"
+import { ExpressAuth } from "@nextauth.js/express"
+import Okta from "@nextauth.js/express/providers/okta"
 
 app.use("/auth/*", ExpressAuth({ providers: [Okta] }))
 ```

@@ -50,8 +50,8 @@ AUTH_DROPBOX_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Dropbox from "next-auth/providers/dropbox"
+import NextAuth from "nextauth.js"
+import Dropbox from "nextauth.js/providers/dropbox"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Dropbox],
@@ -62,8 +62,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Dropbox from "@auth/qwik/providers/dropbox"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Dropbox from "@nextauth.js/qwik/providers/dropbox"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -76,8 +76,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Dropbox from "@auth/sveltekit/providers/dropbox"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Dropbox from "@nextauth.js/sveltekit/providers/dropbox"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Dropbox],
@@ -88,8 +88,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Dropbox from "@auth/express/providers/dropbox"
+import { ExpressAuth } from "@nextauth.js/express"
+import Dropbox from "@nextauth.js/express/providers/dropbox"
 
 app.use("/auth/*", ExpressAuth({ providers: [Dropbox] }))
 ```

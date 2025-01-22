@@ -1,4 +1,4 @@
-import type { AdapterAccountType } from "@auth/core/adapters"
+import type { AdapterAccountType } from "@nextauth.js/core/adapters"
 import {
   boolean,
   integer,

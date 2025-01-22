@@ -3,7 +3,7 @@ export default function Page() {
     <>
       <p>
         This is an example site to demonstrate how to use{" "}
-        <a href="https://auth.khulnasoft.com">Auth.js</a> for authentication.
+        <a href="https://auth.khulnasoft.com">NextAuth.js</a> for authentication.
       </p>
       <h2>Terms of Service</h2>
       <p>

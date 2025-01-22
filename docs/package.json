@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "description": "Auth.js Documentation",
+  "description": "NextAuth.js Documentation",
   "private": true,
   "type": "module",
   "scripts": {
@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/khulnasoft/nextdev"
   },
-  "author": "Auth.js Team (https://auth.khulnasoft.com/contributors)",
+  "author": "NextAuth.js Team (https://auth.khulnasoft.com/contributors)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/khulnasoft/nextdev/issues"

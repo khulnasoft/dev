@@ -1,4 +1,4 @@
-import { useSession } from "next-auth/react"
+import { useSession } from "nextauth.js/react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 import { useState } from "react"

@@ -1,6 +1,6 @@
 {
   "name": "express-auth-app",
-  "description": "Express + Auth.js Developer app",
+  "description": "Express + NextAuth.js Developer app",
   "type": "module",
   "private": true,
   "scripts": {
@@ -13,10 +13,10 @@
     "lint": "eslint src/*.ts --fix",
     "prettier": "prettier src/*.ts --write"
   },
-  "author": "Auth.js Team (https://auth.khulnasoft.com/contributors)",
+  "author": "NextAuth.js Team (https://auth.khulnasoft.com/contributors)",
   "license": "MIT",
   "dependencies": {
-    "@auth/express": "workspace:*",
+    "@nextauth.js/express": "workspace:*",
     "express": "^4.20.0",
     "morgan": "^1.10.0",
     "pug": "^3.0.2"

@@ -9,7 +9,7 @@ overrides:
 
 patchedDependencies:
   '@balazsorban/monorepo-release@0.5.1':
-    hash: cqvuvq5dn5jyeeoklla3tkfope
+    hash: f6bbtyrqtigzhcakqdxegwbs7u
     path: patches/@balazsorban__monorepo-release@0.5.1.patch
 
 importers:
@@ -21,7 +21,7 @@ importers:
         version: 1.10.1
       '@balazsorban/monorepo-release':
         specifier: 0.5.1
-        version: 0.5.1(patch_hash=cqvuvq5dn5jyeeoklla3tkfope)
+        version: 0.5.1(patch_hash=f6bbtyrqtigzhcakqdxegwbs7u)
       '@eslint/compat':
         specifier: ^1.1.1
         version: 1.1.1
@@ -109,7 +109,7 @@ importers:
 
   apps/dev/express:
     dependencies:
-      '@auth/express':
+      '@nextauth.js/express':
         specifier: workspace:*
         version: link:../../../packages/frameworks-express
       express:
@@ -146,9 +146,9 @@ importers:
       next:
         specifier: 15.0.0-rc.1
         version: 15.0.0-rc.1(@opentelemetry/api@1.7.0)(@playwright/test@1.41.2)(react-dom@19.0.0-rc-4c58fce7-20240904(react@19.0.0-rc-4c58fce7-20240904))(react@19.0.0-rc-4c58fce7-20240904)(sass@1.70.0)
-      next-auth:
+      nextauth.js:
         specifier: workspace:*
-        version: link:../../../packages/next-auth
+        version: link:../../../packages/auth
       react:
         specifier: 19.0.0-rc-4c58fce7-20240904
         version: 19.0.0-rc-4c58fce7-20240904
@@ -165,15 +165,15 @@ importers:
 
   apps/dev/qwik:
     devDependencies:
-      '@auth/qwik':
-        specifier: workspace:*
-        version: link:../../../packages/frameworks-qwik
       '@builder.io/qwik':
         specifier: ^1.5.5
         version: 1.7.3(@types/node@20.12.7)(sass@1.70.0)(terser@5.27.0)
       '@builder.io/qwik-city':
         specifier: ^1.5.5
         version: 1.5.5(@types/node@20.12.7)(rollup@4.18.0)(sass@1.70.0)(terser@5.27.0)
+      '@nextauth.js/qwik':
+        specifier: workspace:*
+        version: link:../../../packages/frameworks-qwik
       '@types/eslint':
         specifier: ^8.56.10
         version: 8.56.10
@@ -210,10 +210,10 @@ importers:
 
   apps/dev/sveltekit:
     dependencies:
-      '@auth/sveltekit':
+      '@nextauth.js/sveltekit':
         specifier: workspace:*
         version: link:../../../packages/frameworks-sveltekit
-      '@auth/unstorage-adapter':
+      '@nextauth.js/unstorage-adapter':
         specifier: workspace:*
         version: link:../../../packages/adapter-unstorage
       unstorage:
@@ -246,7 +246,7 @@ importers:
         version: 0.4.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@inkeep/widgets':
         specifier: ^0.2.289
-        version: 0.2.289(@internationalized/date@3.5.2)(@types/react@18.2.78)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
+        version: 0.2.289(@internationalized/date@3.5.6)(@types/react@18.2.78)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
       '@next/third-parties':
         specifier: ^14.2.15
         version: 14.2.15(next@14.2.21(@opentelemetry/api@1.7.0)(@playwright/test@1.41.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.70.0))(react@18.3.1)
@@ -326,7 +326,7 @@ importers:
 
   packages/adapter-azure-tables:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -336,7 +336,7 @@ importers:
 
   packages/adapter-d1:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -352,7 +352,7 @@ importers:
 
   packages/adapter-dgraph:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
       jsonwebtoken:
@@ -365,7 +365,7 @@ importers:
 
   packages/adapter-drizzle:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -393,7 +393,7 @@ importers:
 
   packages/adapter-dynamodb:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -406,7 +406,7 @@ importers:
 
   packages/adapter-edgedb:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -416,7 +416,7 @@ importers:
 
   packages/adapter-fauna:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -429,7 +429,7 @@ importers:
 
   packages/adapter-firebase:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -439,7 +439,7 @@ importers:
 
   packages/adapter-hasura:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -455,7 +455,7 @@ importers:
 
   packages/adapter-kysely:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -477,7 +477,7 @@ importers:
 
   packages/adapter-mikro-orm:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -490,7 +490,7 @@ importers:
 
   packages/adapter-mongodb:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -500,7 +500,7 @@ importers:
 
   packages/adapter-neo4j:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -513,12 +513,12 @@ importers:
 
   packages/adapter-neon:
     dependencies:
-      '@auth/core':
-        specifier: workspace:*
-        version: link:../core
       '@neondatabase/serverless':
         specifier: ^0.10.4
         version: 0.10.4
+      '@nextauth.js/core':
+        specifier: workspace:*
+        version: link:../core
     devDependencies:
       '@types/ws':
         specifier: ^8.5.13
@@ -529,7 +529,7 @@ importers:
 
   packages/adapter-pg:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -542,7 +542,7 @@ importers:
 
   packages/adapter-pouchdb:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -561,7 +561,7 @@ importers:
 
   packages/adapter-prisma:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -580,7 +580,7 @@ importers:
 
   packages/adapter-sequelize:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -590,7 +590,7 @@ importers:
 
   packages/adapter-supabase:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -603,7 +603,7 @@ importers:
 
   packages/adapter-surrealdb:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
       surrealdb.js:
@@ -612,7 +612,7 @@ importers:
 
   packages/adapter-typeorm:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -637,7 +637,7 @@ importers:
 
   packages/adapter-unstorage:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -650,7 +650,7 @@ importers:
 
   packages/adapter-upstash-redis:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -666,13 +666,41 @@ importers:
 
   packages/adapter-xata:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
       '@xata.io/client':
         specifier: ^0.28.0
         version: 0.28.0(typescript@5.6.3)
+
+  packages/auth:
+    dependencies:
+      '@nextauth.js/core':
+        specifier: workspace:*
+        version: link:../core
+      '@simplewebauthn/browser':
+        specifier: ^9.0.1
+        version: 9.0.1
+      '@simplewebauthn/server':
+        specifier: ^9.0.2
+        version: 9.0.3(encoding@0.1.13)
+    devDependencies:
+      '@types/react':
+        specifier: 18.0.37
+        version: 18.0.37
+      dotenv:
+        specifier: ^10.0.0
+        version: 10.0.0
+      next:
+        specifier: 15.0.0-rc.1
+        version: 15.0.0-rc.1(@opentelemetry/api@1.7.0)(@playwright/test@1.41.2)(react-dom@19.0.0-rc-935180c7e0-20240524(react@18.3.1))(react@18.3.1)(sass@1.70.0)
+      nodemailer:
+        specifier: ^6.9.3
+        version: 6.9.8
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
 
   packages/core:
     dependencies:
@@ -731,7 +759,7 @@ importers:
 
   packages/frameworks-express:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
       express:
@@ -750,7 +778,7 @@ importers:
 
   packages/frameworks-qwik:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
       set-cookie-parser:
@@ -778,7 +806,7 @@ importers:
 
   packages/frameworks-solid-start:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -797,7 +825,7 @@ importers:
 
   packages/frameworks-sveltekit:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
       '@simplewebauthn/browser':
@@ -846,37 +874,9 @@ importers:
 
   packages/frameworks-template:
     dependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
-
-  packages/next-auth:
-    dependencies:
-      '@auth/core':
-        specifier: workspace:*
-        version: link:../core
-      '@simplewebauthn/browser':
-        specifier: ^9.0.1
-        version: 9.0.1
-      '@simplewebauthn/server':
-        specifier: ^9.0.2
-        version: 9.0.3(encoding@0.1.13)
-    devDependencies:
-      '@types/react':
-        specifier: 18.0.37
-        version: 18.0.37
-      dotenv:
-        specifier: ^10.0.0
-        version: 10.0.0
-      next:
-        specifier: 15.0.0-rc.1
-        version: 15.0.0-rc.1(@opentelemetry/api@1.7.0)(@playwright/test@1.41.2)(react-dom@19.0.0-rc-935180c7e0-20240524(react@18.3.1))(react@18.3.1)(sass@1.70.0)
-      nodemailer:
-        specifier: ^6.9.3
-        version: 6.9.8
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
 
   packages/utils:
     dependencies:
@@ -884,7 +884,7 @@ importers:
         specifier: ^1.4.4
         version: 1.4.4(@swc/core@1.3.106(@swc/helpers@0.5.13))(rollup@4.18.0)
     devDependencies:
-      '@auth/core':
+      '@nextauth.js/core':
         specifier: workspace:*
         version: link:../core
       '@preact/preset-vite':
@@ -13866,7 +13866,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@ark-ui/anatomy@0.1.0(@internationalized/date@3.5.2)':
+  '@ark-ui/anatomy@0.1.0(@internationalized/date@3.5.6)':
     dependencies:
       '@zag-js/accordion': 0.20.0
       '@zag-js/anatomy': 0.20.0
@@ -13877,7 +13877,7 @@ snapshots:
       '@zag-js/color-utils': 0.20.0
       '@zag-js/combobox': 0.20.0
       '@zag-js/date-picker': 0.20.0
-      '@zag-js/date-utils': 0.20.0(@internationalized/date@3.5.2)
+      '@zag-js/date-utils': 0.20.0(@internationalized/date@3.5.6)
       '@zag-js/dialog': 0.20.0
       '@zag-js/editable': 0.20.0
       '@zag-js/hover-card': 0.20.0
@@ -13903,7 +13903,7 @@ snapshots:
     transitivePeerDependencies:
       - '@internationalized/date'
 
-  '@ark-ui/react@0.15.0(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@ark-ui/react@0.15.0(@internationalized/date@3.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@zag-js/accordion': 0.19.1
       '@zag-js/anatomy': 0.19.1
@@ -13915,7 +13915,7 @@ snapshots:
       '@zag-js/combobox': 0.19.1
       '@zag-js/core': 0.19.1
       '@zag-js/date-picker': 0.19.1
-      '@zag-js/date-utils': 0.19.1(@internationalized/date@3.5.2)
+      '@zag-js/date-utils': 0.19.1(@internationalized/date@3.5.6)
       '@zag-js/dialog': 0.19.1
       '@zag-js/editable': 0.19.1
       '@zag-js/hover-card': 0.19.1
@@ -15402,7 +15402,7 @@ snapshots:
       '@babel/helper-validator-identifier': 7.25.7
       to-fast-properties: 2.0.0
 
-  '@balazsorban/monorepo-release@0.5.1(patch_hash=cqvuvq5dn5jyeeoklla3tkfope)':
+  '@balazsorban/monorepo-release@0.5.1(patch_hash=f6bbtyrqtigzhcakqdxegwbs7u)':
     dependencies:
       '@changesets/get-dependents-graph': 1.3.6
       '@commitlint/parse': 17.7.0
@@ -16689,11 +16689,11 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@inkeep/components@0.0.24(@ark-ui/react@0.15.0(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)':
+  '@inkeep/components@0.0.24(@ark-ui/react@0.15.0(@internationalized/date@3.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@internationalized/date@3.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)':
     dependencies:
-      '@ark-ui/react': 0.15.0(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@inkeep/preset': 0.0.24(@internationalized/date@3.5.2)(typescript@5.6.3)
-      '@inkeep/preset-chakra': 0.0.24(@internationalized/date@3.5.2)(typescript@5.6.3)
+      '@ark-ui/react': 0.15.0(@internationalized/date@3.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@inkeep/preset': 0.0.24(@internationalized/date@3.5.6)(typescript@5.6.3)
+      '@inkeep/preset-chakra': 0.0.24(@internationalized/date@3.5.6)(typescript@5.6.3)
       '@inkeep/shared': 0.0.25
       '@inkeep/styled-system': 0.0.44
       '@pandacss/dev': 0.22.1(typescript@5.6.3)
@@ -16705,9 +16705,9 @@ snapshots:
       - jsdom
       - typescript
 
-  '@inkeep/preset-chakra@0.0.24(@internationalized/date@3.5.2)(typescript@5.6.3)':
+  '@inkeep/preset-chakra@0.0.24(@internationalized/date@3.5.6)(typescript@5.6.3)':
     dependencies:
-      '@ark-ui/anatomy': 0.1.0(@internationalized/date@3.5.2)
+      '@ark-ui/anatomy': 0.1.0(@internationalized/date@3.5.6)
       '@inkeep/shared': 0.0.25
       '@pandacss/dev': 0.22.1(typescript@5.6.3)
     transitivePeerDependencies:
@@ -16715,10 +16715,10 @@ snapshots:
       - jsdom
       - typescript
 
-  '@inkeep/preset@0.0.24(@internationalized/date@3.5.2)(typescript@5.6.3)':
+  '@inkeep/preset@0.0.24(@internationalized/date@3.5.6)(typescript@5.6.3)':
     dependencies:
-      '@ark-ui/anatomy': 0.1.0(@internationalized/date@3.5.2)
-      '@inkeep/preset-chakra': 0.0.24(@internationalized/date@3.5.2)(typescript@5.6.3)
+      '@ark-ui/anatomy': 0.1.0(@internationalized/date@3.5.6)
+      '@inkeep/preset-chakra': 0.0.24(@internationalized/date@3.5.6)(typescript@5.6.3)
       '@inkeep/shared': 0.0.25
       '@pandacss/dev': 0.22.1(typescript@5.6.3)
       colorjs.io: 0.4.5
@@ -16733,14 +16733,14 @@ snapshots:
 
   '@inkeep/styled-system@0.0.46': {}
 
-  '@inkeep/widgets@0.2.289(@internationalized/date@3.5.2)(@types/react@18.2.78)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)':
+  '@inkeep/widgets@0.2.289(@internationalized/date@3.5.6)(@types/react@18.2.78)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)':
     dependencies:
       '@apollo/client': 3.9.5(@types/react@18.2.78)(graphql-ws@5.14.3(graphql@16.8.1))(graphql@16.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@ark-ui/react': 0.15.0(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@ark-ui/react': 0.15.0(@internationalized/date@3.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@inkeep/color-mode': 0.0.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@inkeep/components': 0.0.24(@ark-ui/react@0.15.0(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@internationalized/date@3.5.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
-      '@inkeep/preset': 0.0.24(@internationalized/date@3.5.2)(typescript@5.6.3)
-      '@inkeep/preset-chakra': 0.0.24(@internationalized/date@3.5.2)(typescript@5.6.3)
+      '@inkeep/components': 0.0.24(@ark-ui/react@0.15.0(@internationalized/date@3.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@internationalized/date@3.5.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.6.3)
+      '@inkeep/preset': 0.0.24(@internationalized/date@3.5.6)(typescript@5.6.3)
+      '@inkeep/preset-chakra': 0.0.24(@internationalized/date@3.5.6)(typescript@5.6.3)
       '@inkeep/shared': 0.0.25
       '@inkeep/styled-system': 0.0.46
       '@types/lodash.isequal': 4.5.8
@@ -20074,9 +20074,9 @@ snapshots:
     dependencies:
       '@internationalized/date': 3.5.2
 
-  '@zag-js/date-utils@0.20.0(@internationalized/date@3.5.2)':
+  '@zag-js/date-utils@0.19.1(@internationalized/date@3.5.6)':
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.6
 
   '@zag-js/date-utils@0.20.0(@internationalized/date@3.5.6)':
     dependencies:

@@ -2,7 +2,7 @@ import { Code } from "@/components/Code"
 
 # Supporting corporate proxies
 
-Auth.js libraries use the `fetch` API to communicate with OAuth providers. If your organization uses a corporate proxy, you may need to configure the `fetch` API to use the proxy.
+NextAuth.js libraries use the `fetch` API to communicate with OAuth providers. If your organization uses a corporate proxy, you may need to configure the `fetch` API to use the proxy.
 
 ## Using a custom fetch function
 
@@ -14,8 +14,8 @@ Here, we use the `undici` library to make requests through a proxy server, by pa
   <Code.Next>
 
 ```tsx filename="auth.ts"
-import NextAuth, { customFetch } from "next-auth"
-import GitHub from "next-auth/providers/github"
+import NextAuth, { customFetch } from "nextauth.js"
+import GitHub from "nextauth.js/providers/github"
 import { ProxyAgent, fetch as undici } from "undici"
 
 const dispatcher = new ProxyAgent("my.proxy.server")

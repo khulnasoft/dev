@@ -39,7 +39,7 @@ export function Footer({ className = "" }) {
     >
       <div className="flex w-full max-w-[90rem] flex-col justify-between gap-6 sm:flex-row sm:gap-0">
         <div className="flex flex-col">
-          <h3 className="mb-4 text-lg font-black">About Auth.js</h3>
+          <h3 className="mb-4 text-lg font-black">About NextAuth.js</h3>
           <ul className="flex flex-col gap-2">
             <li>
               <a href="/getting-started">Introduction</a>
@@ -88,7 +88,7 @@ export function Footer({ className = "" }) {
         </div>
       </div>
       <div className="mx-auto mt-4 flex-grow text-gray-400 sm:mt-0 dark:text-gray-500">
-        Auth.js &copy; KhulnaSoft, Ltd and Team - {new Date().getFullYear()}
+        NextAuth.js &copy; KhulnaSoft, Ltd and Team - {new Date().getFullYear()}
       </div>
     </div>
   )

@@ -15,7 +15,7 @@ import { Accordion, Accordions } from "@/components/Accordion"
 ### Installation
 
 ```bash npm2yarn
-npm install @prisma/client @auth/prisma-adapter
+npm install @prisma/client @nextauth.js/prisma-adapter
 npm install prisma --save-dev
 ```
 
@@ -51,8 +51,8 @@ if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import NextAuth from "nextauth.js"
+import { PrismaAdapter } from "@nextauth.js/prisma-adapter"
 import { prisma } from "@/prisma"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -65,8 +65,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import { PrismaAdapter } from "@nextauth.js/prisma-adapter"
 import { prisma } from "@/prisma"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
@@ -81,8 +81,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import { PrismaAdapter } from "@nextauth.js/prisma-adapter"
 import { prisma } from "@/prisma"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
@@ -95,8 +95,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
 <Code.Express>
 
 ```ts filename="./src/routes/auth.route.ts"
-import { ExpressAuth } from "@auth/express"
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import { ExpressAuth } from "@nextauth.js/express"
+import { PrismaAdapter } from "@nextauth.js/prisma-adapter"
 import { prisma } from "@/prisma"
 
 const app = express()
@@ -116,7 +116,7 @@ app.use(
 
 ### Edge Compatibility
 
-Prisma has shipped edge runtime support for their client in version `5.12.0`. You can read more about it on their [edge documentation](https://www.prisma.io/docs/orm/prisma-client/deployment/edge/overview). This requires specific database drivers and therefore is only compatible with certain database types / hosting providers. Check their [list of supported drivers](https://www.prisma.io/docs/orm/prisma-client/deployment/edge/overview#which-database-drivers-are-edge-compatible) before getting started. You can check out an example Auth.js application with `next-auth` and Prisma on the edge [here](https://github.com/ndom91/authjs-prisma-edge-example).
+Prisma has shipped edge runtime support for their client in version `5.12.0`. You can read more about it on their [edge documentation](https://www.prisma.io/docs/orm/prisma-client/deployment/edge/overview). This requires specific database drivers and therefore is only compatible with certain database types / hosting providers. Check their [list of supported drivers](https://www.prisma.io/docs/orm/prisma-client/deployment/edge/overview#which-database-drivers-are-edge-compatible) before getting started. You can check out an example NextAuth.js application with `next-auth` and Prisma on the edge [here](https://github.com/ndom91/authjs-prisma-edge-example).
 
 For more about edge compatibility in general, check out our [edge compatibility guide](/guides/edge-compatibility).
 
@@ -493,7 +493,7 @@ model Authenticator {
 }
 ```
 
-Prisma supports MongoDB, and so does Auth.js. Following the instructions of the [Prisma documentation](https://www.prisma.io/docs/concepts/database-connectors/mongodb) on the MongoDB connector, things to look out for include the following.
+Prisma supports MongoDB, and so does NextAuth.js. Following the instructions of the [Prisma documentation](https://www.prisma.io/docs/concepts/database-connectors/mongodb) on the MongoDB connector, things to look out for include the following.
 
 1. Make sure that the id fields are mapped correctly
 
@@ -544,7 +544,7 @@ npm exec prisma migrate dev
 
 ### Naming Conventions
 
-If mixed `snake_case` and `camelCase` column names is an issue for you and/or your underlying database system, we recommend using Prisma's [`@map()` feature](https://www.prisma.io/docs/concepts/components/prisma-schema/names-in-underlying-database) to change the field names. This won't affect Auth.js, but will allow you to customize the column names to whichever naming convention you prefer.
+If mixed `snake_case` and `camelCase` column names is an issue for you and/or your underlying database system, we recommend using Prisma's [`@map()` feature](https://www.prisma.io/docs/concepts/components/prisma-schema/names-in-underlying-database) to change the field names. This won't affect NextAuth.js, but will allow you to customize the column names to whichever naming convention you prefer.
 
 For example, moving to `snake_case` and plural table names.
 

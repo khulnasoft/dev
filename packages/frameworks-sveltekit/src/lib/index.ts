@@ -1,23 +1,23 @@
 /**
  * :::warning
- * `@auth/sveltekit` is currently experimental. The API _might_ change.
+ * `@nextauth.js/sveltekit` is currently experimental. The API _might_ change.
  * :::
  *
- * SvelteKit Auth is the official SvelteKit integration for Auth.js.
+ * SvelteKit Auth is the official SvelteKit integration for NextAuth.js.
  * It provides a simple way to add authentication to your SvelteKit app in a few lines of code.
  *
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/sveltekit
+ * npm install @nextauth.js/sveltekit
  * ```
  *
  * ## Usage
  *
  * ```ts title="src/auth.ts"
  *
- * import { SvelteKitAuth } from "@auth/sveltekit"
- * import GitHub from "@auth/sveltekit/providers/github"
+ * import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+ * import GitHub from "@nextauth.js/sveltekit/providers/github"
  *
  * export const { handle, signIn, signOut } = SvelteKitAuth({
  *   providers: [GitHub],
@@ -25,11 +25,11 @@
  * ```
  *
  * ### Lazy initialization
- * `@auth/sveltekit` supports lazy initialization where you can read the `event` object to lazily set the configuration. This is especially useful when you have to get the environment variables from `event.platform` for platforms like Cloudflare Workers.
+ * `@nextauth.js/sveltekit` supports lazy initialization where you can read the `event` object to lazily set the configuration. This is especially useful when you have to get the environment variables from `event.platform` for platforms like Cloudflare Workers.
  *
  * ```ts title="src/auth.ts"
- * import { SvelteKitAuth } from "@auth/sveltekit"
- * import GitHub from "@auth/sveltekit/providers/github"
+ * import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+ * import GitHub from "@nextauth.js/sveltekit/providers/github"
  *
  * export const { handle, signIn, signOut } = SvelteKitAuth(async (event) => {
  *   const authOptions = {
@@ -65,7 +65,7 @@
  *
  * ### Server-side
  *
- * `<SignIn />` and `<SignOut />` are components that `@auth/sveltekit` provides out of the box - they handle the sign-in/signout flow, and can be used as-is as a starting point or customized for your own components. This is an example of how to use the `SignIn` and `SignOut` components to login and logout using SvelteKit's server-side form actions. Another example is available on [our svelte-auth-example repo](https://github.com/nextauthjs/sveltekit-auth-example).
+ * `<SignIn />` and `<SignOut />` are components that `@nextauth.js/sveltekit` provides out of the box - they handle the sign-in/signout flow, and can be used as-is as a starting point or customized for your own components. This is an example of how to use the `SignIn` and `SignOut` components to login and logout using SvelteKit's server-side form actions. Another example is available on [our svelte-auth-example repo](https://github.com/nextauthjs/sveltekit-auth-example).
  *
  * You will need two things to make this work:
  *
@@ -74,7 +74,7 @@
  *
  * ```ts title="src/routes/+page.svelte"
  * <script>
- *   import { SignIn, SignOut } from "@auth/sveltekit/components"
+ *   import { SignIn, SignOut } from "@nextauth.js/sveltekit/components"
  *   import { page } from "$app/stores"
  * </script>
  *
@@ -123,18 +123,18 @@
  *
  * ### Client-Side
  *
- * We also export two methods from `@auth/sveltekit/client` in order to do client-side sign-in and sign-out actions.
+ * We also export two methods from `@nextauth.js/sveltekit/client` in order to do client-side sign-in and sign-out actions.
  *
  * ```ts title="src/routes/+page.svelte"
  * <script>
- *   import { signIn, signOut } from "@auth/sveltekit/client"
+ *   import { signIn, signOut } from "@nextauth.js/sveltekit/client"
  *   let password
  * </script>
  *
  * <nav>
  *   <p>
  *     These actions are all using the methods exported from
- *     <code>@auth/sveltekit/client</code>
+ *     <code>@nextauth.js/sveltekit/client</code>
  *   </p>
  *   <div class="actions">
  *     <div class="wrapper-form">
@@ -229,8 +229,8 @@
  * To use multiple handles in your `hooks.server.ts`, we can use SvelteKit's `sequence` to execute all of them in series.
  *
  * ```ts title="src/auth.ts"
- * import { SvelteKitAuth } from '@auth/sveltekit';
- * import GitHub from '@auth/sveltekit/providers/github';
+ * import { SvelteKitAuth } from '@nextauth.js/sveltekit';
+ * import GitHub from '@nextauth.js/sveltekit/providers/github';
  *
  * export const { handle, signIn, signOut } = SvelteKitAuth({
  *   providers: [GitHub]
@@ -275,10 +275,10 @@
  * - If you build your SvelteKit application with `prerender` enabled, pages which have an anchor tag to the default signin page (i.e. `<a href="/auth/signin" ...`) will have trouble building. Please use the [builtin functions or components](https://auth.khulnasoft.com/getting-started/session-management/login?framework=sveltekit) to sign in or out instead.
  *
  * :::info
- * Learn more about `@auth/sveltekit` [here](https://vercel.com/blog/announcing-sveltekit-auth).
+ * Learn more about `@nextauth.js/sveltekit` [here](https://vercel.com/blog/announcing-sveltekit-auth).
  * :::
  *
- * @module @auth/sveltekit
+ * @module @nextauth.js/sveltekit
  */
 
 import "@sveltejs/kit"
@@ -288,11 +288,11 @@ import { env } from "$env/dynamic/private"
 import type { SvelteKitAuthConfig } from "./types"
 import { setEnvDefaults } from "./env"
 import { auth, signIn, signOut } from "./actions"
-import { Auth, isAuthAction, customFetch } from "@auth/core"
+import { Auth, isAuthAction, customFetch } from "@nextauth.js/core"
 import { building } from "$app/environment"
 
 export { customFetch }
-export { AuthError, CredentialsSignin } from "@auth/core/errors"
+export { AuthError, CredentialsSignin } from "@nextauth.js/core/errors"
 
 export type {
   Account,
@@ -300,14 +300,14 @@ export type {
   Profile,
   Session,
   User,
-} from "@auth/core/types"
+} from "@nextauth.js/core/types"
 
 export type { SvelteKitAuthConfig }
 
 const authorizationParamsPrefix = "authorizationParams-"
 
 /**
- * The main entry point to `@auth/sveltekit`
+ * The main entry point to `@nextauth.js/sveltekit`
  * @see https://sveltekit.auth.khulnasoft.com
  */
 export function SvelteKitAuth(

@@ -5,19 +5,19 @@ import manifest from "@/data/manifest.json"
 # Database Adapters
 
 <Callout type="info">
-  Auth.js integrations save sessions in a cookie by default. Therefore, setting
+  NextAuth.js integrations save sessions in a cookie by default. Therefore, setting
   up a database is optional. However, if you want to persist user information in
   your own database, or you want to implement certain flows, you will need to
   use a Database Adapter.
 </Callout>
 
-**Database Adapters** are the bridge we use to connect Auth.js to your database. For instance, [when implementing magic links](/getting-started/authentication/email), the Email provider will require you to setup a database adapter to be able to store the [verification tokens](/concepts/database-models#verificationtoken) present on the links.
+**Database Adapters** are the bridge we use to connect NextAuth.js to your database. For instance, [when implementing magic links](/getting-started/authentication/email), the Email provider will require you to setup a database adapter to be able to store the [verification tokens](/concepts/database-models#verificationtoken) present on the links.
 
 ## Official Adapters
 
-Below is a list of official adapters that are distributed as their own packages under the `@auth/`
+Below is a list of official adapters that are distributed as their own packages under the `@nextauth.js/`
 namespace. Their source code is available in the [`khulnasoft/nextdev`
-monorepo](https://github.com/khulnasoft/nextdev/tree/main/packages). If you're going to create a database adapter, please make sure you familiarise yourself [with the models](/concepts/database-models) Auth.js expects to be present and check out our "[creating a database adapter](/guides/creating-a-database-adapter)" guide.
+monorepo](https://github.com/khulnasoft/nextdev/tree/main/packages). If you're going to create a database adapter, please make sure you familiarise yourself [with the models](/concepts/database-models) NextAuth.js expects to be present and check out our "[creating a database adapter](/guides/creating-a-database-adapter)" guide.
 
 <div className="mb-12 mt-8 grid w-full grid-cols-2 gap-x-4 gap-y-4 sm:grid-cols-3 lg:grid-cols-4">
   {Object.entries(manifest.adapters).map(([value, label]) => (

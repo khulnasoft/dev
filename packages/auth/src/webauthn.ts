@@ -2,9 +2,9 @@ import { apiBaseUrl } from "./lib/client.js"
 import { startAuthentication, startRegistration } from "@simplewebauthn/browser"
 import { getCsrfToken, getProviders, __NEXTAUTH } from "./react.js"
 
-import type { LoggerInstance } from "@auth/core/types"
-import type { WebAuthnOptionsResponseBody } from "@auth/core/types"
-import type { ProviderId } from "@auth/core/providers"
+import type { LoggerInstance } from "@nextauth.js/core/types"
+import type { WebAuthnOptionsResponseBody } from "@nextauth.js/core/types"
+import type { ProviderId } from "@nextauth.js/core/providers"
 import type {
   AuthClientConfig,
   SignInAuthorizationParams,
@@ -92,7 +92,7 @@ export async function signIn<Redirect extends boolean = true>(
     throw new TypeError(
       [
         `Provider id "${provider}" does not refer to a WebAuthn provider.`,
-        'Please use `import { signIn } from "next-auth/react"` instead.',
+        'Please use `import { signIn } from "nextauth.js/react"` instead.',
       ].join("\n")
     )
   }

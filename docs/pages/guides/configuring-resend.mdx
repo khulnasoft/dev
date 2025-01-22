@@ -3,9 +3,9 @@ import { Screenshot } from "@/components/Screenshot"
 
 # Magic links with Resend
 
-In this tutorial, we'll be setting up Auth.js in a Next.js application to be able to log in with **Resend**.
+In this tutorial, we'll be setting up NextAuth.js in a Next.js application to be able to log in with **Resend**.
 
-Magic links (also known as "passwordless") authentication is a login method which uses emails containing a verification token embedded in a URL. When the user clicks on the link, they will be redirected to your Auth.js app and be logged in, as long as that verification token is still valid.
+Magic links (also known as "passwordless") authentication is a login method which uses emails containing a verification token embedded in a URL. When the user clicks on the link, they will be redirected to your NextAuth.js app and be logged in, as long as that verification token is still valid.
 
 <Callout type="info">
   This tutorial uses Resend as the Passwordless email provider and Next.js as
@@ -14,25 +14,25 @@ Magic links (also known as "passwordless") authentication is a login method whic
   your application in the chosen provider's dashboard.
 </Callout>
 
-## Setting up Auth.js
+## Setting up NextAuth.js
 
-### Installing Auth.js and Next.js
+### Installing NextAuth.js and Next.js
 
-For this tutorial, we're gonna use the default [Auth.js & Next.js example app](https://github.com/khulnasoft/nextdev-example). If you already have an existing Next.js app, it should work too. If you don't, clone the repository:
+For this tutorial, we're gonna use the default [NextAuth.js & Next.js example app](https://github.com/khulnasoft/nextdev-example). If you already have an existing Next.js app, it should work too. If you don't, clone the repository:
 
 ```bash
 git clone https://github.com/khulnasoft/nextdev-example.git && cd next-auth-example
 ```
 
-If you're using the example app, Auth.js is already installed, otherwise follow the [installation instructions](/getting-started/installation).
+If you're using the example app, NextAuth.js is already installed, otherwise follow the [installation instructions](/getting-started/installation).
 
 ### Creating the server config
 
-Next, we're gonna create the main Auth.js configuration file which contains the necessary configuration for Auth.js, as well as the dynamic route handler.
+Next, we're gonna create the main NextAuth.js configuration file which contains the necessary configuration for NextAuth.js, as well as the dynamic route handler.
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Resend from "next-auth/providers/resend"
+import NextAuth from "nextauth.js"
+import Resend from "nextauth.js/providers/resend"
 
 export const { handlers, auth } = NextAuth({
   providers: [Resend],
@@ -43,7 +43,7 @@ export const { handlers, auth } = NextAuth({
 export { GET, POST } from "@/auth"
 ```
 
-Since this is a [catch-all dynamic route](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes#catch-all-segments), it will respond to all the relevant Auth.js API routes so that your application can interact with the chosen OAuth provider using the [OAuth 2](https://oauth.net/2) protocol.
+Since this is a [catch-all dynamic route](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes#catch-all-segments), it will respond to all the relevant NextAuth.js API routes so that your application can interact with the chosen OAuth provider using the [OAuth 2](https://oauth.net/2) protocol.
 
 ### Adding environment variables
 
@@ -75,8 +75,8 @@ To verify your domain, follow the [Resend docs](https://resend.com/docs/dashboar
 Next, you will have to update the `from` address to be from the domain you've configured and verified in Resend.
 
 ```ts
-import NextAuth from "next-auth"
-import Resend from "next-auth/providers/resend"
+import NextAuth from "nextauth.js"
+import Resend from "nextauth.js/providers/resend"
 
 export const { handlers, auth } = NextAuth({
   providers: [
@@ -109,9 +109,9 @@ import AppStart from "../../public/img/oauth-setup/app-start.webp"
 
 <Screenshot src={AppStart} alt="App Start" />
 
-Click on **"Sign in"**, you should be redirected to the default Auth.js signin page. You can [customize this page](/guides/pages/signin) to fit your needs. Next, enter your email address in the email input field and click **"Sign in with Resend"**.
+Click on **"Sign in"**, you should be redirected to the default NextAuth.js signin page. You can [customize this page](/guides/pages/signin) to fit your needs. Next, enter your email address in the email input field and click **"Sign in with Resend"**.
 
-Go to your email inbox and you should find the email from your Auth.js application with a button labelled "Sign in". Click on this button and you should be redirected back to your local dev app and be signed in!
+Go to your email inbox and you should find the email from your NextAuth.js application with a button labelled "Sign in". Click on this button and you should be redirected back to your local dev app and be signed in!
 
 import GitHubAuthSuccess from "../../public/img/oauth-setup/github-auth-success.webp"
 
@@ -127,4 +127,4 @@ If you've landed back here that means everything worked! We have completed the w
 
 ## Deployment
 
-Deploying your Auth.js application with Resend does not require any other changes. Just make sure you've added all the required environment variables to your production environment. Refer to the [Deployment page](/getting-started/deployment) for more information.
+Deploying your NextAuth.js application with Resend does not require any other changes. Just make sure you've added all the required environment variables to your production environment. Refer to the [Deployment page](/getting-started/deployment) for more information.

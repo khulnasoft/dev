@@ -2,7 +2,7 @@ import { type ParentComponent } from "solid-js"
 import { A, Title, useRouteData } from "solid-start"
 import { createServerData$ } from "solid-start/server"
 import { authOpts } from "./api/auth/[...solidauth]"
-import { getSession } from "@auth/solid-start"
+import { getSession } from "@nextauth.js/solid-start"
 
 export const routeData = () => {
   return createServerData$(

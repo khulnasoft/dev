@@ -1,33 +1,33 @@
 /**
  *
  * :::warning
- * `@auth/solid-start` is currently experimental. The API _will_ change in the future.
+ * `@nextauth.js/solid-start` is currently experimental. The API _will_ change in the future.
  * :::
  *
- * SolidStart Auth is the official SolidStart integration for Auth.js.
+ * SolidStart Auth is the official SolidStart integration for NextAuth.js.
  * It provides a simple way to add authentication to your SolidStart app in a few lines of code.
  *
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/core @auth/solid-start
+ * npm install @nextauth.js/core @nextauth.js/solid-start
  * ```
  *
- * @module @auth/solid-start
+ * @module @nextauth.js/solid-start
  */
 
-import { Auth, type AuthConfig, customFetch } from "@auth/core"
-import type { AuthAction, Session } from "@auth/core/types"
+import { Auth, type AuthConfig, customFetch } from "@nextauth.js/core"
+import type { AuthAction, Session } from "@nextauth.js/core/types"
 
 export { customFetch }
-export { AuthError, CredentialsSignin } from "@auth/core/errors"
+export { AuthError, CredentialsSignin } from "@nextauth.js/core/errors"
 export type {
   Account,
   DefaultSession,
   Profile,
   Session,
   User,
-} from "@auth/core/types"
+} from "@nextauth.js/core/types"
 
 export interface SolidAuthConfig extends AuthConfig {
   /**
@@ -84,8 +84,8 @@ function SolidAuthHandler(prefix: string, authOptions: SolidAuthConfig) {
  *
  * ```ts
  * // routes/api/auth/[...solidauth].ts
- * import { SolidAuth, type SolidAuthConfig } from "@auth/solid-start"
- * import GitHub from "@auth/core/providers/github"
+ * import { SolidAuth, type SolidAuthConfig } from "@nextauth.js/solid-start"
+ * import GitHub from "@nextauth.js/core/providers/github"
  *
  * export const authOpts: SolidAuthConfig = {
  *   providers: [
@@ -103,7 +103,7 @@ function SolidAuthHandler(prefix: string, authOptions: SolidAuthConfig) {
  * ## Getting the current session
  *
  * ```ts
- * import { getSession } from "@auth/solid-start"
+ * import { getSession } from "@nextauth.js/solid-start"
  * import { createServerData$ } from "solid-start/server"
  * import { authOpts } from "~/routes/api/auth/[...solidauth]"
  *
@@ -130,8 +130,8 @@ function SolidAuthHandler(prefix: string, authOptions: SolidAuthConfig) {
  *
  * ```tsx
  * // components/Protected.tsx
- * import { type Session } from "@auth/core/types";
- * import { getSession } from "@auth/solid-start";
+ * import { type Session } from "@nextauth.js/core/types";
+ * import { getSession } from "@nextauth.js/solid-start";
  * import { Component, Show } from "solid-js";
  * import { useRouteData } from "solid-start";
  * import { createServerData$, redirect } from "solid-start/server";
@@ -193,8 +193,8 @@ function SolidAuthHandler(prefix: string, authOptions: SolidAuthConfig) {
  *
  * ```tsx
  * // entry-server.tsx
- * import { Session } from "@auth/core";
- * import { getSession } from "@auth/solid-start";
+ * import { Session } from "@nextauth.js/core";
+ * import { getSession } from "@nextauth.js/solid-start";
  * import { redirect } from "solid-start";
  * import {
  *   StartServer,

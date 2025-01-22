@@ -1,5 +1,5 @@
 {
-  "name": "@auth/surrealdb-adapter",
+  "name": "@nextauth.js/surrealdb-adapter",
   "version": "1.7.4",
   "description": "SurrealDB adapter for next-auth.",
   "homepage": "https://auth.khulnasoft.com",
@@ -26,7 +26,7 @@
   },
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "mongodb",
@@ -42,7 +42,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "surrealdb.js": "^0.11.0"

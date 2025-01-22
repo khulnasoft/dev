@@ -48,7 +48,7 @@ export default function Loops(config: LoopsUserConfig): LoopsConfig {
     apiKey: "",
     type: "email",
     name: "Loops",
-    from: "Auth.js <no-reply@auth.khulnasoft.com>",
+    from: "NextAuth.js <no-reply@auth.khulnasoft.com>",
     maxAge: 24 * 60 * 60,
     transactionalId: config.transactionalId || "",
     async sendVerificationRequest(params: Params) {

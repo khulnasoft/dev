@@ -7,7 +7,7 @@ module.exports = {
   entryPoints: ["src/index.ts"],
   entryPointStrategy: "expand",
   tsconfig: "./tsconfig.json",
-  entryModule: "@auth/pouchdb-adapter",
+  entryModule: "@nextauth.js/pouchdb-adapter",
   entryFileName: "../pouchdb-adapter.mdx",
   includeVersion: true,
   readme: 'none',

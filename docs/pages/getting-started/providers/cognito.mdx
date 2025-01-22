@@ -53,8 +53,8 @@ AUTH_COGNITO_ISSUER
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Cognito from "next-auth/providers/cognito"
+import NextAuth from "nextauth.js"
+import Cognito from "nextauth.js/providers/cognito"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Cognito],
@@ -65,8 +65,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Cognito from "@auth/qwik/providers/cognito"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Cognito from "@nextauth.js/qwik/providers/cognito"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -79,8 +79,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Cognito from "@auth/sveltekit/providers/cognito"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Cognito from "@nextauth.js/sveltekit/providers/cognito"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Cognito],
@@ -91,8 +91,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Cognito from "@auth/express/providers/cognito"
+import { ExpressAuth } from "@nextauth.js/express"
+import Cognito from "@nextauth.js/express/providers/cognito"
 
 app.use(
   "/auth/*",

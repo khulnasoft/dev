@@ -63,8 +63,8 @@ AUTH_MICROSOFT_ENTRA_ID_ISSUER
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import MicrosoftEntraID from "next-auth/providers/microsoft-entra-id"
+import NextAuth from "nextauth.js"
+import MicrosoftEntraID from "nextauth.js/providers/microsoft-entra-id"
 
 const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -81,8 +81,8 @@ const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Entra from "@auth/qwik/providers/microsoft-entra-id"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Entra from "@nextauth.js/qwik/providers/microsoft-entra-id"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -101,8 +101,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Entra from "@auth/sveltekit/providers/microsoft-entra-id"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Entra from "@nextauth.js/sveltekit/providers/microsoft-entra-id"
 import { env } from "$env/dynamic/private"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
@@ -120,8 +120,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Entra from "@auth/express/providers/microsoft-entra-id"
+import { ExpressAuth } from "@nextauth.js/express"
+import Entra from "@nextauth.js/express/providers/microsoft-entra-id"
 
 app.use(
   "/auth/*",

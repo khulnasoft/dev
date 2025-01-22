@@ -1,8 +1,8 @@
 import CustomLink from "@/components/custom-link"
 import SessionData from "@/components/session-data"
 // import { auth } from "../../auth"
-// import { getSession } from "next-auth/react"
-import type { Session } from "next-auth"
+// import { getSession } from "nextauth.js/react"
+import type { Session } from "nextauth.js"
 import type { GetServerSidePropsContext } from "next"
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next"
 

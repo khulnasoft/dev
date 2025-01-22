@@ -1,7 +1,7 @@
 {
-  "name": "@auth/prisma-adapter",
+  "name": "@nextauth.js/prisma-adapter",
   "version": "2.7.4",
-  "description": "Prisma adapter for Auth.js",
+  "description": "Prisma adapter for NextAuth.js",
   "homepage": "https://auth.khulnasoft.com/reference/adapter/prisma",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -27,7 +27,7 @@
   },
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "prisma"
@@ -50,7 +50,7 @@
     "studio": "prisma studio"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "@prisma/client": ">=2.26.0 || >=3 || >=4 || >=5 || >=6"

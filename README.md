@@ -1,21 +1,21 @@
 <p align="center">
   <br/>
   <a href="https://auth.khulnasoft.com" target="_blank"><img width="96px" src="https://auth.khulnasoft.com/img/logo-sm.png" /></a>
-  <h3 align="center">Auth.js</h3>
+  <h3 align="center">NextAuth.js</h3>
   <p align="center">Authentication for the Web.</p>
   <p align="center">Open Source. Full Stack. Own Your Data.</p>
   <p align="center" style="align: center;">
-    <a href="https://x.com/authjs" ><img src="https://shields.io/badge/Follow @authjs-000?logo=x&style=flat-square" alt="X (formerly known Twitter)" /></a>
-    <a href="https://github.com/khulnasoft/nextdev/releases"><img src="https://img.shields.io/npm/v/next-auth/latest?style=flat-square&label=latest%20stable" alt="NPM next-auth@latest release" /></a>
-    <a href="https://github.com/khulnasoft/nextdev/releases"><img src="https://img.shields.io/npm/v/next-auth/beta?style=flat-square&label=latest%20NextAuth.js v5" alt="NPM next-auth@beta release" /></a>
-    <!-- TODO: Should count `@auth/core` when NextAuth.js v5 is released as stable. -->
+    <a href="https://x.com/khulnasoft" ><img src="https://shields.io/badge/Follow @khulnasoft-000?logo=x&style=flat-square" alt="X (formerly known Twitter)" /></a>
+    <a href="https://github.com/khulnasoft/nextdev/releases"><img src="https://img.shields.io/npm/v/next-auth/latest?style=flat-square&label=latest%20stable" alt="NPM nextauth.js@latest release" /></a>
+    <a href="https://github.com/khulnasoft/nextdev/releases"><img src="https://img.shields.io/npm/v/next-auth/beta?style=flat-square&label=latest%20NextAuth.js v5" alt="NPM nextauth.js@beta release" /></a>
+    <!-- TODO: Should count `@nextauth.js/core` when NextAuth.js v5 is released as stable. -->
     <a href="https://www.npmtrends.com/next-auth"><img src="https://img.shields.io/npm/dm/next-auth?style=flat-square&color=cyan" alt="Downloads" /></a>
     <a href="https://github.com/khulnasoft/nextdev/stargazers"><img src="https://img.shields.io/github/stars/khulnasoft/nextdev?style=flat-square&color=orange" alt="Github Stars" /></a>
     <!-- <a href="https://codecov.io/gh/khulnasoft/nextdev" ><img alt="Codecov" src="https://img.shields.io/codecov/c/github/khulnasoft/nextdev?token=o2KN5GrPsY&style=flat-square&logo=codecov"></a> -->
     <img src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=fff&style=flat-square" alt="TypeScript" />
   </p>
   <p align="center">
-    Auth.js is a set of open-source packages that are built on standard Web APIs for authentication in modern applications with any framework on any platform in any JS runtime.
+    NextAuth.js is a set of open-source packages that are built on standard Web APIs for authentication in modern applications with any framework on any platform in any JS runtime.
   </p>
   <p align="center">
     Need help? See <a href="https://auth.khulnasoft.com">auth.khulnasoft.com</a> for the documentation, or <a href="https://discord.auth.khulnasoft.com">
@@ -42,7 +42,7 @@
 
 ### Own your data
 
-Auth.js can be used with or without a database.
+NextAuth.js can be used with or without a database.
 
 - An open-source solution that allows you to keep control of your data
 - Built-in support for [MySQL, MariaDB, Postgres, Microsoft SQL Server, MongoDB, SQLite, GraphQL, etc.](https://adapters.auth.khulnasoft.com)
@@ -62,15 +62,15 @@ Advanced configuration allows you to define your routines to handle controlling 
 
 ### TypeScript
 
-Auth.js libraries are written with type safety in mind. [Check out the docs](https://auth.khulnasoft.com/getting-started/typescript) for more information.
+NextAuth.js libraries are written with type safety in mind. [Check out the docs](https://auth.khulnasoft.com/getting-started/typescript) for more information.
 
 ## Security
 
-If you think you have found a vulnerability (or are not sure) in Auth.js or any of the related packages (i.e. Adapters), we ask you to read our [Security Policy](https://auth.khulnasoft.com/security) to reach out responsibly. Please do not open Pull Requests/Issues/Discussions before consulting with us.
+If you think you have found a vulnerability (or are not sure) in NextAuth.js or any of the related packages (i.e. Adapters), we ask you to read our [Security Policy](https://auth.khulnasoft.com/security) to reach out responsibly. Please do not open Pull Requests/Issues/Discussions before consulting with us.
 
 ## Acknowledgments
 
-[Auth.js is made possible thanks to all of its contributors.](https://auth.khulnasoft.com/contributors)
+[NextAuth.js is made possible thanks to all of its contributors.](https://auth.khulnasoft.com/contributors)
 
 <a href="https://github.com/khulnasoft/nextdev/graphs/contributors">
   <img width="500px" src="https://contrib.rocks/image?repo=khulnasoft/nextdev" />
@@ -233,7 +233,7 @@ We're open to all community contributions! If you'd like to contribute in any wa
 our [Contributing Guide](https://github.com/nextauthjs/.github/blob/main/CONTRIBUTING.md).
 
 > [!NOTE]
-> The Auth.js/NextAuth.js project is not provided by, nor otherwise affiliated with Vercel Inc. or its subsidiaries. Any contributions to this project by individuals affiliated with Vercel are made in their personal capacity.
+> The NextAuth.js/NextAuth.js project is not provided by, nor otherwise affiliated with Vercel Inc. or its subsidiaries. Any contributions to this project by individuals affiliated with Vercel are made in their personal capacity.
 
 ## License
 

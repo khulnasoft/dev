@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://orm.drizzle.team">Drizzle ORM</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://orm.drizzle.team">Drizzle ORM</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://orm.drizzle.team">
  *   <img style={{display: "block"}} src="/img/adapters/drizzle.svg" width="38" />
  *  </a>
@@ -9,11 +9,11 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install drizzle-orm @auth/drizzle-adapter
+ * npm install drizzle-orm @nextauth.js/drizzle-adapter
  * npm install drizzle-kit --save-dev
  * ```
  *
- * @module @auth/drizzle-adapter
+ * @module @nextauth.js/drizzle-adapter
  */
 
 import { is } from "drizzle-orm"
@@ -25,7 +25,7 @@ import { DefaultPostgresSchema, PostgresDrizzleAdapter } from "./lib/pg.js"
 import { DefaultSQLiteSchema, SQLiteDrizzleAdapter } from "./lib/sqlite.js"
 import { DefaultSchema, SqlFlavorOptions } from "./lib/utils.js"
 
-import type { Adapter } from "@auth/core/adapters"
+import type { Adapter } from "@nextauth.js/core/adapters"
 
 export function DrizzleAdapter<SqlFlavor extends SqlFlavorOptions>(
   db: SqlFlavor,
@@ -40,6 +40,6 @@ export function DrizzleAdapter<SqlFlavor extends SqlFlavorOptions>(
   }
 
   throw new Error(
-    `Unsupported database type (${typeof db}) in Auth.js Drizzle adapter.`
+    `Unsupported database type (${typeof db}) in NextAuth.js Drizzle adapter.`
   )
 }

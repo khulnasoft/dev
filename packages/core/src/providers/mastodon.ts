@@ -42,8 +42,8 @@ export interface MastodonProfile extends Record<string, any> {
  *
  * #### Configuration
  *```ts
- * import { Auth } from "@auth/core"
- * import Mastodon from "@auth/core/providers/mastodon"
+ * import { Auth } from "@nextauth.js/core"
+ * import Mastodon from "@nextauth.js/core/providers/mastodon"
  *
  * const request = new Request(origin)
  * const response = await Auth(request, {
@@ -64,7 +64,7 @@ export interface MastodonProfile extends Record<string, any> {
  *
  * ### Notes
  *
- * By default, Auth.js assumes that the Mastodon provider is
+ * By default, NextAuth.js assumes that the Mastodon provider is
  * based on the [OAuth 2](https://www.rfc-editor.org/rfc/rfc6749.html) specification.
  *
  * Due to Mastodons infrastructure beeing a Fediverse you have to define the `issuer` you want to connect to.
@@ -80,7 +80,7 @@ export interface MastodonProfile extends Record<string, any> {
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  *

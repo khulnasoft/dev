@@ -96,7 +96,7 @@ export type CredentialsProviderId = "credentials"
  *
  * and much more for authentication solutions. It is likely that your application would benefit from leveraging these battle-tested solutions rather than try to rebuild them from scratch.
  *
- * If you'd still like to build password-based authentication for your application despite these risks, Auth.js gives you full control to do so.
+ * If you'd still like to build password-based authentication for your application despite these risks, NextAuth.js gives you full control to do so.
  *
  * :::
  *
@@ -115,8 +115,8 @@ export type CredentialsProviderId = "credentials"
  *
  * @example
  * ```ts
- * import { Auth } from "@auth/core"
- * import Credentials from "@auth/core/providers/credentials"
+ * import { Auth } from "@nextauth.js/core"
+ * import Credentials from "@nextauth.js/core/providers/credentials"
  *
  * const request = new Request("https://example.com")
  * const response = await AuthHandler(request, {

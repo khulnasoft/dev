@@ -1,7 +1,7 @@
 {
-  "name": "@auth/typeorm-adapter",
+  "name": "@nextauth.js/typeorm-adapter",
   "version": "2.7.4",
-  "description": "TypeORM adapter for Auth.js.",
+  "description": "TypeORM adapter for NextAuth.js.",
   "homepage": "https://auth.khulnasoft.com/reference/adapter/typeorm",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -26,7 +26,7 @@
   },
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "typeorm"
@@ -45,7 +45,7 @@
     "test:sqlite": "pnpm clean && ./test/sqlite/test.sh"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "devDependencies": {
     "libsql": "^0.3.18",

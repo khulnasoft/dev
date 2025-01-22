@@ -53,8 +53,8 @@ AUTH_NOTION_REDIRECT_URI
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Notion from "next-auth/providers/notion"
+import NextAuth from "nextauth.js"
+import Notion from "nextauth.js/providers/notion"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -71,8 +71,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Notion from "@auth/qwik/providers/notion"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Notion from "@nextauth.js/qwik/providers/notion"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -91,8 +91,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Notion from "@auth/sveltekit/providers/notion"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Notion from "@nextauth.js/sveltekit/providers/notion"
 import {
   AUTH_NOTION_ID,
   AUTH_NOTION_SECRET,
@@ -114,8 +114,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Notion from "@auth/express/providers/notion"
+import { ExpressAuth } from "@nextauth.js/express"
+import Notion from "@nextauth.js/express/providers/notion"
 
 app.use(
   "/auth/*",

@@ -1,5 +1,5 @@
 {
-  "name": "@auth/core",
+  "name": "@nextauth.js/core",
   "version": "0.37.4",
   "description": "Authentication for the Web.",
   "keywords": [

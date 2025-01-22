@@ -34,8 +34,8 @@ const InkeepChatButton = dynamic(
 const config: DocsThemeConfig = {
   logo: (
     <div className="flex flex-row items-center">
-      <img src="/img/etc/logo-sm.webp" alt="Auth.js Logo" width="30" />
-      <span className="ml-2 text-xl font-black">Auth.js</span>
+      <img src="/img/etc/logo-sm.webp" alt="NextAuth.js Logo" width="30" />
+      <span className="ml-2 text-xl font-black">NextAuth.js</span>
     </div>
   ),
   components: {
@@ -121,8 +121,8 @@ const config: DocsThemeConfig = {
     const title = frontMatter.title
       ? frontMatter.title
       : capitalizedPathTitle
-        ? `Auth.js | ${capitalizedPathTitle}`
-        : "Auth.js | Authentication for the Web"
+        ? `NextAuth.js | ${capitalizedPathTitle}`
+        : "NextAuth.js | Authentication for the Web"
 
     return (
       <>

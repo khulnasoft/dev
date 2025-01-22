@@ -1,6 +1,6 @@
 /**
  *
- * NextAuth.js is the official integration of Auth.js for Next.js applications. It supports both
+ * NextAuth.js is the official integration of NextAuth.js for Next.js applications. It supports both
  * [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components) and the
  * [Pages Router](https://nextjs.org/docs/pages). It includes methods for signing in, signing out, hooks, and a React
  * Context provider to wrap your application and make session data available anywhere.
@@ -22,8 +22,8 @@ import {
   useOnline,
 } from "./lib/client.js"
 
-import type { ProviderId } from "@auth/core/providers"
-import type { LoggerInstance, Session } from "@auth/core/types"
+import type { ProviderId } from "@nextauth.js/core/providers"
+import type { LoggerInstance, Session } from "@nextauth.js/core/types"
 import type {
   AuthClientConfig,
   ClientSafeProvider,
@@ -70,7 +70,7 @@ export const __NEXTAUTH: AuthClientConfig = {
 let broadcastChannel: BroadcastChannel | null = null
 
 function getNewBroadcastChannel() {
-  return new BroadcastChannel("next-auth")
+  return new BroadcastChannel("nextauth.js")
 }
 
 function broadcast() {

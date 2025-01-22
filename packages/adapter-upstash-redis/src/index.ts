@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://docs.upstash.com/redis">Upstash Redis</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://docs.upstash.com/redis">Upstash Redis</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://docs.upstash.com/redis">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/upstash-redis.svg" width="60"/>
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @upstash/redis @auth/upstash-redis-adapter
+ * npm install @upstash/redis @nextauth.js/upstash-redis-adapter
  * ```
  *
- * @module @auth/upstash-redis-adapter
+ * @module @nextauth.js/upstash-redis-adapter
  */
 import {
   type Adapter,
@@ -21,7 +21,7 @@ import {
   type AdapterSession,
   type VerificationToken,
   isDate,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 import type { Redis } from "@upstash/redis"
 
 /** This is the interface of the Upstash Redis adapter options. */

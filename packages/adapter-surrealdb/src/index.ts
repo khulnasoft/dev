@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://www.surrealdb.com">SurrealDB</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://www.surrealdb.com">SurrealDB</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://www.surrealdb.com">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/surrealdb.svg" width="30" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/surrealdb-adapter surrealdb.js
+ * npm install @nextauth.js/surrealdb-adapter surrealdb.js
  * ```
  *
- * @module @auth/surrealdb-adapter
+ * @module @nextauth.js/surrealdb-adapter
  */
 import Surreal, { ExperimentalSurrealHTTP } from "surrealdb.js"
 import type {
@@ -21,8 +21,8 @@ import type {
   AdapterAccount,
   AdapterSession,
   VerificationToken,
-} from "@auth/core/adapters"
-import type { ProviderType } from "@auth/core/providers"
+} from "@nextauth.js/core/adapters"
+import type { ProviderType } from "@nextauth.js/core/providers"
 
 type Document = Record<string, string | null | undefined> & { id: string }
 export type UserDoc = Document & { email: string }

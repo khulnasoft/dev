@@ -8,7 +8,7 @@ const mysqlConfig = {
   port: 3306,
   username: "root",
   password: "password",
-  database: "next-auth",
+  database: "nextauth.js",
   synchronize: true,
 }
 

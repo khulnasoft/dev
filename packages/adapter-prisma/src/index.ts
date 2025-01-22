@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  Official <a href="https://www.prisma.io/docs">Prisma</a> adapter for Auth.js / NextAuth.js.
+ *  Official <a href="https://www.prisma.io/docs">Prisma</a> adapter for NextAuth.js / NextAuth.js.
  *  <a href="https://www.prisma.io/">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/prisma.svg" width="38" />
  *  </a>
@@ -9,11 +9,11 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @prisma/client @auth/prisma-adapter
+ * npm install @prisma/client @nextauth.js/prisma-adapter
  * npm install prisma --save-dev
  * ```
  *
- * @module @auth/prisma-adapter
+ * @module @nextauth.js/prisma-adapter
  */
 import { type PrismaClient } from "@prisma/client"
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library"
@@ -22,7 +22,7 @@ import type {
   AdapterAccount,
   AdapterSession,
   AdapterUser,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 
 export function PrismaAdapter(
   prisma: PrismaClient | ReturnType<PrismaClient["$extends"]>

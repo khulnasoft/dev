@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
 import { Inter } from "next/font/google"
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "nextauth.js/react"
 import type { AppProps } from "next/app"
 
 const inter = Inter({ subsets: ["latin"] })

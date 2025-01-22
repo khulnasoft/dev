@@ -59,7 +59,7 @@ export default function Nodemailer(
     type: "email",
     name: "Nodemailer",
     server: { host: "localhost", port: 25, auth: { user: "", pass: "" } },
-    from: "Auth.js <no-reply@auth.khulnasoft.com>",
+    from: "NextAuth.js <no-reply@auth.khulnasoft.com>",
     maxAge: 24 * 60 * 60,
     async sendVerificationRequest(params) {
       const { identifier, url, provider, theme } = params

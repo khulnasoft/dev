@@ -23,7 +23,7 @@ const client = DynamoDBDocument.from(new DynamoDB(config), {
 
 const adapter = DynamoDBAdapter(client)
 
-const TableName = "next-auth"
+const TableName = "nextauth.js"
 
 runBasicTests({
   adapter,

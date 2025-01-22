@@ -1,5 +1,5 @@
 import { auth, unstable_update as update } from "auth"
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "nextauth.js/react"
 import Client from "./client"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
@@ -11,7 +11,8 @@ export default async function Page() {
       <h1>NextAuth.js Example</h1>
       <p>
         This is an example site to demonstrate how to use{" "}
-        <a href="https://nextjs.auth.khulnasoft.com">NextAuth.js</a> for authentication.
+        <a href="https://nextjs.auth.khulnasoft.com">NextAuth.js</a> for
+        authentication.
       </p>
       <div className="card">
         <div className="card-header">

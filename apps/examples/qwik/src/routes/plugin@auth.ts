@@ -1,7 +1,7 @@
-import { DefaultSession, QwikAuth$ } from "@auth/qwik";
-import GitHub from "@auth/qwik/providers/github";
+import { DefaultSession, QwikAuth$ } from "@nextauth.js/qwik";
+import GitHub from "@nextauth.js/qwik/providers/github";
 
-declare module "@auth/qwik" {
+declare module "@nextauth.js/qwik" {
   interface Session {
     user: {
       roles: string[];

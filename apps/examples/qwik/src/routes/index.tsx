@@ -8,7 +8,7 @@ export default component$(() => {
       <div>This is an example site to demonstrate how to use</div>
       <div class="py-2 font-bold text-blue-600">
         <a target="_blank" href="https://auth.khulnasoft.com/">
-          Auth.js
+          NextAuth.js
         </a>
       </div>
       <div>for authentication with</div>

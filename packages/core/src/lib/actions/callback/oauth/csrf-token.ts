@@ -13,7 +13,7 @@ interface CreateCSRFTokenParams {
  * Ensure CSRF Token cookie is set for any subsequent requests.
  * Used as part of the strategy for mitigation for CSRF tokens.
  *
- * Creates a cookie like 'next-auth.csrf-token' with the value 'token|hash',
+ * Creates a cookie like 'nextauth.js.csrf-token' with the value 'token|hash',
  * where 'token' is the CSRF token and 'hash' is a hash made of the token and
  * the secret, and the two values are joined by a pipe '|'. By storing the
  * value and the hash of the value (with the secret used as a salt) we can

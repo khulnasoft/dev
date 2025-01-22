@@ -67,7 +67,7 @@ export function OAuthInstructions({ providerId, disabled = false }: Props) {
         If you haven’t used OAuth before, you can read the beginners
         step-by-step guide on{" "}
         <Link href="/guides/configuring-github">
-          how to setup "Sign in with GitHub" with Auth.js
+          how to setup "Sign in with GitHub" with NextAuth.js
         </Link>
         .
       </Callout>
@@ -188,7 +188,7 @@ export function OAuthInstructions({ providerId, disabled = false }: Props) {
         </Code.Express>
       </Code>
       <p className="mt-6 leading-7 first:mt-0">
-        Auth.js will automatically pick up these if formatted like the example
+        NextAuth.js will automatically pick up these if formatted like the example
         above. You can{" "}
         <Link href="/guides/environment-variables#oauth-variables">
           also use a different name for the environment variables
@@ -198,10 +198,10 @@ export function OAuthInstructions({ providerId, disabled = false }: Props) {
       {/* Step 3 */}
       <StepTitle count={3}>Setup Provider</StepTitle>
       <p className="mt-6 leading-7 first:mt-0">
-        Let’s enable {providerName} as a sign in option in our Auth.js
+        Let’s enable {providerName} as a sign in option in our NextAuth.js
         configuration. You’ll have to import the <NXCode>{providerName}</NXCode>{" "}
         provider from the package and pass it to the <NXCode>providers</NXCode>{" "}
-        array we setup earlier in the Auth.js config file:
+        array we setup earlier in the NextAuth.js config file:
       </p>
       <SetupCode
         providerId={providerId}
@@ -212,7 +212,7 @@ export function OAuthInstructions({ providerId, disabled = false }: Props) {
       <StepTitle count={4}>Add Signin Button</StepTitle>
       <p className="mt-6 leading-7 first:mt-0">
         Next, we can add a signin button somewhere in your application like the
-        Navbar. It will trigger Auth.js sign in when clicked.
+        Navbar. It will trigger NextAuth.js sign in when clicked.
       </p>
       <SignInCode
         providerId={providerId}

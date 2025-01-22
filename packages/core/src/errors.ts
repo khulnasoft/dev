@@ -35,7 +35,7 @@ type ErrorType =
   | "ExperimentalFeatureNotEnabled"
 
 /**
- * Base error class for all Auth.js errors.
+ * Base error class for all NextAuth.js errors.
  * It's optimized to be printed in the server logs in a nicely formatted way
  * via the [`logger.error`](https://auth.khulnasoft.com/reference/core#logger) option.
  */
@@ -150,8 +150,8 @@ export class CallbackRouteError extends AuthError {
 }
 
 /**
- * Thrown when Auth.js is misconfigured and accidentally tried to require authentication on a custom error page.
- * To prevent an infinite loop, Auth.js will instead render its default error page.
+ * Thrown when NextAuth.js is misconfigured and accidentally tried to require authentication on a custom error page.
+ * To prevent an infinite loop, NextAuth.js will instead render its default error page.
  *
  * To fix this, make sure that the `error` page does not require authentication.
  *
@@ -174,12 +174,12 @@ export class EventError extends AuthError {
 }
 
 /**
- * Thrown when Auth.js is unable to verify a `callbackUrl` value.
+ * Thrown when NextAuth.js is unable to verify a `callbackUrl` value.
  * The browser either disabled cookies or the `callbackUrl` is not a valid URL.
  *
- * Somebody might have tried to manipulate the callback URL that Auth.js uses to redirect the user back to the configured `callbackUrl`/page.
+ * Somebody might have tried to manipulate the callback URL that NextAuth.js uses to redirect the user back to the configured `callbackUrl`/page.
  * This could be a malicious hacker trying to redirect the user to a phishing site.
- * To prevent this, Auth.js checks if the callback URL is valid and throws this error if it is not.
+ * To prevent this, NextAuth.js checks if the callback URL is valid and throws this error if it is not.
  *
  * There is no action required, but it might be an indicator that somebody is trying to attack your application.
  */
@@ -230,7 +230,7 @@ export class InvalidCheck extends AuthError {
 }
 
 /**
- * Logged on the server when Auth.js could not decode or encode a JWT-based (`strategy: "jwt"`) session.
+ * Logged on the server when NextAuth.js could not decode or encode a JWT-based (`strategy: "jwt"`) session.
  *
  * Possible causes are either a misconfigured `secret` or a malformed JWT or `encode/decode` methods.
  *
@@ -245,7 +245,7 @@ export class JWTSessionError extends AuthError {
 }
 
 /**
- * Thrown if Auth.js is misconfigured. This could happen if you configured an Email provider but did not set up a database adapter,
+ * Thrown if NextAuth.js is misconfigured. This could happen if you configured an Email provider but did not set up a database adapter,
  * or tried using a `strategy: "database"` session without a database adapter.
  * In both cases, make sure you either remove the configuration or add the missing adapter.
  *
@@ -277,7 +277,7 @@ export class MissingAuthorize extends AuthError {
 }
 
 /**
- * Auth.js requires a secret or multiple secrets to be set, but none was not found. This is used to encrypt cookies, JWTs and other sensitive data.
+ * NextAuth.js requires a secret or multiple secrets to be set, but none was not found. This is used to encrypt cookies, JWTs and other sensitive data.
  *
  * :::note
  * If you are using a framework like Next.js, we try to automatically infer the secret from the `AUTH_SECRET`, `AUTH_SECRET_1`, etc. environment variables.
@@ -286,7 +286,7 @@ export class MissingAuthorize extends AuthError {
  *
  *
  * :::tip
- * To generate a random string, you can use the Auth.js CLI: `npx auth secret`
+ * To generate a random string, you can use the NextAuth.js CLI: `npx auth secret`
  * :::
  */
 export class MissingSecret extends AuthError {
@@ -297,7 +297,7 @@ export class MissingSecret extends AuthError {
  * Thrown when an Email address is already associated with an account
  * but the user is trying an OAuth account that is not linked to it.
  *
- * For security reasons, Auth.js does not automatically link OAuth accounts to existing accounts if the user is not signed in.
+ * For security reasons, NextAuth.js does not automatically link OAuth accounts to existing accounts if the user is not signed in.
  *
  * :::tip
  * If you trust the OAuth provider to have verified the user's email address,
@@ -329,7 +329,7 @@ export class OAuthProfileParseError extends AuthError {
 }
 
 /**
- * Logged on the server when Auth.js could not retrieve a session from the database (`strategy: "database"`).
+ * Logged on the server when NextAuth.js could not retrieve a session from the database (`strategy: "database"`).
  *
  * The database adapter might be misconfigured or the database is not reachable.
  *
@@ -387,7 +387,7 @@ export class SignOutError extends AuthError {
 }
 
 /**
- * Auth.js was requested to handle an operation that it does not support.
+ * NextAuth.js was requested to handle an operation that it does not support.
  *
  * See [`AuthAction`](https://auth.khulnasoft.com/reference/core/types#authaction) for the supported actions.
  */
@@ -412,10 +412,10 @@ export class InvalidProvider extends AuthError {
 /**
  * Thrown when the `trustHost` option was not set to `true`.
  *
- * Auth.js requires the `trustHost` option to be set to `true` since it's relying on the request headers' `host` value.
+ * NextAuth.js requires the `trustHost` option to be set to `true` since it's relying on the request headers' `host` value.
  *
  * :::note
- * Official Auth.js libraries might attempt to automatically set the `trustHost` option to `true` if the request is coming from a trusted host on a trusted platform.
+ * Official NextAuth.js libraries might attempt to automatically set the `trustHost` option to `true` if the request is coming from a trusted host on a trusted platform.
  * :::
  *
  * Learn more at [`trustHost`](https://auth.khulnasoft.com/reference/core#trusthost) or [Guide: Deployment](https://auth.khulnasoft.com/getting-started/deployment)
@@ -496,7 +496,7 @@ export class WebAuthnVerificationError extends AuthError {
  * Thrown when an Email address is already associated with an account
  * but the user is trying an account that is not linked to it.
  *
- * For security reasons, Auth.js does not automatically link accounts to existing accounts if the user is not signed in.
+ * For security reasons, NextAuth.js does not automatically link accounts to existing accounts if the user is not signed in.
  */
 export class AccountNotLinked extends SignInError {
   static type = "AccountNotLinked"

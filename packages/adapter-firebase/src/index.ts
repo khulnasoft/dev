@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official **Firestore** adapter for Auth.js / NextAuth.js, using the [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)</p>
+ *  <p>Official **Firestore** adapter for NextAuth.js / NextAuth.js, using the [Firebase Admin SDK](https://firebase.google.com/docs/admin/setup)</p>
  *  <a href="https://firebase.google.com/docs/firestore/">
  *   <img style={{display: "block"}} src="/img/adapters/firebase.svg" width="48" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/firebase-adapter firebase-admin
+ * npm install @nextauth.js/firebase-adapter firebase-admin
  * ```
  *
- * @module @auth/firebase-adapter
+ * @module @nextauth.js/firebase-adapter
  */
 
 import { type AppOptions, getApps, initializeApp } from "firebase-admin/app"
@@ -30,7 +30,7 @@ import type {
   AdapterAccount,
   AdapterSession,
   VerificationToken,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 
 /** Configure the Firebase Adapter. */
 export interface FirebaseAdapterConfig extends AppOptions {
@@ -375,7 +375,7 @@ export function collectionsFactory(
  *
  * @example
  * ```ts title="lib/firestore.ts"
- * import { initFirestore } from "@auth/firebase-adapter"
+ * import { initFirestore } from "@nextauth.js/firebase-adapter"
  * import { cert } from "firebase-admin/app"
  *
  * export const firestore = initFirestore({

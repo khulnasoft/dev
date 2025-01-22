@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px"}}>
- *  <p>Official <a href="https://typeorm.io">TypeORM</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://typeorm.io">TypeORM</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://typeorm.io">
  *   <img style={{display: "block" }} width="56" src="/img/adapters/typeorm.svg" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/typeorm-adapter typeorm
+ * npm install @nextauth.js/typeorm-adapter typeorm
  * ```
  *
- * @module @auth/typeorm-adapter
+ * @module @nextauth.js/typeorm-adapter
  */
 
 import type {
@@ -20,7 +20,7 @@ import type {
   AdapterUser,
   AdapterAccount,
   AdapterSession,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 import { DataSourceOptions, DataSource, EntityManager } from "typeorm"
 import * as defaultEntities from "./entities.js"
 import { parseDataSourceConfig, updateConnectionEntities } from "./utils.js"

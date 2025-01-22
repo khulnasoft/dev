@@ -7,7 +7,7 @@ export default function ForwardEmail(config: EmailUserConfig): EmailConfig {
     id: "forwardemail",
     type: "email",
     name: "Forward Email",
-    from: "Auth.js <no-reply@auth.khulnasoft.com>",
+    from: "NextAuth.js <no-reply@auth.khulnasoft.com>",
     maxAge: 24 * 60 * 60,
     async sendVerificationRequest(params) {
       const { identifier: to, provider, url, theme } = params

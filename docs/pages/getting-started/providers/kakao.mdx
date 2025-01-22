@@ -53,8 +53,8 @@ Create a provider and a Kakao application at https://developers.kakao.com/consol
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Kakao from "next-auth/providers/kakao"
+import NextAuth from "nextauth.js"
+import Kakao from "nextauth.js/providers/kakao"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Kakao],
@@ -65,8 +65,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Kakao from "@auth/qwik/providers/kakao"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Kakao from "@nextauth.js/qwik/providers/kakao"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -79,8 +79,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Kakao from "@auth/sveltekit/providers/kakao"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Kakao from "@nextauth.js/sveltekit/providers/kakao"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Kakao],
@@ -91,8 +91,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Kakao from "@auth/express/providers/kakao"
+import { ExpressAuth } from "@nextauth.js/express"
+import Kakao from "@nextauth.js/express/providers/kakao"
 
 app.use("/auth/*", ExpressAuth({ providers: [Kakao] }))
 ```

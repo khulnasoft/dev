@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://neo4j.com/docs/">Neo4j</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://neo4j.com/docs/">Neo4j</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://neo4j.com/">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/neo4j.svg" width="128" />
  *  </a>
@@ -9,13 +9,13 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/neo4j-adapter neo4j-driver
+ * npm install @nextauth.js/neo4j-adapter neo4j-driver
  * ```
  *
- * @module @auth/neo4j-adapter
+ * @module @nextauth.js/neo4j-adapter
  */
 import { type Session, isInt, integer } from "neo4j-driver"
-import { isDate, type Adapter } from "@auth/core/adapters"
+import { isDate, type Adapter } from "@nextauth.js/core/adapters"
 
 /**
  * This is the interface of the Neo4j adapter options. The Neo4j adapter takes a {@link https://neo4j.com/docs/bolt/current/driver-api/#driver-session Neo4j session} as its only argument.

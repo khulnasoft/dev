@@ -1,7 +1,7 @@
 {
-  "name": "@auth/supabase-adapter",
+  "name": "@nextauth.js/supabase-adapter",
   "version": "1.7.4",
-  "description": "Supabase adapter for Auth.js",
+  "description": "Supabase adapter for NextAuth.js",
   "homepage": "https://auth.khulnasoft.com",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -22,7 +22,7 @@
     }
   },
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "supabase"
   ],
@@ -37,7 +37,7 @@
     "test": "./test/test.sh"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "@supabase/supabase-js": "^2.43.1"

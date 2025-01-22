@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://supabase.com/docs">Supabase</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://supabase.com/docs">Supabase</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://supabase.com/">
  *   <img style={{display: "block"}} src="https://auth.khulnasoft.com/img/adapters/supabase.svg" width="50"/>
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @supabase/supabase-js @auth/supabase-adapter
+ * npm install @supabase/supabase-js @nextauth.js/supabase-adapter
  * ```
  *
- * @module @auth/supabase-adapter
+ * @module @nextauth.js/supabase-adapter
  */
 import { createClient } from "@supabase/supabase-js"
 import {
@@ -21,7 +21,7 @@ import {
   type AdapterUser,
   type VerificationToken,
   isDate,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 
 export function format<T>(obj: Record<string, any>): T {
   for (const [key, value] of Object.entries(obj)) {
@@ -55,7 +55,7 @@ export function SupabaseAdapter(options: SupabaseAdapterOptions): Adapter {
   const { url, secret } = options
   const supabase = createClient<Database, "next_auth">(url, secret, {
     db: { schema: "next_auth" },
-    global: { headers: { "X-Client-Info": "@auth/supabase-adapter" } },
+    global: { headers: { "X-Client-Info": "@nextauth.js/supabase-adapter" } },
     auth: { persistSession: false },
   })
   return {

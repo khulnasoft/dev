@@ -7,7 +7,7 @@ module.exports = {
   entryPoints: ["src/index.ts"],
   entryPointStrategy: "expand",
   tsconfig: "./tsconfig.json",
-  entryModule: "@auth/supabase-adapter",
+  entryModule: "@nextauth.js/supabase-adapter",
   entryFileName: "../supabase-adapter.mdx",
   includeVersion: true,
   readme: 'none',

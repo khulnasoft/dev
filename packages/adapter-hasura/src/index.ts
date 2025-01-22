@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px"}}>
- *  <p>Official <a href="https://hasura.io/">Hasura</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://hasura.io/">Hasura</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://hasura.io/">
  *   <img style={{display: "block"}} src="/img/adapters/hasura.svg" width="38" />
  *  </a>
@@ -9,13 +9,13 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/hasura-adapter
+ * npm install @nextauth.js/hasura-adapter
  * ```
  *
- * @module @auth/hasura-adapter
+ * @module @nextauth.js/hasura-adapter
  */
 
-import { isDate, type Adapter } from "@auth/core/adapters"
+import { isDate, type Adapter } from "@nextauth.js/core/adapters"
 
 import {
   client as hasuraClient,

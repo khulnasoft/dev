@@ -71,7 +71,7 @@ export default function Wrapper() {
       className="relative [aside_&]:w-full max-md:[nav_&]:hidden"
     >
       <InstantSearch
-        indexName="next-auth"
+        indexName="nextauth.js"
         // @ts-expect-error
         searchClient={searchClient}
       >

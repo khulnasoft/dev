@@ -1,6 +1,6 @@
-import type { AuthConfig } from "@auth/core"
-import type { ProviderId } from "@auth/core/providers"
-import type { Session } from "@auth/core/types"
+import type { AuthConfig } from "@nextauth.js/core"
+import type { ProviderId } from "@nextauth.js/core/providers"
+import type { Session } from "@nextauth.js/core/types"
 
 /** Configure the {@link SvelteKitAuth} method. */
 export interface SvelteKitAuthConfig extends Omit<AuthConfig, "raw"> {}

@@ -4,7 +4,7 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install next-auth@beta
+ * npm install nextauth.js@beta
  * ```
  *
  * ## Environment variable inference
@@ -26,8 +26,8 @@
  * To add social login to your app, the configuration becomes:
  *
  * ```ts title="auth.ts"
- * import NextAuth from "next-auth"
- * import GitHub from "next-auth/providers/github"
+ * import NextAuth from "nextauth.js"
+ * import GitHub from "nextauth.js/providers/github"
  * export const { handlers, auth } = NextAuth({ providers: [ GitHub ] })
  * ```
  *
@@ -50,8 +50,8 @@
  * The above example becomes:
  *
  * ```ts title="auth.ts"
- * import NextAuth from "next-auth"
- * import GitHub from "next-auth/providers/github"
+ * import NextAuth from "nextauth.js"
+ * import GitHub from "nextauth.js/providers/github"
  * export const { handlers, auth } = NextAuth(req => {
  *  if (req) {
  *   console.log(req) // do something with the request
@@ -67,13 +67,13 @@
  * @module next-auth
  */
 
-import { Auth, customFetch } from "@auth/core"
+import { Auth, customFetch } from "@nextauth.js/core"
 import { reqWithEnvURL, setEnvDefaults } from "./lib/env.js"
 import { initAuth } from "./lib/index.js"
 import { signIn, signOut, update } from "./lib/actions.js"
 
-import type { Awaitable, Session } from "@auth/core/types"
-import type { ProviderId } from "@auth/core/providers"
+import type { Awaitable, Session } from "@nextauth.js/core/types"
+import type { ProviderId } from "@nextauth.js/core/providers"
 import type {
   GetServerSidePropsContext,
   NextApiRequest,
@@ -86,7 +86,7 @@ import type {
 // @ts-expect-error Next.js does not yet correctly use the `package.json#exports` field
 import type { NextRequest } from "next/server"
 import type { NextAuthConfig, NextAuthRequest } from "./lib/index.js"
-export { AuthError, CredentialsSignin } from "@auth/core/errors"
+export { AuthError, CredentialsSignin } from "@nextauth.js/core/errors"
 
 export { customFetch }
 
@@ -96,7 +96,7 @@ export type {
   Profile,
   DefaultSession,
   User,
-} from "@auth/core/types"
+} from "@nextauth.js/core/types"
 
 type AppRouteHandlers = Record<
   "GET" | "POST",
@@ -268,7 +268,7 @@ export interface NextAuthResult {
    *
    * If an error occurs during signin, an instance of {@link AuthError} will be thrown. You can catch it like this:
    * ```ts title="app/layout.tsx"
-   * import { AuthError } from "next-auth"
+   * import { AuthError } from "nextauth.js"
    * import { signIn } from "../auth"
    *
    * export default function Layout() {
@@ -345,8 +345,8 @@ export interface NextAuthResult {
  *
  *  @example
  * ```ts title="auth.ts"
- * import NextAuth from "next-auth"
- * import GitHub from "@auth/core/providers/github"
+ * import NextAuth from "nextauth.js"
+ * import GitHub from "@nextauth.js/core/providers/github"
  *
  * export const { handlers, auth } = NextAuth({ providers: [GitHub] })
  * ```
@@ -355,8 +355,8 @@ export interface NextAuthResult {
  *
  * @example
  * ```ts title="auth.ts"
- * import NextAuth from "next-auth"
- * import GitHub from "@auth/core/providers/github"
+ * import NextAuth from "nextauth.js"
+ * import GitHub from "@nextauth.js/core/providers/github"
  *
  * export const { handlers, auth } = NextAuth(async (req) => {
  *   console.log(req) // do something with the request

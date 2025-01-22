@@ -18,7 +18,7 @@ This login mechanism starts by the user providing their email address at the log
 <Callout>
   An Email Provider can be used with both [JSON Web Tokens](https://jwt.io/) and
   [database](/concepts/session-strategies#database-session) session, whichever
-  you choose, you **must still configure a database** so that Auth.js can save
+  you choose, you **must still configure a database** so that NextAuth.js can save
   the verification tokens and look them up when the user attempts to login. It
   is not possible to enable an email provider without using a database.
 </Callout>
@@ -108,7 +108,7 @@ a database is required for passwordless login to work as verification tokens nee
 
 ### Setup Environment Variables
 
-Auth.js will automatically pick up these if formatted like the example above.
+NextAuth.js will automatically pick up these if formatted like the example above.
 You can [also use a different name for the environment variables](/guides/environment-variables#oauth-variables) if needed, but then you’ll need to pass them to the provider manually.
 
 ```bash filename=".env"
@@ -117,14 +117,14 @@ AUTH_FORWARDEMAIL_KEY=abc123
 
 ### Setup Provider
 
-Let’s enable `ForwardEmail` as a sign in option in our Auth.js configuration. You’ll have to import the `ForwardEmail` provider from the package and pass it to the providers array we setup earlier in the Auth.js config file:
+Let’s enable `ForwardEmail` as a sign in option in our NextAuth.js configuration. You’ll have to import the `ForwardEmail` provider from the package and pass it to the providers array we setup earlier in the NextAuth.js config file:
 
 <Code>
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import ForwardEmail from "next-auth/providers/forwardemail"
+import NextAuth from "nextauth.js"
+import ForwardEmail from "nextauth.js/providers/forwardemail"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [ForwardEmail],
@@ -135,8 +135,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import ForwardEmail from "@auth/qwik/providers/forwardemail"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import ForwardEmail from "@nextauth.js/qwik/providers/forwardemail"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -149,8 +149,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import SvelteKitAuth from "@auth/sveltekit"
-import ForwardEmail from "@auth/sveltekit/providers/forwardemail"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import ForwardEmail from "@nextauth.js/sveltekit/providers/forwardemail"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [ForwardEmail],
@@ -214,7 +214,7 @@ export default component$(() => {
 
 ```html filename="src/routes/+page.svelte"
 <script lang="ts">
-  import { SignIn } from "@auth/sveltekit/components"
+  import { SignIn } from "@nextauth.js/sveltekit/components"
 </script>
 
 <div>
@@ -262,7 +262,7 @@ a database is required for passwordless login to work as verification tokens nee
 
 ### Setup Environment Variables
 
-Auth.js will automatically pick up these if formatted like the example above.
+NextAuth.js will automatically pick up these if formatted like the example above.
 You can [also use a different name for the environment variables](/guides/environment-variables#oauth-variables) if needed, but then you’ll need to pass them to the provider manually.
 
 ```bash filename=".env"
@@ -271,14 +271,14 @@ AUTH_RESEND_KEY=abc123
 
 ### Setup Provider
 
-Let’s enable `Resend` as a sign in option in our Auth.js configuration. You’ll have to import the `Resend` provider from the package and pass it to the providers array we setup earlier in the Auth.js config file:
+Let’s enable `Resend` as a sign in option in our NextAuth.js configuration. You’ll have to import the `Resend` provider from the package and pass it to the providers array we setup earlier in the NextAuth.js config file:
 
 <Code>
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Resend from "next-auth/providers/resend"
+import NextAuth from "nextauth.js"
+import Resend from "nextauth.js/providers/resend"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Resend],
@@ -289,8 +289,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Resend from "@auth/qwik/providers/resend"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Resend from "@nextauth.js/qwik/providers/resend"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -303,8 +303,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import SvelteKitAuth from "@auth/sveltekit"
-import Resend from "@auth/sveltekit/providers/resend"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Resend from "@nextauth.js/sveltekit/providers/resend"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Resend],
@@ -348,7 +348,7 @@ export function SignIn() {
 
 ```tsx filename="./components/sign-in.tsx"
 "use client"
-import { signIn } from "next-auth/react"
+import { signIn } from "nextauth.js/react"
 
 export function SignIn() {
   const resendAction = (formData: FormData) => {
@@ -392,7 +392,7 @@ export default component$(() => {
 
 ```html filename="src/routes/+page.svelte"
 <script lang="ts">
-  import { SignIn } from "@auth/sveltekit/components"
+  import { SignIn } from "@nextauth.js/sveltekit/components"
 </script>
 
 <div>
@@ -440,7 +440,7 @@ a database is required for passwordless login to work as verification tokens nee
 
 ### Setup Environment Variables
 
-Auth.js will automatically pick up these if formatted like the example above.
+NextAuth.js will automatically pick up these if formatted like the example above.
 You can [also use a different name for the environment variables](/guides/environment-variables#oauth-variables) if needed, but then you’ll need to pass them to the provider manually.
 
 ```bash filename=".env"
@@ -449,14 +449,14 @@ AUTH_SENDGRID_KEY=abc123
 
 ### Setup Provider
 
-Let’s enable `Sendgrid` as a sign in option in our Auth.js configuration. You’ll have to import the `Sendgrid` provider from the package and pass it to the providers array we setup earlier in the Auth.js config file:
+Let’s enable `Sendgrid` as a sign in option in our NextAuth.js configuration. You’ll have to import the `Sendgrid` provider from the package and pass it to the providers array we setup earlier in the NextAuth.js config file:
 
 <Code>
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Sendgrid from "next-auth/providers/sendgrid"
+import NextAuth from "nextauth.js"
+import Sendgrid from "nextauth.js/providers/sendgrid"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Sendgrid],
@@ -467,8 +467,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Sendgrid from "@auth/qwik/providers/sendgrid"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Sendgrid from "@nextauth.js/qwik/providers/sendgrid"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -481,8 +481,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import SvelteKitAuth from "@auth/sveltekit"
-import Sendgrid from "@auth/sveltekit/providers/sendgrid"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Sendgrid from "@nextauth.js/sveltekit/providers/sendgrid"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Sendgrid],
@@ -526,7 +526,7 @@ export function SignIn() {
 
 ```tsx filename="./components/sign-in.tsx"
 "use client"
-import { signIn } from "next-auth/react"
+import { signIn } from "nextauth.js/react"
 
 export function SignIn() {
   const sendgridAction = (formData: FormData) => {
@@ -570,7 +570,7 @@ export default component$(() => {
 
 ```html filename="src/routes/+page.svelte"
 <script lang="ts">
-  import { SignIn } from "@auth/sveltekit/components"
+  import { SignIn } from "@nextauth.js/sveltekit/components"
 </script>
 
 <div>
@@ -613,7 +613,7 @@ For more information on this provider go to the [Sendgrid docs page](/getting-st
 
 ### Install `nodemailer`
 
-Auth.js does not include `nodemailer` as a dependency, so you'll need to install it yourself if you want to use the Nodemailer provider.
+NextAuth.js does not include `nodemailer` as a dependency, so you'll need to install it yourself if you want to use the Nodemailer provider.
 
 ```sh npm2yarn
 npm install nodemailer
@@ -642,8 +642,8 @@ EMAIL_FROM=noreply@example.com
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Nodemailer from "next-auth/providers/nodemailer"
+import NextAuth from "nextauth.js"
+import Nodemailer from "nextauth.js/providers/nodemailer"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -659,8 +659,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Nodemailer from "@auth/qwik/providers/nodemailer"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Nodemailer from "@nextauth.js/qwik/providers/nodemailer"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -678,8 +678,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import SvelteKitAuth from "@auth/sveltekit"
-import Nodemailer from "@auth/sveltekit/providers/nodemailer"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Nodemailer from "@nextauth.js/sveltekit/providers/nodemailer"
 import { env } from "$env/dynamic/private"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
@@ -714,8 +714,8 @@ EMAIL_FROM=noreply@example.com
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Nodemailer from "next-auth/providers/nodemailer"
+import NextAuth from "nextauth.js"
+import Nodemailer from "nextauth.js/providers/nodemailer"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -738,8 +738,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Nodemailer from "@auth/qwik/providers/nodemailer"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Nodemailer from "@nextauth.js/qwik/providers/nodemailer"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -764,8 +764,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import SvelteKitAuth from "@auth/sveltekit"
-import Nodemailer from "@auth/sveltekit/providers/nodemailer"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Nodemailer from "@nextauth.js/sveltekit/providers/nodemailer"
 import { env } from "$env/dynamic/private"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
@@ -797,7 +797,7 @@ export { handle } from "./auth"
 
 ### Signin Button
 
-Next, we can add a sign in button somewhere in your application like the Navbar. This will forward the user on to the Auth.js default signin page.
+Next, we can add a sign in button somewhere in your application like the Navbar. This will forward the user on to the NextAuth.js default signin page.
 
 <Code>
 <Code.Next>
@@ -844,7 +844,7 @@ export default component$(() => {
 
 ```ts filename="src/routes/+page.svelte"
 <script lang="ts">
-  import { signIn } from '@auth/sveltekit/client'
+  import { signIn } from '@nextauth.js/sveltekit/client'
 </script>
 
 <div>
@@ -860,11 +860,11 @@ export default component$(() => {
 
 ### Signin
 
-Start your application, click on the sign in button we just added, and you should see Auth.js built-in sign in page with the option to sign in with your email:
+Start your application, click on the sign in button we just added, and you should see NextAuth.js built-in sign in page with the option to sign in with your email:
 
 <Screenshot src={MagicLink} alt="Screenshot of sign in page" />
 
-Insert your email and click "Sign in with Email". You should receive an email from Auth.js, click on it and should be redirected to your application, landing already authenticated.
+Insert your email and click "Sign in with Email". You should receive an email from NextAuth.js, click on it and should be redirected to your application, landing already authenticated.
 
 </Steps>
 
@@ -889,7 +889,7 @@ a database is required for passwordless login to work as verification tokens nee
 
 ### Setup Environment Variables
 
-Auth.js will automatically pick up these if formatted like the example above.
+NextAuth.js will automatically pick up these if formatted like the example above.
 You can [also use a different name for the environment variables](/guides/environment-variables#oauth-variables) if needed, but then you’ll need to pass them to the provider manually.
 
 ```bash filename=".env"
@@ -898,14 +898,14 @@ AUTH_POSTMARK_KEY=abc123
 
 ### Setup Provider
 
-Let’s enable `Postmark` as a sign in option in our Auth.js configuration. You’ll have to import the `Postmark` provider from the package and pass it to the providers array we setup earlier in the Auth.js config file:
+Let’s enable `Postmark` as a sign in option in our NextAuth.js configuration. You’ll have to import the `Postmark` provider from the package and pass it to the providers array we setup earlier in the NextAuth.js config file:
 
 <Code>
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Postmark from "next-auth/providers/postmark"
+import NextAuth from "nextauth.js"
+import Postmark from "nextauth.js/providers/postmark"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Postmark],
@@ -916,8 +916,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
 
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Postmark from "@auth/qwik/providers/postmark"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Postmark from "@nextauth.js/qwik/providers/postmark"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -930,8 +930,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import SvelteKitAuth from "@auth/sveltekit"
-import Postmark from "@auth/sveltekit/providers/postmark"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Postmark from "@nextauth.js/sveltekit/providers/postmark"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Postmark],
@@ -975,7 +975,7 @@ export function SignIn() {
 
 ```tsx filename="./components/sign-in.tsx"
 "use client"
-import { signIn } from "next-auth/react"
+import { signIn } from "nextauth.js/react"
 
 export function SignIn() {
   const postmarkAction = (formData: FormData) => {
@@ -1019,7 +1019,7 @@ export default component$(() => {
 
 ```html filename="src/routes/+page.svelte"
 <script lang="ts">
-  import { SignIn } from "@auth/sveltekit/components"
+  import { SignIn } from "@nextauth.js/sveltekit/components"
 </script>
 
 <div>
@@ -1073,7 +1073,7 @@ On the last page of Template creation, you'll need to copy the `TRANSACTIONAL ID
 
 You'll need to create an API key to authenticate with Loops. This key should be kept secret and not shared with anyone.
 You can Generate a key by going to the [API Settings Page](https://app.loops.so/settings?page=api) and clicking Generate.
-You should name the key something that makes sense to you, like "Auth.js".
+You should name the key something that makes sense to you, like "NextAuth.js".
 
 ### Setup Environment Variables
 
@@ -1086,14 +1086,14 @@ AUTH_LOOPS_TRANSACTIONAL_ID=def456
 
 ### Setup Provider
 
-Let's enable `Loops` as a sign-in option for our Auth.js configuration. You'll have to import the `Loops` provider from the package and pass it to the providers array we set up earlier in the Auth.js config file:
+Let's enable `Loops` as a sign-in option for our NextAuth.js configuration. You'll have to import the `Loops` provider from the package and pass it to the providers array we set up earlier in the NextAuth.js config file:
 
 <Code>
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Loops from "next-auth/providers/loops"
+import NextAuth from "nextauth.js"
+import Loops from "nextauth.js/providers/loops"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -1109,8 +1109,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import SvelteKitAuth from "@auth/sveltekit"
-import Loops from "@auth/sveltekit/providers/loops"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Loops from "@nextauth.js/sveltekit/providers/loops"
 import {
   AUTH_LOOPS_KEY,
   AUTH_LOOPS_TRANSACTIONAL_ID,
@@ -1164,7 +1164,7 @@ export function SignIn() {
 ```ts filename="src/routes/+page.svelte"
 
 <script lang="ts">
-  import { SignIn } from "@auth/sveltekit/components"
+  import { SignIn } from "@nextauth.js/sveltekit/components"
 </script>
 
 <div>
@@ -1181,7 +1181,7 @@ export function SignIn() {
 
 ### Signin
 
-Start your application, click on the signin button we just added, and you should see Auth.js built-in sign in page with the option to sign in with your email.
+Start your application, click on the signin button we just added, and you should see NextAuth.js built-in sign in page with the option to sign in with your email.
 A user can enter their email, click "Sign in with Loops", and receive their beautifully formatted signin email.
 Clicking on the link in the email will redirect the user to your application, landing already authenticated!
 
@@ -1205,7 +1205,7 @@ a database is required for passwordless login to work as verification tokens nee
 
 ### Setup Environment Variables
 
-Auth.js will automatically pick up these if formatted like the example above.
+NextAuth.js will automatically pick up these if formatted like the example above.
 You can [also use a different name for the environment variables](/guides/environment-variables#oauth-variables) if needed, but then you’ll need to pass them to the provider manually.
 
 ```bash filename=".env"
@@ -1214,15 +1214,15 @@ AUTH_MAILGUN_KEY=abc123
 
 ### Setup Provider
 
-Let’s enable `Mailgun` as a sign in option in our Auth.js configuration.
-You’ll have to import the `Mailgun` provider from the package and pass it to the providers array we setup earlier in the Auth.js config file:
+Let’s enable `Mailgun` as a sign in option in our NextAuth.js configuration.
+You’ll have to import the `Mailgun` provider from the package and pass it to the providers array we setup earlier in the NextAuth.js config file:
 
 <Code>
 <Code.Next>
 
 ```ts filename="./auth.ts"
-import NextAuth from "next-auth"
-import Mailgun from "next-auth/providers/mailgun"
+import NextAuth from "nextauth.js"
+import Mailgun from "nextauth.js/providers/mailgun"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Mailgun],
@@ -1233,8 +1233,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Mailgun from "@auth/qwik/providers/mailgun"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Mailgun from "@nextauth.js/qwik/providers/mailgun"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -1247,8 +1247,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
 <Code.Svelte>
 
 ```ts filename="./src/auth.ts"
-import SvelteKitAuth from "@auth/sveltekit"
-import Mailgun from "@auth/sveltekit/providers/mailgun"
+import SvelteKitAuth from "@nextauth.js/sveltekit"
+import Mailgun from "@nextauth.js/sveltekit/providers/mailgun"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Mailgun],
@@ -1312,7 +1312,7 @@ export default component$(() => {
 
 ```html filename="src/routes/+page.svelte"
 <script lang="ts">
-  import { SignIn } from "@auth/sveltekit/components"
+  import { SignIn } from "@nextauth.js/sveltekit/components"
 </script>
 
 <div>

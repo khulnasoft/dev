@@ -3,9 +3,9 @@ import { Screenshot } from "@/components/Screenshot"
 
 # Custom error page
 
-Auth.js can be configured to display a custom error page when something goes wrong during the user authentication flow (sign in, sign out, etc..).
+NextAuth.js can be configured to display a custom error page when something goes wrong during the user authentication flow (sign in, sign out, etc..).
 
-In order to override Auth.js's `/api/auth/error` page we have to define our custom page in the AuthConfig:
+In order to override NextAuth.js's `/api/auth/error` page we have to define our custom page in the AuthConfig:
 
 <Code>
 <Code.Next>
@@ -37,7 +37,7 @@ export default function AuthErrorPage() {
 </Code.Next>
 </Code>
 
-Auth.js forwards the following errors as error query parameters in the URL to our custom error page:
+NextAuth.js forwards the following errors as error query parameters in the URL to our custom error page:
 
 | Query Param     | Example URL                       | Description                                                                                   |
 | --------------- | --------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -95,7 +95,7 @@ export default function AuthErrorPage() {
 </Code.Next>
 </Code>
 
-Now, when an error happens, Auth.js will redirect the user to our custom error page:
+Now, when an error happens, NextAuth.js will redirect the user to our custom error page:
 
 import CustomErrorPage from "../../../public/img/tutorials/custom-error-page.webp"
 

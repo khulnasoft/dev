@@ -12,7 +12,7 @@ module.exports = {
     "typedoc-plugin-markdown",
   ],
   entryFileName: "../prisma-adapter.mdx",
-  entryModule: "@auth/prisma-adapter",
+  entryModule: "@nextauth.js/prisma-adapter",
   includeVersion: true,
   readme: 'none'
 }

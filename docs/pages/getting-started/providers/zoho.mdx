@@ -51,8 +51,8 @@ AUTH_ZOHO_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Zoho from "next-auth/providers/zoho"
+import NextAuth from "nextauth.js"
+import Zoho from "nextauth.js/providers/zoho"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Zoho],
@@ -63,8 +63,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Zoho from "@auth/qwik/providers/zoho"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Zoho from "@nextauth.js/qwik/providers/zoho"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -77,8 +77,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Zoho from "@auth/sveltekit/providers/zoho"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Zoho from "@nextauth.js/sveltekit/providers/zoho"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Zoho],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Zoho from "@auth/express/providers/zoho"
+import { ExpressAuth } from "@nextauth.js/express"
+import Zoho from "@nextauth.js/express/providers/zoho"
 
 app.use("/auth/*", ExpressAuth({ providers: [Zoho] }))
 ```

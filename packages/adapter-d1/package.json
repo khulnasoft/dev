@@ -1,7 +1,7 @@
 {
-  "name": "@auth/d1-adapter",
+  "name": "@nextauth.js/d1-adapter",
   "version": "1.7.4",
-  "description": "A Cloudflare D1 adapter for Auth.js",
+  "description": "A Cloudflare D1 adapter for NextAuth.js",
   "homepage": "https://auth.khulnasoft.com",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -13,9 +13,9 @@
   ],
   "license": "ISC",
   "keywords": [
-    "next-auth",
-    "@auth",
-    "Auth.js",
+    "nextauth.js",
+    "@nextauth.js",
+    "NextAuth.js",
     "next.js",
     "oauth",
     "d1"
@@ -43,7 +43,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230321.0",

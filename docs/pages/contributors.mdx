@@ -2,7 +2,7 @@ import { Steps } from "nextra/components"
 
 # Contributors
 
-Maintaining Auth.js as an open source project is very hard work. All the core team members have regular jobs and the library is maintained and developed out of good will in our free time. Donations can enable the core team to eventually work full time on Auth.js to provide more features and an even better developer experience!
+Maintaining NextAuth.js as an open source project is very hard work. All the core team members have regular jobs and the library is maintained and developed out of good will in our free time. Donations can enable the core team to eventually work full time on NextAuth.js to provide more features and an even better developer experience!
 
 <div className="my-4 flex gap-2">
   <img src="/img/etc/opencollective-logomark.svg" width="64" />
@@ -33,9 +33,9 @@ Special thanks to Filip Skokan for their feedback and high-quality OAuth librari
 
 ## Other contributors
 
-Auth.js as it exists today has been possible thanks to the work of many individual contributors.
+NextAuth.js as it exists today has been possible thanks to the work of many individual contributors.
 
-Thank you to the [dozens of individual contributors](https://github.com/khulnasoft/nextdev/graphs/contributors) who have helped shape Auth.js.
+Thank you to the [dozens of individual contributors](https://github.com/khulnasoft/nextdev/graphs/contributors) who have helped shape NextAuth.js.
 
 ## History
 
@@ -63,31 +63,31 @@ Efforts started to move NextAuth.js to other frameworks and to support as many d
 
 It was shown that a single package could not support all of these use cases.
 
-Database Adapters were moved to their packages under the name `@next-auth/*-adapter`.
+Database Adapters were moved to their packages under the name `@nextauth.js/*-adapter`.
 
-### 2022 – Birth of Auth.js
+### 2022 – Birth of NextAuth.js
 
-Based on NextAuth.js, Balázs released [Auth.js (`@auth/core`)](https://twitter.com/balazsorban44/status/1603082914362986496), a runtime/framework independent core library that is the base of
-all Auth.js libraries. A complete rewrite that still shared most of the public API with NextAuth.js but internally was very different.
+Based on NextAuth.js, Balázs released [NextAuth.js (`@nextauth.js/core`)](https://twitter.com/balazsorban44/status/1603082914362986496), a runtime/framework independent core library that is the base of
+all NextAuth.js libraries. A complete rewrite that still shared most of the public API with NextAuth.js but internally was very different.
 
-### 2023 – Auth.js silent releases
+### 2023 – NextAuth.js silent releases
 
 Due to personal reasons, Balázs had to step down as the lead maintainer, but was still contributing. The project was taken over by [Md Sulaiman](https://github.com/thanghuuvu) for a while.
 
-Balázs returned and continued the work on Auth.js. As a pilot project, `next-auth@experimental` (later `next-auth@beta`) releases were published
+Balázs returned and continued the work on NextAuth.js. As a pilot project, `nextauth.js@experimental` (later `nextauth.js@beta`) releases were published
 to work out what was needed in the core library to support other frameworks and what was framework specific from the old NextAuth.js implementation.
 
 The new default documentation page became [auth.khulnasoft.com](https://auth.khulnasoft.com) (the one you are reading right now), and the old NextAuth.js documentation at [next-auth.js.org](https://next-auth.js.org) was kept around
 to document NextAuth.js v4 and is kept only as a back reference.
 
-Database Adapters were moved from the `@next-auth/*-adapter` namespace to `@auth/*-adapter`, indicating that they are not NextAuth.js specific anymore.
+Database Adapters were moved from the `@nextauth.js/*-adapter` namespace to `@nextauth.js/*-adapter`, indicating that they are not NextAuth.js specific anymore.
 
-Community integrations started showing up, making it clear that the initial vision of Auth.js was shared by many.
+Community integrations started showing up, making it clear that the initial vision of NextAuth.js was shared by many.
 
-### 2024 – Growing the Auth.js ecosystem
+### 2024 – Growing the NextAuth.js ecosystem
 
-With the release of [NextAuth.js v5](/getting-started/migrating-to-v5), now all Auth.js libraries are based on the same core library.
-**The name "NextAuth.js" designates only the Next.js integration**, while Auth.js refers to the core library and our ecosystem as a whole.
+With the release of [NextAuth.js v5](/getting-started/migrating-to-v5), now all NextAuth.js libraries are based on the same core library.
+**The name "NextAuth.js" designates only the Next.js integration**, while NextAuth.js refers to the core library and our ecosystem as a whole.
 Other integrations will generally be refered to with their framework name + Auth, e.g. "SvelteKit Auth" or "Express Auth".
 
 All official integrations are distributed under the `@auth` scope except for NextAuth.js, which is distributed under `next-auth` to reduce migration overhead.
@@ -96,4 +96,4 @@ All official integrations are distributed under the `@auth` scope except for Nex
 
 ## Notes
 
-The Auth.js/NextAuth.js project is not provided by, nor otherwise affiliated with Vercel Inc. or its subsidiaries. Any contributions to this project by individuals affiliated with Vercel are made in their personal capacity.
+The NextAuth.js/NextAuth.js project is not provided by, nor otherwise affiliated with Vercel Inc. or its subsidiaries. Any contributions to this project by individuals affiliated with Vercel are made in their personal capacity.

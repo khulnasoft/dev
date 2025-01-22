@@ -7,7 +7,7 @@ export default function Postmark(config: EmailUserConfig): EmailConfig {
     id: "postmark",
     type: "email",
     name: "Postmark",
-    from: "Auth.js <no-reply@auth.khulnasoft.com>",
+    from: "NextAuth.js <no-reply@auth.khulnasoft.com>",
     maxAge: 24 * 60 * 60,
     async sendVerificationRequest(params) {
       const { identifier: to, provider, url, theme } = params

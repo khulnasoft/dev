@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>An official <a href="https://www.postgresql.org/">PostgreSQL</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>An official <a href="https://www.postgresql.org/">PostgreSQL</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://www.postgresql.org/">
  *   <img style={{display: "block"}} src="/img/adapters/neon.svg" width="48" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install next-auth @auth/neon-adapter
+ * npm install next-auth @nextauth.js/neon-adapter
  * ```
  *
- * @module @auth/neon-adapter
+ * @module @nextauth.js/neon-adapter
  */
 
 import type {
@@ -20,7 +20,7 @@ import type {
   AdapterUser,
   VerificationToken,
   AdapterSession,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 import type { Pool } from "@neondatabase/serverless"
 
 export default function PostgresAdapter(client: Pool): Adapter {

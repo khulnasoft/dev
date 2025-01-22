@@ -16,7 +16,7 @@ export * from "./email.js"
 export * from "./oauth.js"
 
 /**
- * Providers passed to Auth.js must define one of these types.
+ * Providers passed to NextAuth.js must define one of these types.
  *
  * @see [RFC 6749 - The OAuth 2.0 Authorization Framework](https://www.rfc-editor.org/rfc/rfc6749.html#section-2.3)
  * @see [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)

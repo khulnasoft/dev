@@ -50,8 +50,8 @@ AUTH_STRAVA_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Strava from "next-auth/providers/strava"
+import NextAuth from "nextauth.js"
+import Strava from "nextauth.js/providers/strava"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Strava],
@@ -62,8 +62,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Strava from "@auth/qwik/providers/strava"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Strava from "@nextauth.js/qwik/providers/strava"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -76,8 +76,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Strava from "@auth/sveltekit/providers/strava"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Strava from "@nextauth.js/sveltekit/providers/strava"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Strava],
@@ -88,8 +88,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Strava from "@auth/express/providers/strava"
+import { ExpressAuth } from "@nextauth.js/express"
+import Strava from "@nextauth.js/express/providers/strava"
 
 app.use("/auth/*", ExpressAuth({ providers: [Strava] }))
 ```

@@ -51,8 +51,8 @@ AUTH_LINKEDIN_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import LinkedIn from "next-auth/providers/linkedin"
+import NextAuth from "nextauth.js"
+import LinkedIn from "nextauth.js/providers/linkedin"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [LinkedIn],
@@ -63,8 +63,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import LinkedIn from "@auth/qwik/providers/linkedin"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import LinkedIn from "@nextauth.js/qwik/providers/linkedin"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -77,8 +77,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import LinkedIn from "@auth/sveltekit/providers/linkedin"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import LinkedIn from "@nextauth.js/sveltekit/providers/linkedin"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [LinkedIn],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import LinkedIn from "@auth/express/providers/linkedin"
+import { ExpressAuth } from "@nextauth.js/express"
+import LinkedIn from "@nextauth.js/express/providers/linkedin"
 
 app.use("/auth/*", ExpressAuth({ providers: [LinkedIn] }))
 ```

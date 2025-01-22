@@ -2,10 +2,10 @@ import { Callout } from "nextra/components"
 
 # Database models
 
-Auth.js can be used with any database. Models tell you what structures Auth.js expects from your database. Models will vary slightly depending on which adapter you use, but in general, will have a similar structure to the graph below. Each model can be extended with additional fields.
+NextAuth.js can be used with any database. Models tell you what structures NextAuth.js expects from your database. Models will vary slightly depending on which adapter you use, but in general, will have a similar structure to the graph below. Each model can be extended with additional fields.
 
 <Callout type="info">
-  Auth.js uses `camelCase` for its database rows while respecting the
+  NextAuth.js uses `camelCase` for its database rows while respecting the
   conventional `snake_case` formatting for OAuth-related values. If the mixed
   casing is an issue for you, most adapters have a dedicated documentation
   section on how to force a casing convention.
@@ -102,7 +102,7 @@ Even if you are using a database, you can still use **JWT** for session handling
 
 The Session model is used for database sessions and it can store arbitrary data for an active user session. A single `User` can have multiple `Session`(s), each `Session` can only have one `User`.
 
-When a Session is read, its `expires` field is checked to see if the session is still valid. If it has expired, the session is deleted from the database. You can also do this clean-up periodically in the background to avoid Auth.js
+When a Session is read, its `expires` field is checked to see if the session is still valid. If it has expired, the session is deleted from the database. You can also do this clean-up periodically in the background to avoid NextAuth.js
 extra delete call to the database during an active session retrieval. This
 might result in a slight performance increase.
 
@@ -120,4 +120,4 @@ A single `User` can have multiple open `VerificationToken`s active (e.g. sign in
 
 It has been designed so that it can be extended for other verification purposes in the future (e.g. 2FA / magic codes, etc... ).
 
-Auth.js makes sure that every token is usable only once, and by default has a short lifetime (1 day, can be configured by `maxAge`). If your user did not manage to finish the sign-in flow in time, they will have to start the sign-in process again.
+NextAuth.js makes sure that every token is usable only once, and by default has a short lifetime (1 day, can be configured by `maxAge`). If your user did not manage to finish the sign-in flow in time, they will have to start the sign-in process again.

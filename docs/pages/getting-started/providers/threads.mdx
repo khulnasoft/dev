@@ -51,8 +51,8 @@ AUTH_THREADS_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Threads from "next-auth/providers/threads"
+import NextAuth from "nextauth.js"
+import Threads from "nextauth.js/providers/threads"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Threads],
@@ -63,8 +63,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Threads from "@auth/qwik/providers/threads"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Threads from "@nextauth.js/qwik/providers/threads"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -77,8 +77,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Threads from "@auth/sveltekit/providers/threads"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Threads from "@nextauth.js/sveltekit/providers/threads"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Threads],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Threads from "@auth/express/providers/threads"
+import { ExpressAuth } from "@nextauth.js/express"
+import Threads from "@nextauth.js/express/providers/threads"
 
 app.use("/auth/*", ExpressAuth({ providers: [Threads] }))
 ```

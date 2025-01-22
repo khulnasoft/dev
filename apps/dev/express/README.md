@@ -3,19 +3,19 @@
 <p align="center">
    <br/>
    <a href="https://auth.khulnasoft.com" target="_blank"><img width="150px" src="https://auth.khulnasoft.com/img/logo-sm.png" /></a>
-   <h3 align="center">Auth.js Example App with <a href="https://expressjs.com">Express</a></h3>
+   <h3 align="center">NextAuth.js Example App with <a href="https://expressjs.com">Express</a></h3>
    <p align="center">
    Open Source. Full Stack. Own Your Data.
    </p>
    <p align="center" style="align: center;">
-      <a href="https://npm.im/@auth/express">
-        <img alt="npm" src="https://img.shields.io/npm/v/@auth/express?color=green&label=@auth/express&style=flat-square">
+      <a href="https://npm.im/@nextauth.js/express">
+        <img alt="npm" src="https://img.shields.io/npm/v/@nextauth.js/express?color=green&label=@nextauth.js/express&style=flat-square">
       </a>
-      <a href="https://bundlephobia.com/result?p=@auth/express">
-        <img src="https://img.shields.io/bundlephobia/minzip/@auth/express?label=size&style=flat-square" alt="Bundle Size"/>
+      <a href="https://bundlephobia.com/result?p=@nextauth.js/express">
+        <img src="https://img.shields.io/bundlephobia/minzip/@nextauth.js/express?label=size&style=flat-square" alt="Bundle Size"/>
       </a>
-      <a href="https://www.npmtrends.com/@auth/express">
-        <img src="https://img.shields.io/npm/dm/@auth/express?label=%20downloads&style=flat-square" alt="Downloads" />
+      <a href="https://www.npmtrends.com/@nextauth.js/express">
+        <img src="https://img.shields.io/npm/dm/@nextauth.js/express?label=%20downloads&style=flat-square" alt="Downloads" />
       </a>
       <a href="https://npm.im/next-auth">
         <img src="https://img.shields.io/badge/TypeScript-blue?style=flat-square" alt="TypeScript" />

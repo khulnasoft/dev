@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: 16}}>
- *  <p>Official <a href="https://kysely.dev/">Kysely</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>Official <a href="https://kysely.dev/">Kysely</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://kysely.dev/">
  *   <img style={{display: "block"}} src="/img/adapters/kysely.svg" width="38" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install kysely @auth/kysely-adapter
+ * npm install kysely @nextauth.js/kysely-adapter
  * ```
  *
- * @module @auth/kysely-adapter
+ * @module @nextauth.js/kysely-adapter
  */
 
 import { Kysely, SqliteAdapter } from "kysely"
@@ -24,7 +24,7 @@ import {
   type AdapterSession,
   type VerificationToken,
   isDate,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 
 export interface Database {
   User: AdapterUser
@@ -201,7 +201,7 @@ export function KyselyAdapter(db: Kysely<Database>): Adapter {
 /**
  * Wrapper over the original `Kysely` class in order to validate the passed in
  * database interface. A regular Kysely instance may also be used, but wrapping
- * it ensures the database interface implements the fields that Auth.js
+ * it ensures the database interface implements the fields that NextAuth.js
  * requires. When used with `kysely-codegen`, the `Codegen` type can be passed as
  * the second generic argument. The generated types will be used, and
  * `KyselyAuth` will only verify that the correct fields exist.

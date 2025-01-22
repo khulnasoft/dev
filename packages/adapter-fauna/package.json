@@ -1,7 +1,7 @@
 {
-  "name": "@auth/fauna-adapter",
+  "name": "@nextauth.js/fauna-adapter",
   "version": "3.7.4",
-  "description": "Fauna Adapter for Auth.js",
+  "description": "Fauna Adapter for NextAuth.js",
   "homepage": "https://auth.khulnasoft.com",
   "repository": "https://github.com/khulnasoft/nextdev",
   "bugs": {
@@ -23,7 +23,7 @@
   },
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "fauna",
     "faunadb"
@@ -40,7 +40,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "fauna": "^1.3.1"

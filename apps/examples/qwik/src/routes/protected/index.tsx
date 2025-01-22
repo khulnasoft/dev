@@ -13,7 +13,7 @@ export default component$(() => {
     <div class="h-[calc(100vh-5rem)] w-screen bg-slate-100 pt-40 text-center text-2xl">
       <div class="py-4 font-bold text-blue-600">
         <a target="_blank" href="https://auth.khulnasoft.com/">
-          Auth.js is awesome!
+          NextAuth.js is awesome!
         </a>
       </div>
     </div>

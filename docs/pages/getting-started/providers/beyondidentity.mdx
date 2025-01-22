@@ -56,8 +56,8 @@ AUTH_BEYOND_IDENTITY_ISSUER
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import BeyondIdentity from "next-auth/providers/beyondidentity"
+import NextAuth from "nextauth.js"
+import BeyondIdentity from "nextauth.js/providers/beyondidentity"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [BeyondIdentity],
@@ -68,8 +68,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import BeyondIdentity from "@auth/qwik/providers/beyondidentity"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import BeyondIdentity from "@nextauth.js/qwik/providers/beyondidentity"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -82,8 +82,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import BeyondIdentity from "@auth/sveltekit/providers/beyondidentity"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import BeyondIdentity from "@nextauth.js/sveltekit/providers/beyondidentity"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [BeyondIdentity],
@@ -94,8 +94,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import BeyondIdentity from "@auth/express/providers/beyondidentity"
+import { ExpressAuth } from "@nextauth.js/express"
+import BeyondIdentity from "@nextauth.js/express/providers/beyondidentity"
 
 app.use(
   "/auth/*",

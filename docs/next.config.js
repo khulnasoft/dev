@@ -90,13 +90,15 @@ export default withNextra({
       {
         source: "/",
         has: [{ type: "host", value: "providers.auth.khulnasoft.com" }],
-        destination: "https://auth.khulnasoft.com/getting-started/authentication/oauth",
+        destination:
+          "https://auth.khulnasoft.com/getting-started/authentication/oauth",
         permanent: true,
       },
       {
         source: "/:path(.*)",
         has: [{ type: "host", value: "providers.auth.khulnasoft.com" }],
-        destination: "https://auth.khulnasoft.com/getting-started/providers/:path",
+        destination:
+          "https://auth.khulnasoft.com/getting-started/providers/:path",
         permanent: true,
       },
       {
@@ -111,7 +113,7 @@ export default withNextra({
         permanent: true,
       },
       {
-        source: "/reference/next-auth:path(.*)",
+        source: "/reference/nextauth.js:path(.*)",
         destination: "/reference/nextjs:path(.*)",
         permanent: true,
       },

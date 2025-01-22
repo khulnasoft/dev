@@ -1,5 +1,5 @@
 {
-  "name": "@auth/pouchdb-adapter",
+  "name": "@nextauth.js/pouchdb-adapter",
   "version": "2.7.4",
   "description": "PouchDB adapter for next-auth.",
   "homepage": "https://auth.khulnasoft.com",
@@ -10,7 +10,7 @@
   "author": "jpbourgeon <jeanphilippe.bourgeon@gmail.com> (https://github.com/jpbourgeon)",
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "pouchdb"
@@ -41,7 +41,7 @@
     "pouchdb-find": "^8.0.1"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "devDependencies": {
     "@types/pouchdb": "^6.4.0",

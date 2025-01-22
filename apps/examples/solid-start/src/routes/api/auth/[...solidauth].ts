@@ -1,5 +1,5 @@
-import { SolidAuth, type SolidAuthConfig } from "@auth/solid-start"
-import GitHub from "@auth/solid-start/providers/github"
+import { SolidAuth, type SolidAuthConfig } from "@nextauth.js/solid-start"
+import GitHub from "@nextauth.js/solid-start/providers/github"
 import { serverEnv } from "~/env/server"
 
 export const authOpts: SolidAuthConfig = {

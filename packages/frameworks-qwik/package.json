@@ -1,5 +1,5 @@
 {
-  "name": "@auth/qwik",
+  "name": "@nextauth.js/qwik",
   "version": "0.5.4",
   "description": "Authentication for Qwik.",
   "license": "ISC",
@@ -14,7 +14,7 @@
     "authentication",
     "csrf",
     "oidc",
-    "Auth.js"
+    "NextAuth.js"
   ],
   "publishConfig": {
     "access": "public"
@@ -53,7 +53,7 @@
     "providers": "node ../utils/scripts/providers"
   },
   "dependencies": {
-    "@auth/core": "workspace:*",
+    "@nextauth.js/core": "workspace:*",
     "set-cookie-parser": "^2.6.0"
   },
   "devDependencies": {

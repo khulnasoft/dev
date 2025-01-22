@@ -34,7 +34,7 @@ export interface MicrosoftEntraIDProfile extends Record<string, any> {
  * @example
  *
  * ```ts
- * import MicrosoftEntraID from "@auth/core/providers/microsoft-entra-id"
+ * import MicrosoftEntraID from "@nextauth.js/core/providers/microsoft-entra-id"
  * ...
  * providers: [
  *   MicrosoftEntraID({
@@ -58,7 +58,7 @@ export interface MicrosoftEntraIDProfile extends Record<string, any> {
  *
  * @example
  * ```ts
- * import MicrosoftEntraID from "@auth/core/providers/microsoft-entra-id"
+ * import MicrosoftEntraID from "@nextauth.js/core/providers/microsoft-entra-id"
  *
  * providers: [
  *   MicrosoftEntraID({
@@ -73,7 +73,7 @@ export interface MicrosoftEntraIDProfile extends Record<string, any> {
  *
  * Microsoft Entra ID returns the profile picture in an ArrayBuffer, instead of just a URL to the image, so our provider converts it to a base64 encoded image string and returns that instead. See: https://learn.microsoft.com/en-us/graph/api/profilephoto-get?view=graph-rest-1.0&tabs=http#examples. The default image size is 48x48 to avoid [running out of space](https://next-auth.js.org/faq#:~:text=What%20are%20the%20disadvantages%20of%20JSON%20Web%20Tokens%3F) in case the session is saved as a JWT.
  *
- * By default, Auth.js assumes that the Microsoft Entra ID provider is
+ * By default, NextAuth.js assumes that the Microsoft Entra ID provider is
  * based on the [Open ID Connect](https://openid.net/specs/openid-connect-core-1_0.html) specification.
  *
  * :::tip
@@ -87,7 +87,7 @@ export interface MicrosoftEntraIDProfile extends Record<string, any> {
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  *

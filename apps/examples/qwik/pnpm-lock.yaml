@@ -8,7 +8,7 @@ importers:
 
   .:
     devDependencies:
-      '@auth/qwik':
+      '@nextauth.js/qwik':
         specifier: latest
         version: 0.2.2
       '@builder.io/qwik':
@@ -76,7 +76,7 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@auth/core@0.34.1':
+  '@nextauth.js/core@0.34.1':
     resolution: {integrity: sha512-tuYU2VIbI8rFbkSwP710LmybB2FXJsPN7j3sjRVfN9SXVQBK2ej6LdewQaofpBGp4Mk+cC2UeiGNH0or4tgaeA==}
     peerDependencies:
       '@simplewebauthn/browser': ^9.0.1
@@ -90,7 +90,7 @@ packages:
       nodemailer:
         optional: true
 
-  '@auth/qwik@0.2.2':
+  '@nextauth.js/qwik@0.2.2':
     resolution: {integrity: sha512-H8ke+7Y1unvciFQ62zGiWS12KB6JgU2HOkG0usxL19B1PJ1j6ShZJsEONuih8XD7qCqR1N5E75h4auoldYuaiQ==}
     engines: {node: '>=18.17'}
 
@@ -4808,7 +4808,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@auth/core@0.34.1':
+  '@nextauth.js/core@0.34.1':
     dependencies:
       '@panva/hkdf': 1.2.1
       '@types/cookie': 0.6.0
@@ -4818,9 +4818,9 @@ snapshots:
       preact: 10.11.3
       preact-render-to-string: 5.2.3(preact@10.11.3)
 
-  '@auth/qwik@0.2.2':
+  '@nextauth.js/qwik@0.2.2':
     dependencies:
-      '@auth/core': 0.34.1
+      '@nextauth.js/core': 0.34.1
       set-cookie-parser: 2.6.0
     transitivePeerDependencies:
       - '@simplewebauthn/browser'

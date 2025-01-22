@@ -64,8 +64,8 @@ Navigate to https://www.bungie.net/en/Application and fill in the required detai
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth";
-import Bungie from "next-auth/providers/boxyhq-saml";
+import NextAuth from "nextauth.js";
+import Bungie from "nextauth.js/providers/boxyhq-saml";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
@@ -82,8 +82,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Bungie from "@auth/qwik/providers/boxyhq-saml";
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Bungie from "@nextauth.js/qwik/providers/boxyhq-saml";
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -102,8 +102,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit";
-import Bungie from "@auth/sveltekit/providers/boxyhq-saml";
+import { SvelteKitAuth } from "@nextauth.js/sveltekit";
+import Bungie from "@nextauth.js/sveltekit/providers/boxyhq-saml";
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [
@@ -120,8 +120,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express";
-import Bungie from "@auth/express/providers/boxyhq-saml";
+import { ExpressAuth } from "@nextauth.js/express";
+import Bungie from "@nextauth.js/express/providers/boxyhq-saml";
 
 app.use(
   "/auth/*",

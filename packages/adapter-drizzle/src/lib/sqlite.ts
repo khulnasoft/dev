@@ -17,8 +17,8 @@ import type {
   AdapterSession,
   AdapterUser,
   VerificationToken,
-} from "@auth/core/adapters"
-import { Awaitable } from "@auth/core/types"
+} from "@nextauth.js/core/adapters"
+import { Awaitable } from "@nextauth.js/core/types"
 
 export function defineTables(
   schema: Partial<DefaultSQLiteSchema> = {}

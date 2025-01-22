@@ -1,11 +1,13 @@
 <script lang="ts">
-  import packageJSON from "@auth/sveltekit/package.json"
+  import packageJSON from "@nextauth.js/sveltekit/package.json"
   import ExternalIcon from "./external-icon.svelte"
 </script>
 
 <footer>
   <div>
-    <a href="https://sveltekit.auth.khulnasoft.com">Documentation <ExternalIcon /></a>
+    <a href="https://sveltekit.auth.khulnasoft.com"
+      >Documentation <ExternalIcon /></a
+    >
     <a href="https://www.npmjs.com/package/next-auth"> NPM <ExternalIcon /> </a>
     <a
       href="https://github.com/khulnasoft/nextdev/tree/main/apps/examples/sveltekit"
@@ -15,9 +17,9 @@
     <a class="no-underline" href="/policy">Policy</a>
   </div>
   <div>
-    <img src="https://auth.khulnasoft.com/img/logo-sm.png" alt="Auth.js Logo" />
-    <a href="https://www.npmjs.com/package/@auth/sveltekit">
-      @auth/sveltekit@{packageJSON.version}
+    <img src="https://auth.khulnasoft.com/img/logo-sm.png" alt="NextAuth.js Logo" />
+    <a href="https://www.npmjs.com/package/@nextauth.js/sveltekit">
+      @nextauth.js/sveltekit@{packageJSON.version}
       <ExternalIcon />
     </a>
   </div>

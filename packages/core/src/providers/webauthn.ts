@@ -109,7 +109,7 @@ export interface WebAuthnConfig extends CommonProviderOptions {
    */
   simpleWebAuthnBrowserVersion: SemverString | false
   /** Form fields displayed in the default Passkey sign in/up form.
-   * These are not validated or enforced beyond the default Auth.js authentication page.
+   * These are not validated or enforced beyond the default NextAuth.js authentication page.
    *
    * By default it displays an email field.
    */
@@ -164,8 +164,8 @@ export interface WebAuthnConfig extends CommonProviderOptions {
  *
  * #### Configuration
  * ```ts
- * import { Auth } from "@auth/core"
- * import WebAuthn from "@auth/core/providers/webauthn"
+ * import { Auth } from "@nextauth.js/core"
+ * import WebAuthn from "@nextauth.js/core/providers/webauthn"
  *
  * const request = new Request(origin)
  * const response = await Auth(request, {
@@ -189,7 +189,7 @@ export interface WebAuthnConfig extends CommonProviderOptions {
  *
  * If you think you found a bug in the default configuration, you can [open an issue](https://auth.khulnasoft.com/new/provider-issue).
  *
- * Auth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
+ * NextAuth.js strictly adheres to the specification and it cannot take responsibility for any deviation from
  * the spec by the provider. You can open an issue, but if the problem is non-compliance with the spec,
  * we might not pursue a resolution. You can ask for more help in [Discussions](https://auth.khulnasoft.com/new/github-discussions).
  *

@@ -54,8 +54,8 @@ AUTH_GITHUB_SECRET
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import GitHub from "next-auth/providers/github"
+import NextAuth from "nextauth.js"
+import GitHub from "nextauth.js/providers/github"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [GitHub],
@@ -66,8 +66,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import GitHub from "@auth/qwik/providers/github"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import GitHub from "@nextauth.js/qwik/providers/github"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -80,8 +80,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import GitHub from "@auth/sveltekit/providers/github"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import GitHub from "@nextauth.js/sveltekit/providers/github"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [GitHub],
@@ -92,8 +92,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import GitHub from "@auth/express/providers/github"
+import { ExpressAuth } from "@nextauth.js/express"
+import GitHub from "@nextauth.js/express/providers/github"
 
 app.use("/auth/*", ExpressAuth({ providers: [GitHub] }))
 ```

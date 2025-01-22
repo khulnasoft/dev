@@ -1,6 +1,6 @@
 /**
  * <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px"}}>
- *  <p>An official <a href="https://azure.microsoft.com/en-us/products/storage/tables">Azure Table Storage</a> adapter for Auth.js / NextAuth.js.</p>
+ *  <p>An official <a href="https://azure.microsoft.com/en-us/products/storage/tables">Azure Table Storage</a> adapter for NextAuth.js / NextAuth.js.</p>
  *  <a href="https://azure.microsoft.com/en-us/products/storage/tables">
  *   <img style={{display: "block"}} src="/img/adapters/azure-tables.svg" width="48" />
  *  </a>
@@ -9,10 +9,10 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install next-auth @auth/azure-tables-adapter
+ * npm install next-auth @nextauth.js/azure-tables-adapter
  * ```
  *
- * @module @auth/azure-tables-adapter
+ * @module @nextauth.js/azure-tables-adapter
  */
 
 import type {
@@ -21,7 +21,7 @@ import type {
   AdapterAccount,
   AdapterSession,
   VerificationToken,
-} from "@auth/core/adapters"
+} from "@nextauth.js/core/adapters"
 import {
   GetTableEntityResponse,
   TableClient,

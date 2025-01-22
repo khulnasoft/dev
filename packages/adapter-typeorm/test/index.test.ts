@@ -10,7 +10,7 @@ test("could parse connection string", () => {
       port: 3306,
       username: "root",
       password: "password",
-      database: "next-auth",
+      database: "nextauth.js",
     })
   )
 })

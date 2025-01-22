@@ -14,7 +14,7 @@ const poolConnection = createPool({
   host: "127.0.0.1",
   user: "root",
   password: "password",
-  database: "next-auth",
+  database: "nextauth.js",
 })
 
 export const db = drizzle(poolConnection)

@@ -106,7 +106,7 @@ function OG({
               fontSize: "2.3rem",
             }}
           >
-            Auth.js
+            NextAuth.js
           </p>
         </div>
         <p

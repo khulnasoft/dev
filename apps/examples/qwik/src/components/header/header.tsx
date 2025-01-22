@@ -14,7 +14,7 @@ export const Header = component$(() => {
       <Link href="/">
         <QwikIcon width="46" height="50" />
       </Link>
-      <span class="text-xl font-bold text-slate-800">Auth.js with Qwik</span>
+      <span class="text-xl font-bold text-slate-800">NextAuth.js with Qwik</span>
 
       {session.value?.user ? (
         <div class="ml-auto flex items-center justify-center gap-8">

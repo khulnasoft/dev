@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Button } from "./ui/button"
-import { useSession } from "next-auth/react"
+import { useSession } from "nextauth.js/react"
 import {
   DropdownMenu,
   DropdownMenuContent,

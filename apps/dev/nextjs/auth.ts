@@ -1,13 +1,13 @@
-import NextAuth from "next-auth"
-import Credentials from "next-auth/providers/credentials"
-import Keycloak from "next-auth/providers/keycloak"
-import GitHub from "next-auth/providers/github"
+import NextAuth from "nextauth.js"
+import Credentials from "nextauth.js/providers/credentials"
+import Keycloak from "nextauth.js/providers/keycloak"
+import GitHub from "nextauth.js/providers/github"
 
 // import { PrismaClient } from "@prisma/client"
-// import { PrismaAdapter } from "@auth/prisma-adapter"
-// import SendGrid from "next-auth/providers/sendgrid"
-// import Resend from "next-auth/providers/resend"
-// import Email from "next-auth/providers/email"
+// import { PrismaAdapter } from "@nextauth.js/prisma-adapter"
+// import SendGrid from "nextauth.js/providers/sendgrid"
+// import Resend from "nextauth.js/providers/resend"
+// import Email from "nextauth.js/providers/email"
 
 // globalThis.prisma ??= new PrismaClient()
 
@@ -36,7 +36,7 @@ import GitHub from "next-auth/providers/github"
 //   }
 // )
 
-declare module "next-auth" {
+declare module "nextauth.js" {
   /**
    * Returned by `useSession`, `getSession`, `auth` and received as a prop on the `SessionProvider` React Context
    */

@@ -30,7 +30,7 @@
       "outputLogs": "new-only"
     },
     "test:e2e": {
-      "dependsOn": ["next-auth#build"],
+      "dependsOn": ["nextauth.js/#build"],
       "outputs": [
         "blob-report/**",
         "playwright-report/**",
@@ -47,11 +47,11 @@
         "AUTH_TRUST_HOST"
       ]
     },
-    "@auth/xata-adapter#test": {
+    "@nextauth.js/xata-adapter#test": {
       "passThroughEnv": ["XATA_API_KEY", "XATA_DATABASE_URL"]
     },
-    "@auth/hasura-adapter#build": {
-      "dependsOn": ["@auth/core#build"],
+    "@nextauth.js/hasura-adapter#build": {
+      "dependsOn": ["@nextauth.js/core#build"],
       "outputs": [
         "lib/**",
         "*.js",
@@ -62,12 +62,12 @@
     },
     "docs#dev": {
       "dependsOn": [
-        "next-auth#build",
-        "@auth/core#build",
-        "@auth/sveltekit#build",
-        "@auth/express#build",
-        "@auth/solid-start#build",
-        "@auth/qwik#build"
+        "nextauth.js/#build",
+        "@nextauth.js/core#build",
+        "@nextauth.js/sveltekit#build",
+        "@nextauth.js/express#build",
+        "@nextauth.js/solid-start#build",
+        "@nextauth.js/qwik#build"
       ],
       "persistent": true,
       "cache": false
@@ -85,34 +85,34 @@
         "next.config.js"
       ],
       "dependsOn": [
-        "@auth/core#build",
-        "@auth/azure-tables-adapter#build",
-        "@auth/d1-adapter#build",
-        "@auth/dgraph-adapter#build",
-        "@auth/drizzle-adapter#build",
-        "@auth/dynamodb-adapter#build",
-        "@auth/edgedb-adapter#build",
-        "@auth/fauna-adapter#build",
-        "@auth/firebase-adapter#build",
-        "@auth/hasura-adapter#build",
-        "@auth/kysely-adapter#build",
-        "@auth/mikro-orm-adapter#build",
-        "@auth/mongodb-adapter#build",
-        "@auth/neo4j-adapter#build",
-        "@auth/pg-adapter#build",
-        "@auth/pouchdb-adapter#build",
-        "@auth/prisma-adapter#build",
-        "@auth/sequelize-adapter#build",
-        "@auth/solid-start#build",
-        "@auth/supabase-adapter#build",
-        "@auth/surrealdb-adapter#build",
-        "@auth/sveltekit#build",
-        "@auth/typeorm-adapter#build",
-        "@auth/unstorage-adapter#build",
-        "@auth/upstash-redis-adapter#build",
-        "@auth/xata-adapter#build",
-        "@auth/qwik#build",
-        "next-auth#build",
+        "@nextauth.js/core#build",
+        "@nextauth.js/azure-tables-adapter#build",
+        "@nextauth.js/d1-adapter#build",
+        "@nextauth.js/dgraph-adapter#build",
+        "@nextauth.js/drizzle-adapter#build",
+        "@nextauth.js/dynamodb-adapter#build",
+        "@nextauth.js/edgedb-adapter#build",
+        "@nextauth.js/fauna-adapter#build",
+        "@nextauth.js/firebase-adapter#build",
+        "@nextauth.js/hasura-adapter#build",
+        "@nextauth.js/kysely-adapter#build",
+        "@nextauth.js/mikro-orm-adapter#build",
+        "@nextauth.js/mongodb-adapter#build",
+        "@nextauth.js/neo4j-adapter#build",
+        "@nextauth.js/pg-adapter#build",
+        "@nextauth.js/pouchdb-adapter#build",
+        "@nextauth.js/prisma-adapter#build",
+        "@nextauth.js/sequelize-adapter#build",
+        "@nextauth.js/solid-start#build",
+        "@nextauth.js/supabase-adapter#build",
+        "@nextauth.js/surrealdb-adapter#build",
+        "@nextauth.js/sveltekit#build",
+        "@nextauth.js/typeorm-adapter#build",
+        "@nextauth.js/unstorage-adapter#build",
+        "@nextauth.js/upstash-redis-adapter#build",
+        "@nextauth.js/xata-adapter#build",
+        "@nextauth.js/qwik#build",
+        "nextauth.js/#build",
         "^build"
       ],
       "outputs": [

@@ -51,8 +51,8 @@ AUTH_KEYCLOAK_ISSUER
   <Code.Next>
 
 ```ts filename="/auth.ts"
-import NextAuth from "next-auth"
-import Keycloak from "next-auth/providers/keycloak"
+import NextAuth from "nextauth.js"
+import Keycloak from "nextauth.js/providers/keycloak"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Keycloak],
@@ -63,8 +63,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   <Code.Qwik>
   
 ```ts filename="/src/routes/plugin@auth.ts"
-import { QwikAuth$ } from "@auth/qwik"
-import Keycloak from "@auth/qwik/providers/keycloak"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import Keycloak from "@nextauth.js/qwik/providers/keycloak"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   () => ({
@@ -77,8 +77,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$(
   <Code.Svelte>
 
 ```ts filename="/src/auth.ts"
-import { SvelteKitAuth } from "@auth/sveltekit"
-import Keycloak from "@auth/sveltekit/providers/keycloak"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import Keycloak from "@nextauth.js/sveltekit/providers/keycloak"
 
 export const { handle, signIn, signOut } = SvelteKitAuth({
   providers: [Keycloak],
@@ -89,8 +89,8 @@ export const { handle, signIn, signOut } = SvelteKitAuth({
   <Code.Express>
 
 ```ts filename="/src/app.ts"
-import { ExpressAuth } from "@auth/express"
-import Keycloak from "@auth/express/providers/keycloak"
+import { ExpressAuth } from "@nextauth.js/express"
+import Keycloak from "@nextauth.js/express/providers/keycloak"
 
 app.use("/auth/*", ExpressAuth({ providers: [Keycloak] }))
 ```

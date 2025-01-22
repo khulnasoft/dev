@@ -28,8 +28,8 @@ dist
 
 # Generated files
 .cache-loader
-packages/next-auth/providers
-# copied from @auth/core
+packages/auth/providers
+# copied from @nextauth.js/core
 packages/frameworks-*/**/providers
 packages/*/*.js
 packages/*/*.d.ts
@@ -94,10 +94,10 @@ packages/core/src/lib/pages/styles.ts
 docs/docs/reference/core
 
 # Next.js
-packages/next-auth/lib
-packages/next-auth/providers
-# copied from @auth/core
-packages/next-auth/src/providers
+packages/auth/lib
+packages/auth/providers
+# copied from @nextauth.js/core
+packages/auth/src/providers
 docs/docs/reference/nextjs
 
 # SvelteKit

@@ -1,6 +1,6 @@
 <img src="public/img/logo-sm.png" alt="Logo" width="118" height="128" align="right" />
 
-# Auth.js Docs
+# NextAuth.js Docs
 
 ## Quick Start
 

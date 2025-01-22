@@ -1,5 +1,5 @@
 {
-  "name": "@auth/azure-tables-adapter",
+  "name": "@nextauth.js/azure-tables-adapter",
   "version": "1.7.4",
   "description": "Azure Tables Storage adapter for next-auth.",
   "homepage": "https://auth.khulnasoft.com",
@@ -13,7 +13,7 @@
   ],
   "license": "ISC",
   "keywords": [
-    "next-auth",
+    "nextauth.js",
     "next.js",
     "oauth",
     "azure-tables",
@@ -42,7 +42,7 @@
     "clean": "rm -rf *.js *.d.ts*"
   },
   "dependencies": {
-    "@auth/core": "workspace:*"
+    "@nextauth.js/core": "workspace:*"
   },
   "peerDependencies": {
     "@azure/data-tables": "^13.2.1"

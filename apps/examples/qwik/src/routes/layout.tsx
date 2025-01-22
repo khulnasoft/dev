@@ -23,11 +23,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Auth.js with Qwik",
+  title: "NextAuth.js with Qwik",
   meta: [
     {
       name: "description",
-      content: "An example project for Auth.js with Qwik",
+      content: "An example project for NextAuth.js with Qwik",
     },
   ],
 };

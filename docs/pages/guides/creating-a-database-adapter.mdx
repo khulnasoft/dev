@@ -2,17 +2,17 @@ import { Callout } from "nextra/components"
 
 # Creating a database adapter
 
-Auth.js adapters allow you to integrate with any (even multiple) database/back-end service, even if we don't have an [official package](https://github.com/khulnasoft/nextdev/tree/main/packages) available yet. (We welcome PRs for new adapters! See the [guidelines](#official-adapter-guidelines) below.)
+NextAuth.js adapters allow you to integrate with any (even multiple) database/back-end service, even if we don't have an [official package](https://github.com/khulnasoft/nextdev/tree/main/packages) available yet. (We welcome PRs for new adapters! See the [guidelines](#official-adapter-guidelines) below.)
 
-Auth.js adapters are very flexible, and you can implement only the methods you need, and only create the database tables/columns that are actually going to be used.
+NextAuth.js adapters are very flexible, and you can implement only the methods you need, and only create the database tables/columns that are actually going to be used.
 
-An Auth.js adapter is a function that receives an ORM/database client and returns an object with methods (based on the [`Adapter` interface](/reference/core/adapters#adapter)) that interact with the database. The same database Adapter will be compatible with any Auth.js library.
+An NextAuth.js adapter is a function that receives an ORM/database client and returns an object with methods (based on the [`Adapter` interface](/reference/core/adapters#adapter)) that interact with the database. The same database Adapter will be compatible with any NextAuth.js library.
 
-Optionally, you can run our [Adapter tests](https://github.com/khulnasoft/nextdev/blob/main/packages/utils/adapter.ts) on your adapter to ensure it is compliant with the Auth.js.
+Optionally, you can run our [Adapter tests](https://github.com/khulnasoft/nextdev/blob/main/packages/utils/adapter.ts) on your adapter to ensure it is compliant with the NextAuth.js.
 
 ## User management
 
-Auth.js differentiates between users and accounts. A user can have multiple accounts. An account is created for each provider type the user signs in with for the first time. For example, if a user signs in with Google and then with Facebook, they will have two accounts, one for each provider. The first provider the user signs in with will also be used to create the user object. See the [`profile()` provider method](/reference/core/providers#profile).
+NextAuth.js differentiates between users and accounts. A user can have multiple accounts. An account is created for each provider type the user signs in with for the first time. For example, if a user signs in with Google and then with Facebook, they will have two accounts, one for each provider. The first provider the user signs in with will also be used to create the user object. See the [`profile()` provider method](/reference/core/providers#profile).
 
 ### Methods and models
 
@@ -24,7 +24,7 @@ Auth.js differentiates between users and accounts. A user can have multiple acco
     - [`updateUser`](/reference/core/adapters#updateuser)
     - [`linkAccount`](/reference/core/adapters#linkaccount)
 
-    Not yet invoked by Auth.js:
+    Not yet invoked by NextAuth.js:
     - [_`deleteUser`_](/reference/core/adapters#deleteuser)
     - [_`unlinkAccount`_](/reference/core/adapters#unlinkaccount)
 
@@ -47,7 +47,7 @@ Auth.js differentiates between users and accounts. A user can have multiple acco
 See also: [User](/concepts/database-models#user) and [Account](/concepts/database-models#account) models.
 
 <Callout type="info">
-  Although Auth.js doesn't require it, for basic display purposes, we recommend
+  Although NextAuth.js doesn't require it, for basic display purposes, we recommend
   adding the following columns to the `User` table as well: `name`, `email`,
   `image`. You can configure the columns via the [`profile()` provider
   method](/reference/core/providers#profile). If you don't need to save these
@@ -55,7 +55,7 @@ See also: [User](/concepts/database-models#user) and [Account](/concepts/databas
 </Callout>
 
 <Callout type="info">
-  Although Auth.js doesn't require it, the `Account` table typically saves
+  Although NextAuth.js doesn't require it, the `Account` table typically saves
   tokens retrieved from the provider. You can configure the columns via the
   [`account()` provider method](/reference/core/providers#account). If you don't
   need to save tokens, create an empty `account() {}` method.
@@ -63,7 +63,7 @@ See also: [User](/concepts/database-models#user) and [Account](/concepts/databas
 
 ## Database session management
 
-Auth.js can manage sessions in two ways. Learn about them and their advantages and disadvantages at [Concepts: Session strategies](/concepts/session-strategies).
+NextAuth.js can manage sessions in two ways. Learn about them and their advantages and disadvantages at [Concepts: Session strategies](/concepts/session-strategies).
 
 ### Methods and models
 
@@ -104,7 +104,7 @@ See also: [Session](/concepts/database-models#session) models.
 
 ## Verification tokens
 
-When you want to support email/passwordless login, Auth.js uses a database to store temporary verification tokens that are tied to a user's email address.
+When you want to support email/passwordless login, NextAuth.js uses a database to store temporary verification tokens that are tied to a user's email address.
 
 ### Methods and models
 
@@ -167,7 +167,7 @@ If you created an adapter and want us to distribute it as an official package, p
 
 1. The Adapter _must_ be able to handle any property coming from the user
 
-   ORMs/database clients might have their own data types, but Auth.js expects these to be normalized as plain JavaScript objects for consistency. If your ORM/database client does not convert automatically, you need to convert the values when reading/writing from/to the database.
+   ORMs/database clients might have their own data types, but NextAuth.js expects these to be normalized as plain JavaScript objects for consistency. If your ORM/database client does not convert automatically, you need to convert the values when reading/writing from/to the database.
 
    You might be tempted to check the name of a property and convert it based on that, but this is not scalable (eg.: a `User` object might have more than one `Date` property, not only `emailVerified`).
 
@@ -190,7 +190,7 @@ export const format = {
       else newObject[key] = value
     return newObject as T
   },
-  /** Takes an object that's coming from Auth.js and prepares it to be written to the database. */
+  /** Takes an object that's coming from NextAuth.js and prepares it to be written to the database. */
   to<T>(object: Record<string, any>): T {
     const newObject: Record<string, unknown> = {}
     for (const [key, value] of Object.entries(object))
@@ -203,7 +203,7 @@ export const format = {
 
 ## TypeScript
 
-You can take advantage of the types that comes with the framework packages (i.e. `next-auth/adapters`, `@auth/sveltekit/adapters`).
+You can take advantage of the types that comes with the framework packages (i.e. `next-auth/adapters`, `@nextauth.js/sveltekit/adapters`).
 
 ```ts
 import type { Adapter } from "next-auth/adapters"

@@ -24,8 +24,8 @@ export function SetupCode({ providerId, providerName, highlight }: Props) {
           className="px-4"
           dangerouslySetInnerHTML={{
             __html: highlight(`
-import NextAuth from "next-auth"
-import ${providerName} from "next-auth/providers/${providerId}"
+import NextAuth from "nextauth.js"
+import ${providerName} from "nextauth.js/providers/${providerId}"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [${providerName}],
@@ -34,7 +34,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         />
         <br />
         Add the <code>handlers</code> which <code>NextAuth</code> returns to
-        your <code>api/auth/[...nextauth]/route.ts</code> file so that Auth.js
+        your <code>api/auth/[...nextauth]/route.ts</code> file so that NextAuth.js
         can run on any incoming request.
         <Pre
           data-filename="./app/api/auth/[...nextauth]/route.ts"
@@ -63,8 +63,8 @@ export const { GET, POST } = handlers
           icon={TSIcon}
           dangerouslySetInnerHTML={{
             __html: highlight(`
-import { QwikAuth$ } from "@auth/qwik"
-import ${providerName} from "@auth/qwik/providers/${providerId}"
+import { QwikAuth$ } from "@nextauth.js/qwik"
+import ${providerName} from "@nextauth.js/qwik/providers/${providerId}"
 
 export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$({
   providers: [${providerName}],
@@ -73,7 +73,7 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$({
         />
       </Code.Qwik>
       <Code.Svelte>
-        In SvelteKit you should also setup your Auth.js configuration in a file
+        In SvelteKit you should also setup your NextAuth.js configuration in a file
         at <code>/src/auth.ts</code>.
         <br />
         <Pre
@@ -85,8 +85,8 @@ export const { onRequest, useSession, useSignIn, useSignOut } = QwikAuth$({
           icon={TSIcon}
           dangerouslySetInnerHTML={{
             __html: highlight(`
-import { SvelteKitAuth } from "@auth/sveltekit"
-import ${providerName} from "@auth/sveltekit/providers/${providerId}"
+import { SvelteKitAuth } from "@nextauth.js/sveltekit"
+import ${providerName} from "@nextauth.js/sveltekit/providers/${providerId}"
  
 export const { handle, signIn } = SvelteKitAuth({
   providers: [${providerName}],
@@ -95,7 +95,7 @@ export const { handle, signIn } = SvelteKitAuth({
         />
         <br />
         Add the <code>handler</code> which <code>SvelteKitAuth</code> returns to
-        your <code>hooks.server.ts</code> file so that Auth.js can run on any
+        your <code>hooks.server.ts</code> file so that NextAuth.js can run on any
         incoming request.
         <Pre
           data-filename="./src/hooks.server.ts"
@@ -144,8 +144,8 @@ export const load: LayoutServerLoad = async (event) => {
           icon={TSIcon}
           dangerouslySetInnerHTML={{
             __html: highlight(`
-import { ExpressAuth } from "@auth/express"
-import ${providerName} from "@auth/express/providers/${providerId}"
+import { ExpressAuth } from "@nextauth.js/express"
+import ${providerName} from "@nextauth.js/express/providers/${providerId}"
 import express from "express"
  
 const app = express()

@@ -15,11 +15,11 @@
 /**/*/test
 /**/*/dist
 
-# Auth.js Dirs
+# NextAuth.js Dirs
 apps/*
 docs/**
 packages/**
-!packages/next-auth
+!packages/auth
 !packages/core
 !packages/utils
 !apps/examples/nextjs-docker

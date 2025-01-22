@@ -1,10 +1,10 @@
 /**
  *
  * :::warning Experimental
- * `@auth/core` is under active development.
+ * `@nextauth.js/core` is under active development.
  * :::
  *
- * This is the main entry point to the Auth.js library.
+ * This is the main entry point to the NextAuth.js library.
  *
  * Based on the {@link https://developer.mozilla.org/en-US/docs/Web/API/Request Request}
  * and {@link https://developer.mozilla.org/en-US/docs/Web/API/Response Response} Web standard APIs.
@@ -14,13 +14,13 @@
  * ## Installation
  *
  * ```bash npm2yarn
- * npm install @auth/core
+ * npm install @nextauth.js/core
  * ```
  *
  * ## Usage
  *
  * ```ts
- * import { Auth } from "@auth/core"
+ * import { Auth } from "@nextauth.js/core"
  *
  * const request = new Request("https://example.com")
  * const response = await Auth(request, {...})
@@ -33,7 +33,7 @@
  * - [Getting started](https://auth.khulnasoft.com/getting-started)
  * - [Guides](https://auth.khulnasoft.com/guides)
  *
- * @module @auth/core
+ * @module @nextauth.js/core
  */
 
 import { assertConfig } from "./lib/utils/assert.js"
@@ -81,13 +81,13 @@ export async function Auth(
 ): Promise<Response>
 
 /**
- * Core functionality provided by Auth.js.
+ * Core functionality provided by NextAuth.js.
  *
  * Receives a standard {@link Request} and returns a {@link Response}.
  *
  * @example
  * ```ts
- * import { Auth } from "@auth/core"
+ * import { Auth } from "@nextauth.js/core"
  *
  * const request = new Request("https://example.com")
  * const response = await Auth(request, {
@@ -203,7 +203,7 @@ export async function Auth(
  *
  * @example
  * ```ts
- * import Auth, { type AuthConfig } from "@auth/core"
+ * import Auth, { type AuthConfig } from "@nextauth.js/core"
  *
  * export const authConfig: AuthConfig = {...}
  *
@@ -225,7 +225,7 @@ export interface AuthConfig {
   /**
    * A random string used to hash tokens, sign cookies and generate cryptographic keys.
    *
-   * To generate a random string, you can use the Auth.js CLI: `npx auth secret`
+   * To generate a random string, you can use the NextAuth.js CLI: `npx auth secret`
    *
    * @note
    * You can also pass an array of secrets, in which case the first secret that successfully
@@ -584,9 +584,9 @@ export interface AuthConfig {
    */
   useSecureCookies?: boolean
   /**
-   * You can override the default cookie names and options for any of the cookies used by Auth.js.
+   * You can override the default cookie names and options for any of the cookies used by NextAuth.js.
    * You can specify one or more cookies with custom properties
-   * and missing options will use the default values defined by Auth.js.
+   * and missing options will use the default values defined by NextAuth.js.
    * If you use this feature, you will likely want to create conditional behavior
    * to support setting different cookies policies in development and production builds,
    * as you will be opting out of the built-in dynamic policy.
@@ -599,12 +599,12 @@ export interface AuthConfig {
    */
   cookies?: Partial<CookiesOptions>
   /**
-   * Auth.js relies on the incoming request's `host` header to function correctly. For this reason this property needs to be set to `true`.
+   * NextAuth.js relies on the incoming request's `host` header to function correctly. For this reason this property needs to be set to `true`.
    *
    * Make sure that your deployment platform sets the `host` header safely.
    *
    * :::note
-   * Official Auth.js-based libraries will attempt to set this value automatically for some deployment platforms (eg.: Vercel) that are known to set the `host` header safely.
+   * Official NextAuth.js-based libraries will attempt to set this value automatically for some deployment platforms (eg.: Vercel) that are known to set the `host` header safely.
    * :::
    */
   trustHost?: boolean
@@ -618,7 +618,7 @@ export interface AuthConfig {
    * This is useful if your OAuth Provider only supports a single `redirect_uri`
    * or you want to use OAuth on preview URLs (like Vercel), where you don't know the final deployment URL beforehand.
    *
-   * The url needs to include the full path up to where Auth.js is initialized.
+   * The url needs to include the full path up to where NextAuth.js is initialized.
    *
    * @note This will auto-enable the `state` {@link OAuth2Config.checks} on the provider.
    *
@@ -658,9 +658,9 @@ export interface AuthConfig {
     enableWebAuthn?: boolean
   }
   /**
-   * The base path of the Auth.js API endpoints.
+   * The base path of the NextAuth.js API endpoints.
    *
-   * @default "/api/auth" in "next-auth"; "/auth" with all other frameworks
+   * @default "/api/auth" in "nextauth.js"; "/auth" with all other frameworks
    */
   basePath?: string
 }
