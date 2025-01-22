@@ -1,0 +1,54 @@
+{
+  "name": "@auth/pg-adapter",
+  "version": "1.7.4",
+  "description": "Postgres adapter for next-auth.",
+  "homepage": "https://auth.khulnasoft.com",
+  "repository": "https://github.com/khulnasoft/nextdev",
+  "bugs": {
+    "url": "https://github.com/khulnasoft/nextdev/issues"
+  },
+  "author": "Jake Coppinger",
+  "contributors": [
+    "Md Sulaiman <dev.sulaiman@icloud.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "next-auth",
+    "@auth",
+    "Auth.js",
+    "next.js",
+    "oauth",
+    "postgres"
+  ],
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
+  "files": [
+    "*.d.ts*",
+    "*.js",
+    "src"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "./test/test.sh",
+    "build": "tsc",
+    "clean": "rm -rf *.js *.d.ts*"
+  },
+  "dependencies": {
+    "@auth/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "pg": "^8"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.6.5",
+    "pg": "^8.7.1"
+  }
+}

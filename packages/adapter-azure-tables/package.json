@@ -1,0 +1,53 @@
+{
+  "name": "@auth/azure-tables-adapter",
+  "version": "1.7.4",
+  "description": "Azure Tables Storage adapter for next-auth.",
+  "homepage": "https://auth.khulnasoft.com",
+  "repository": "https://github.com/khulnasoft/nextdev",
+  "bugs": {
+    "url": "https://github.com/khulnasoft/nextdev/issues"
+  },
+  "author": "Nikita Dmitrijev <nikitadmitry@gmail.com>",
+  "contributors": [
+    "Md Sulaiman <dev.sulaiman@icloud.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "next-auth",
+    "next.js",
+    "oauth",
+    "azure-tables",
+    "adapter"
+  ],
+  "type": "module",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
+  "files": [
+    "*.d.ts*",
+    "*.js",
+    "src"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "./test/test.sh",
+    "build": "tsc",
+    "clean": "rm -rf *.js *.d.ts*"
+  },
+  "dependencies": {
+    "@auth/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "@azure/data-tables": "^13.2.1"
+  },
+  "devDependencies": {
+    "@azure/data-tables": "^13.2.1"
+  }
+}
