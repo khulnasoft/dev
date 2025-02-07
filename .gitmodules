@@ -1,0 +1,6 @@
+[submodule "env/.config/nvim"]
+	path = env/.config/nvim
+	url = https://github.com/khulnasoft/init.lua.git
+[submodule "muxter"]
+	path = muxter
+	url = https://github.com/khulnasoft-lab/muxter
