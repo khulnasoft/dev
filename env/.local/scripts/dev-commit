@@ -1,20 +1,33 @@
 #!/usr/bin/env bash
 
-pushd ~/personal/dev/env/.config/nvim
-git add .
-git commit -m 'automated dev commit'
-git push
-popd
+set -euo pipefail
 
-pushd ~/personal/dev/muxter/
-git add .
-git commit -m 'automated dev commit'
-git push
-popd
+function commit_and_push() {
+    local dir="$1"
+    echo "Processing directory: $dir"
+    pushd "$dir" || exit 1
+    if [[ -d .git ]]; then
+        if git status --porcelain | grep -q '^'; then
+            git add .
+            git commit -m "automated dev commit $(date '+%Y-%m-%d %H:%M:%S')"
+            git push
+        else
+            echo "No changes to commit in $dir"
+        fi
+    else
+        echo "Not a git repository: $dir"
+    fi
+    popd || exit 1
+}
 
-pushd ~/personal/dev
-git add .
-git commit -m 'automated dev commit'
-git push
-popd
+# List of directories to process
+dirs=(
+    "$HOME/personal/dev/env/.config/nvim"
+    "$HOME/personal/dev/muxter"
+    "$HOME/personal/dev"
+)
 
+# Process each directory
+for dir in "${dirs[@]}"; do
+    commit_and_push "$dir"
+done

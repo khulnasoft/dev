@@ -17,11 +17,14 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		_, _ = w.Write(data)
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		if _, err := w.Write(data); err != nil {
+			log.Printf("Error writing response: %v", err)
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			return
+		}
 	})
 
-
-	log.Println("listening on", port)
+	log.Printf("Server starting on port %s", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
-
