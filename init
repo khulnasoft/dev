@@ -1,9 +1,9 @@
-git submodule init
-git submodule update
+git submodule update --init --recursive
 pushd env/.config/nvim
 git checkout master
+git pull origin master
 popd
-cd muxter
+pushd muxter
 git checkout master
-cd ..
-
+git pull origin master
+popd

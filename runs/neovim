@@ -1,39 +1,62 @@
 #!/usr/bin/env bash
 
-version="v0.10.2"
-if [ ! -z $NVIM_VERSION ]; then
-    version="$NVIM_VERSION"
-fi
+set -euo pipefail  # Ensure safe execution
 
-echo "version: \"$version\""
+# Set Neovim version
+VERSION="${NVIM_VERSION:-v0.10.2}"
+echo "Using Neovim version: \"$VERSION\""
 
-# neovim btw
-if [ ! -d $HOME/neovim ]; then
-    git clone https://github.com/neovim/neovim.git $HOME/neovim
-fi
+NEOVIM_DIR="$HOME/neovim"
+NEXT_VIM_DIR="$HOME/personal/next.vim"
 
-sudo apt -y install cmake gettext lua5.1 liblua5.1-0-dev
+# Install dependencies
+install_dependencies() {
+    sudo apt update
+    sudo apt -y install cmake gettext lua5.1 liblua5.1-0-dev
+}
 
-git -C ~/neovim fetch --all
-git -C ~/neovim checkout $version
+# Clone and build Neovim
+install_neovim() {
+    if [ ! -d "$NEOVIM_DIR" ]; then
+        git clone https://github.com/neovim/neovim.git "$NEOVIM_DIR"
+    fi
 
-make -C ~/neovim clean
-make -C ~/neovim CMAKE_BUILD_TYPE=RelWithDebInfo
-sudo make -C ~/neovim install
+    git -C "$NEOVIM_DIR" fetch --all
+    git -C "$NEOVIM_DIR" checkout "$VERSION"
 
-git clone https://github.com/KhulnaSoft/harpoon.git $HOME/personal/harpoon
-cd $HOME/personal/harpoon
-git fetch
-git checkout harpoon2
+    make -C "$NEOVIM_DIR" clean
+    make -C "$NEOVIM_DIR" CMAKE_BUILD_TYPE=RelWithDebInfo
+    sudo make -C "$NEOVIM_DIR" install
+}
 
-git clone https://github.com/KhulnaSoft/vim-apm.git $HOME/personal/vim-apm
-git clone https://github.com/KhulnaSoft/vim-with-me.git $HOME/personal/vim-with-me
-git clone https://github.com/KhulnaSoft/vim-arcade.git $HOME/personal/vim-arcade
-git clone https://github.com/KhulnaSoft/caleb.git $HOME/personal/caleb
-git clone https://github.com/nvim-lua/plenary.nvim.git $HOME/personal/plenary
+# Clone Next.Vim and related repositories
+setup_next_vim() {
+    git clone https://github.com/KhulnaSoft/next.vim.git "$NEXT_VIM_DIR" || true
+    cd "$NEXT_VIM_DIR"
+    git fetch
+    git checkout develop
 
-wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz
-tar zxpf luarocks-3.11.1.tar.gz
-cd luarocks-3.11.1
-./configure && make && sudo make install
-sudo luarocks install luacheck
+    for repo in vim-insight arcadevim titan; do
+        cp -r "$repo" "$HOME/personal/$repo/"
+    done
+
+    git clone https://github.com/nvim-lua/plenary.nvim.git "$HOME/personal/plenary" || true
+}
+
+# Install Luarocks and Luacheck
+install_luarocks() {
+    LUAROCKS_VERSION="3.11.1"
+    wget -q "https://luarocks.org/releases/luarocks-${LUAROCKS_VERSION}.tar.gz"
+    tar -xzf "luarocks-${LUAROCKS_VERSION}.tar.gz"
+    cd "luarocks-${LUAROCKS_VERSION}"
+    ./configure && make && sudo make install
+    sudo luarocks install luacheck
+}
+
+# Execute functions
+install_dependencies
+install_neovim
+setup_next_vim
+install_luarocks
+
+echo "Setup completed successfully!"

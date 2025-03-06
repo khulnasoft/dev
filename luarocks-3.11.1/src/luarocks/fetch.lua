@@ -27,7 +27,6 @@ local cfg = require("luarocks.core.cfg")
 -- in case of failure:
 -- * nil
 -- * an error message
--- * an optional error code.
 function fetch.fetch_caching(url, mirroring)
    local repo_url, filename = url:match("^(.*)/([^/]+)$")
    local name = repo_url:gsub("[/:]","_")
@@ -36,49 +35,55 @@ function fetch.fetch_caching(url, mirroring)
 
    local cachefile = dir.path(cache_dir, filename)
    local checkfile = cachefile .. ".check"
+   local lockfile = cachefile .. ".lock"
 
-   if (fs.file_age(checkfile) < 10 or
-      cfg.aggressive_cache and (not name:match("^manifest"))) and fs.exists(cachefile)
+   -- Implement aggressive caching with file age checks
+   local max_age = cfg.aggressive_cache and 86400 or 3600 -- 24 hours or 1 hour
+   if fs.exists(cachefile) and fs.exists(checkfile) and
+      (os.time() - fs.last_modified(checkfile)) < max_age
    then
       return cachefile, nil, nil, true
    end
 
-   local lock, errlock
-   if ok then
-      lock, errlock = fs.lock_access(cache_dir)
+   -- Use file-based locking for concurrent access control
+   local lock = fs.lock_file(lockfile)
+   if not lock then
+      return nil, "Failed to acquire lock for " .. cachefile
    end
 
-   if not (ok and lock) then
-      cfg.local_cache = fs.make_temp_dir("local_cache")
-      if not cfg.local_cache then
-         return nil, "Failed creating temporary local_cache directory"
+   local file, err, errcode, from_cache
+
+   -- Improved mirror failover and retry logic for downloads
+   local max_retries = 3
+   local retry_delay = 1 -- seconds
+
+   for retry = 1, max_retries do
+      file, err, errcode, from_cache = fetch.fetch_url(url, cachefile, true, mirroring)
+      if file then
+         break
+      elseif retry < max_retries then
+         util.warning("Download failed. Retrying in " .. retry_delay .. " seconds...")
+         util.sleep(retry_delay)
+         retry_delay = retry_delay * 2 -- Exponential backoff
       end
-      cache_dir = dir.path(cfg.local_cache, name)
-      ok = fs.make_dir(cache_dir)
-      if not ok then
-         return nil, "Failed creating temporary cache directory "..cache_dir
-      end
-      lock = fs.lock_access(cache_dir)
    end
 
-   local file, err, errcode, from_cache = fetch.fetch_url(url, cachefile, true, mirroring)
    if not file then
-      fs.unlock_access(lock)
-      return nil, err or "Failed downloading "..url, errcode
+      fs.unlock_file(lock)
+      return nil, err or "Failed downloading " .. url, errcode
    end
 
    local fd, err = io.open(checkfile, "wb")
    if err then
-      fs.unlock_access(lock)
+      fs.unlock_file(lock)
       return nil, err
    end
-   fd:write("!")
+   fd:write(tostring(os.time()))
    fd:close()
 
-   fs.unlock_access(lock)
+   fs.unlock_file(lock)
    return file, nil, nil, from_cache
 end
-
 local function ensure_trailing_slash(url)
    return (url:gsub("/*$", "/"))
 end

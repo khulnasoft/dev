@@ -1,45 +1,53 @@
 #!/usr/bin/env bash
 
-if [ ! -f /usr/share/X11/xkb/symbols/real-prog-dvorak ]; then
-	echo "real-prog-dvorak doesn't exist, copying over"
-	cp ./resources/real-prog-dvorak /usr/share/X11/xkb/symbols
+# Check if script is run with sudo/root permissions
+if [ "$EUID" -ne 0 ]; then
+	echo "Please run as root (sudo)"
+	exit 1
 fi
 
+XKB_DIR="/usr/share/X11/xkb"
+EVDEV_XML="$XKB_DIR/rules/evdev.xml"
+LAYOUT_FILE="$XKB_DIR/symbols/real-prog-dvorak"
 
-if grep -q "real-prog-dvorak" /usr/share/X11/xkb/rules/evdev.xml; then
+# Install layout file if it doesn't exist
+if [ ! -f "$LAYOUT_FILE" ]; then
+	echo "real-prog-dvorak doesn't exist, copying over"
+	cp ./resources/real-prog-dvorak "$LAYOUT_FILE"
+fi
+
+# Check if layout is already defined
+if grep -q "real-prog-dvorak" "$EVDEV_XML"; then
 	echo "evdev.xml already has real-prog-dvorak layout definition"
 	exit 0
 fi
 
-dvorak_env="
+# Define the new layout configuration
+dvorak_config="
 <layout>
-      <configItem>
-        <name>real-prog-layout</name>
-        <shortDescription>epd</shortDescription>
-        <description>Prime English (US)</description>
-      </configItem>
-      <variantList>
-	<variant>
-	    <configItem>
-		<name>real-prog-dvorak</name>
-		<description>English (Real Programmers Dvorak)</description>
-		<vendor>MichaelPaulson</vendor>
-	    </configItem>
-	</variant>
-      </variantList>
-</layout>
-"
+	  <configItem>
+		<name>real-prog-layout</name>
+		<shortDescription>epd</shortDescription>
+		<description>Prime English (US)</description>
+	  </configItem>
+	  <variantList>
+		<variant>
+			<configItem>
+				<name>real-prog-dvorak</name>
+				<description>English (Real Programmers Dvorak)</description>
+				<vendor>MichaelPaulson</vendor>
+			</configItem>
+		</variant>
+	  </variantList>
+</layout>"
 
-layout_list=$(cat /usr/share/X11/xkb/rules/evdev.xml | grep "<layoutList>" -n  | cut -f1 -d:)
-total_lines=$(cat /usr/share/X11/xkb/rules/evdev.xml | wc -l)
-tail_lines=$(($total_lines - $layout_list))
+# Create backup of original file
+cp "$EVDEV_XML" "$EVDEV_XML.backup"
 
-up_to=$(cat /usr/share/X11/xkb/rules/evdev.xml | head -$layout_list)
-remaining=$(cat /usr/share/X11/xkb/rules/evdev.xml | tail -$tail_lines)
+# Insert new layout definition
+layout_line=$(grep -n "<layoutList>" "$EVDEV_XML" | cut -d: -f1)
+sed -i "${layout_line}a\\${dvorak_config}" "$EVDEV_XML"
 
-echo "$up_to
-$dvorak_env
-$remaining
-" > /usr/share/X11/xkb/rules/evdev.xml
-
-echo "don't forget to log out to let these changes take effect"
+echo "Layout installed successfully"
+echo "Backup created at $EVDEV_XML.backup"
+echo "Please log out and log back in for changes to take effect"
