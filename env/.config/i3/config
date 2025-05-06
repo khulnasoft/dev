@@ -19,7 +19,7 @@ font pango:monospace 15px
 #
 # Thanks Childz
 for_window [class="^.*"] border pixel 2
-for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+for_window [class="^.*"] client.focused #77dd77 #285577 #ffffff #2e9ef4   #285577
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -40,7 +40,7 @@ floating_modifier $mod
 bindsym $mod+Return exec "$HOME/.local/bin/ghostty"
 
 # kill focused window
-# bindsym $mod+space exec "/home/khulnasoft/dotfiles/awesome-streamerrc/KhulnaSoft/tmux2"
+# bindsym $mod+space exec "/home/khulnasoft/dotfiles/awesome-streamerrc/khulnasoft/tmux2"
 
 bindsym $mod+Shift+q kill
 
@@ -173,6 +173,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui -c
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -227,12 +228,5 @@ bindsym $mod+Shift+comma exec ~/.config/i3/scripts/alsa restore
 bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
 bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
 bindsym $mod+m move workspace to output left
-
-# Suspend
-bindsym $mod+Shift+period exec systemctl suspend
-
-
-# Stream Management
-bindsym $mod+Shift+period exec systemctl suspend
 
 bindsym $mod+Shift+p exec --no-startup-id ~/.local/apps/play_next_bits

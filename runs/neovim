@@ -1,62 +1,24 @@
 #!/usr/bin/env bash
 
-set -euo pipefail  # Ensure safe execution
+sudo pacman -S --noconfirm neovim lua51 luarocks
 
-# Set Neovim version
-VERSION="${NVIM_VERSION:-v0.10.2}"
-echo "Using Neovim version: \"$VERSION\""
+rm -rf $HOME/personal/harpoon
+rm -rf $HOME/personal/vim-apm
+rm -rf $HOME/personal/vim-with-me
+rm -rf $HOME/personal/vim-arcade
+rm -rf $HOME/personal/unnamed_game_1
+rm -rf $HOME/personal/plenary
 
-NEOVIM_DIR="$HOME/neovim"
-NEXT_VIM_DIR="$HOME/personal/next.vim"
+git clone https://github.com/ThePrimeagen/harpoon.git $HOME/personal/harpoon
+cd $HOME/personal/harpoon
+git fetch
+git checkout harpoon2
 
-# Install dependencies
-install_dependencies() {
-    sudo apt update
-    sudo apt -y install cmake gettext lua5.1 liblua5.1-0-dev
-}
+git clone https://github.com/ThePrimeagen/vim-apm.git $HOME/personal/vim-apm
+git clone https://github.com/ThePrimeagen/vim-with-me.git $HOME/personal/vim-with-me
+git clone https://github.com/ThePrimeagen/vim-arcade.git $HOME/personal/vim-arcade
+git clone https://github.com/ThePrimeagen/caleb.git $HOME/personal/caleb
+git clone git@github.com:khulnasoft/unnamed_game_1.git $HOME/personal/unnamed_game_1
+git clone https://github.com/nvim-lua/plenary.nvim.git $HOME/personal/plenary
 
-# Clone and build Neovim
-install_neovim() {
-    if [ ! -d "$NEOVIM_DIR" ]; then
-        git clone https://github.com/neovim/neovim.git "$NEOVIM_DIR"
-    fi
-
-    git -C "$NEOVIM_DIR" fetch --all
-    git -C "$NEOVIM_DIR" checkout "$VERSION"
-
-    make -C "$NEOVIM_DIR" clean
-    make -C "$NEOVIM_DIR" CMAKE_BUILD_TYPE=RelWithDebInfo
-    sudo make -C "$NEOVIM_DIR" install
-}
-
-# Clone Next.Vim and related repositories
-setup_next_vim() {
-    git clone https://github.com/KhulnaSoft/next.vim.git "$NEXT_VIM_DIR" || true
-    cd "$NEXT_VIM_DIR"
-    git fetch
-    git checkout develop
-
-    for repo in vim-insight arcadevim titan; do
-        cp -r "$repo" "$HOME/personal/$repo/"
-    done
-
-    git clone https://github.com/nvim-lua/plenary.nvim.git "$HOME/personal/plenary" || true
-}
-
-# Install Luarocks and Luacheck
-install_luarocks() {
-    LUAROCKS_VERSION="3.11.1"
-    wget -q "https://luarocks.org/releases/luarocks-${LUAROCKS_VERSION}.tar.gz"
-    tar -xzf "luarocks-${LUAROCKS_VERSION}.tar.gz"
-    cd "luarocks-${LUAROCKS_VERSION}"
-    ./configure && make && sudo make install
-    sudo luarocks install luacheck
-}
-
-# Execute functions
-install_dependencies
-install_neovim
-setup_next_vim
-install_luarocks
-
-echo "Setup completed successfully!"
+sudo luarocks install luacheck

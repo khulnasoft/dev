@@ -1,17 +1,14 @@
 ARG GO_VERSION=1
-FROM golang:${GO_VERSION}-bookworm AS builder
+FROM golang:${GO_VERSION}-bookworm as builder
 
 WORKDIR /usr/src/app
-COPY go.mod go.sum ./
+COPY go.mod ./
 RUN go mod download && go mod verify
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -v -o /run-app ./main.go
+COPY resources resources
+COPY main.go main.go
+RUN go build -v -o /run-app ./main.go
 
-FROM debian:bookworm-slim
+FROM debian:bookworm
 
-RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /run-app /usr/local/bin/
-
-USER nobody
-EXPOSE 8080
-ENTRYPOINT ["/usr/local/bin/run-app"]
+CMD ["run-app"]

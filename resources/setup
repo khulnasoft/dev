@@ -9,7 +9,7 @@ if [ ! -d $HOME/personal ]; then
     mkdir $HOME/personal
 fi
 
-git clone https://github.com/KhulnaSoft/dev $HOME/personal/dev
+git clone https://github.com/khulnasoft/dev $HOME/personal/dev
 
 pushd $HOME/personal/dev
 ./run

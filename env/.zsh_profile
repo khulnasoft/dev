@@ -23,7 +23,7 @@ dev_env() {
 }
 
 # Where should I put you?
-bindkey -s ^f "muxter\n"
+bindkey -s ^f "tmux-sessionizer\n"
 
 catr() {
     tail -n "+$1" $3 | head -n "$(($2 - $1 + 1))"
@@ -55,7 +55,6 @@ addToPathFront $HOME/.local/bin
 addToPathFront $HOME/.local/npm/bin
 addToPathFront $HOME/.local/n/bin/
 addToPathFront $HOME/.local/apps/
-addToPathFront $HOME/.local/zig-linux-x86_64-0.13.0
 
 # do i need this one?
 addToPathFront $HOME/.local/go/bin
@@ -72,3 +71,5 @@ addToPathFront $HOME/.local/zig true # some how zig-0.13 just keeps getting adde
 alias gt='NODE_OPTIONS="--no-deprecation" gt'
 
 source ~/.php_profile
+source ~/.config/envman/PATH.env
+source ~/.config/envman/load.sh
