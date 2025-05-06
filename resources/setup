@@ -1,16 +1,30 @@
 #!/usr/bin/env bash
-sudo apt -y update
 
-if ! command -v git &> /dev/null; then
-    sudo apt -y install git
+# Detect the operating system
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS detected, run the macOS setup script
+    DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    if [ -f "$DIR/setup_macos" ]; then
+        exec "$DIR/setup_macos"
+    else
+        echo "Error: macOS setup script not found"
+        exit 1
+    fi
+else
+    # Linux or other OS, continue with the default setup
+    sudo apt -y update
+
+    if ! command -v git &> /dev/null; then
+        sudo apt -y install git
+    fi
+
+    if [ ! -d "$HOME/personal" ]; then
+        mkdir "$HOME/personal"
+    fi
+
+    git clone https://github.com/khulnasoft/dev "$HOME/personal/dev"
+
+    pushd "$HOME/personal/dev"
+    ./run
+    popd
 fi
-
-if [ ! -d $HOME/personal ]; then
-    mkdir $HOME/personal
-fi
-
-git clone https://github.com/khulnasoft/dev $HOME/personal/dev
-
-pushd $HOME/personal/dev
-./run
-popd
